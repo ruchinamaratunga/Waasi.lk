@@ -8,11 +8,11 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-header">
-          <a href="#home" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+          <a href="home" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
         </div>
         <div class="search-and-language-bar pull-right">
           <ul>
-            <li><a href="login.php"><i class="fa fa-user"></i></a></li>                        
+            <!-- <li><a href="login.php"><i class="fa fa-user"></i></a></li>                         -->
             <li class="search-box"><i class="fa fa-search"></i></li></li>
           </ul>
           <form action="#" class="search-form">
@@ -20,7 +20,13 @@
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
+          
         <div id="main-nav" class="stellarnav">
+              <ul id ="nav" class="nav navbar-nav pull-right">
+                <?php if(currentUser()): ?>
+                  <li><a href="#">Hello <?=currentUser()->fname?></a></li>
+                <?php endif;?>
+              </ul>
               <ul id="nav" class="nav navbar-nav">
                 <?php foreach($menu as $key => $val): 
                   $active = '';?>

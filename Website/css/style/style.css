@@ -842,7 +842,8 @@ ul#nav li ul a,
 .form input{
 	width: 80%;
 	background: transparent;
-	margin-bottom: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 	border: none;
 	font-size: 20px;
 	margin-left: 10%;

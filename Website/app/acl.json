@@ -15,7 +15,9 @@
     "Admin" : {
         "denied" : {
 
-        }
+        },
+        "Home" :["*"],
+        "Register" : ["login"]
     },
     "Promoter" : {
         "denied" : {
