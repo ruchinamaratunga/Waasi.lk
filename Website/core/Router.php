@@ -17,8 +17,8 @@ class Router {
     public static function route($url) {
 
         //controller
-        $controller = (isset($url[0]) && $url[0] != '') ? ucwords($url[0]) : DEFAULT_CONTROLLER;
-        $controller_name = $controller;
+        $controller = (isset($url[0]) && $url[0] != '') ? ucwords($url[0]) . 'Controller' : DEFAULT_CONTROLLER . 'Controller';
+        $controller_name = (isset($url[0]) && $url[0] != '') ? ucwords($url[0]) : DEFAULT_CONTROLLER;
         array_shift($url);           // remove the first element
 
         //action
@@ -30,11 +30,12 @@ class Router {
         $grantAccess = self::hasAccess($controller_name,$action_name);
 
         if(!$grantAccess) {
-            $controller_name = $controller = ACCESS_RESTRICTED;
+            $controller = ACCESS_RESTRICTED . 'Controller';
+            $controller_name = ACCESS_RESTRICTED;
             $action = 'indexAction';
         }
 
-        //params
+        //params 
         $queryParams = $url;      
 
         $dispatch = new $controller($controller_name, $action);      // relavant controller class will be created

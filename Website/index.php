@@ -19,7 +19,15 @@
 
     spl_autoload_register('autoload');
     session_start();
+    // dnd(DB::getInstance()->query("SELECT * FROM users"));
+    // $db = DB::getInstance();
+    // $db->query("SELECT * FROM users");
+    // dnd($db->results());
+    // $temp = $db->results()[0]->lname;
+    // dnd($temp);
+
     
+
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : [];
 
     if(!Session::exists(CURRENT_USER_SESSION_NAME) && COOKIE::exists(REMEMBER_ME_COOKIE_NAME)) {

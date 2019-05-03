@@ -3,7 +3,8 @@
         "denied" : {},
         "Home" : ["*"],
         "Register" : ["login","register"],
-        "Restricted" : ["*"]
+        "Restricted" : ["*"],
+        "Promotion" : ["index"]
     },
     "loggedIn" : {
         "denied" : {
@@ -17,11 +18,15 @@
 
         },
         "Home" :["*"],
-        "Register" : ["login"]
+        "Register" : ["logout"],
+        "Promoters" : ["*"]
     },
     "Promoter" : {
         "denied" : {
             
-        }
+        },
+        "Home" : ["*"],
+        "Register" : ["logout"],
+        "Promotion" : ["addpromo","removepromo"]
     }
 }
