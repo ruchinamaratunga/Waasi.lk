@@ -36,3 +36,11 @@ function currentPage() {
     }
     return $currentPage;
 }
+
+function currentDate() {
+    return date('Y-m-d');
+}
+
+function mergeArray($ary1=[],$ary2=[]) {
+    return array_merge($ary1,$ary2);
+}

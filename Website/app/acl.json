@@ -2,16 +2,20 @@
     "Guest" : {
         "denied" : {},
         "Home" : ["*"],
+        "Promotion" : ["index"],
         "Register" : ["login","register"],
-        "Restricted" : ["*"],
-        "Promotion" : ["index"]
+        "Restricted" : ["*"]
+        
     },
     "loggedIn" : {
         "denied" : {
             "Register" : ["login","register"]
         },
+        "Home" : ["*"],
         "Register" : ["logout"],
-        "Tools" : ["*"]
+        "Tools" : ["*"],
+        "Promotion" : ["*"]
+        
     },
     "Admin" : {
         "denied" : {
@@ -19,7 +23,8 @@
         },
         "Home" :["*"],
         "Register" : ["logout"],
-        "Promoters" : ["*"]
+        "Promoters" : ["*"],
+        "Promotion" : ["*"]
     },
     "Promoter" : {
         "denied" : {
@@ -27,6 +32,7 @@
         },
         "Home" : ["*"],
         "Register" : ["logout"],
-        "Promotion" : ["addpromo","removepromo"]
+        "Promotion" : ["mypromo","addpromo","removepromo"]
     }
 }
+

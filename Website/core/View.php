@@ -18,7 +18,10 @@ class View {
               $_siteTitle  = SITE_TITLE,
               $_outputBuffer,
               $_layout = DEFAULT_LAYOUT;
-    public $diplayErrors;
+    public $diplayErrors,
+           $searchResults,
+           $allResults;
+    
 
     public function __construct() {
         // $this->_layout = DEFAULT_LAYOUT;

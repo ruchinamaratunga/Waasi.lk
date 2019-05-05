@@ -19,5 +19,9 @@ class HomeController extends Controller{
         $this->view->render('home/index');
     }
 
+    public function adminAction() {
+        $this->view->render('home/admin');
+    }
+
 
 }

@@ -134,6 +134,7 @@ class DB {
         $bind = []; 
         $order = '';  
         $limit = '';
+
         //conditions
         if(isset($params['conditions'])) {
             if(is_array($params['conditions'])) {
@@ -149,6 +150,7 @@ class DB {
                 $conditionString = ' WHERE ' . $conditionString;
             }
         }
+        
         //bind
         if(array_key_exists('bind', $params)) {
             $bind = $params['bind'];
@@ -162,8 +164,7 @@ class DB {
             $limit = ' LIMIT ' . $params['limit'];
         }
         $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
-        // dnd($bind);
-        // dnd($sql);
+
         if($this->query($sql,$bind)) {
             if(!$this->count()) return false;
             return true;
@@ -236,7 +237,6 @@ class DB {
         return $this->query("SHOW COLUMNS FROM {$table}")->results();
     
     }
-
 
 }
 

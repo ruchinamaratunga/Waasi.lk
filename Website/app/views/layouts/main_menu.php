@@ -10,16 +10,6 @@
         <div class="navbar-header">
           <a href="home" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
         </div>
-        <div class="search-and-language-bar pull-right">
-          <ul>
-            <!-- <li><a href="login.php"><i class="fa fa-user"></i></a></li>                         -->
-            <li class="search-box"><i class="fa fa-search"></i></li></li>
-          </ul>
-          <form action="#" class="search-form">
-            <input type="search" name="search" id="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
           
         <div id="main-nav" class="stellarnav">
               <ul id ="nav" class="nav navbar-nav pull-right">

@@ -7,8 +7,7 @@
         "separator" : "",
         "Tool 3" : "tools/third"        
     },
-    "Google" : "https://www.google.com",
-    "PHP Docs" : "http://php.net/manual/en",
+    "Promotion" : "promotion/index",
     "Login" : "register/login",
     "Logout" : "register/logout"
 }
