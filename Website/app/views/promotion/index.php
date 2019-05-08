@@ -16,13 +16,14 @@
             margin-bottom : 30px;
         }
 
-        .input-group {
+        /* .input-group {
             width : 22rem;
-        }
+        } */
 
         .search {
             margin-bottom : 3rem;
             margin-right : 12%;
+            width: 35rem;
         }
 
         .section-padding{
@@ -59,32 +60,41 @@
 
     <section class="about-area gray-bg section-padding">
         <div class="container search">
-            <form method= "post">
-                <div class="dropdown pull-right">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
-                        <div class="input-group">
-                            <input name = "promoter" id="promoter" type="checkbox" aria-label="...">
-                            <label for="promoter">Promoter</label>
-                        </div>
-                        <li role="separator" class="divider"></li>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <input name = "catagory" id="catagory" type="checkbox" aria-label="...">
-                            </span><label for="catagory">Catagory</label>
-                        </div>
-                    </ul>
-                </div>
+            <!-- <div class="single-sidebar-widget widget_search">
+                <form action="#">
+                    <input type="text" name="search" id="search" placeholder="Search Here...">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div> -->
+            <div class="single-sidebar-widget widget_search">
+                <form method= "post" style="border : none;">
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
+                            <div class="input-group">
+                                <input name = "promoter" id="promoter" type="checkbox" aria-label="...">
+                                <label for="promoter">Promoter</label>
+                            </div>
+                            <li role="separator" class="divider"></li>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input name = "catagory" id="catagory" type="checkbox" aria-label="...">
+                                </span><label for="catagory">Catagory</label>
+                            </div>
+                        </ul>
+                    </div>
+                
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control" id="search" name="search"  placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+            </div> 
             
-                <div class="input-group pull-right">
-                    <input type="text" class="form-control" id="search" name="search"  placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                </div>
-            </form>
         </div>
 
         <div class="panel-body">

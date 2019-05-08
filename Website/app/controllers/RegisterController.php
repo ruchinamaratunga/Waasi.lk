@@ -33,14 +33,32 @@ class RegisterController extends Controller {
             ]);
             
             if($validation->passed()) {
-                $user = $this->UsersModel->findByUsername($_POST['username']);
-                if($user && password_verify(Input::get('password'), $user->password)) {
-                    $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
-                    $user->login($remember);
-                    Router::redirect('');
+                $user = new Users($_POST['username']);
+                $usertype = $user->user_type;
+                if($usertype == 'Customer') {
+                    if($user && password_verify(Input::get('password'), $user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
+                        $this->view->currentUser = $user;
+                        $user->login($remember);
+                        Router::redirect('');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
+                } elseif($usertype == 'Promoter') {
+                    if($user && password_verify(Input::get('password'), $user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
+                        $promoter = new Promoter($user->username);
+                        $this->view->currentUser = $promoter;
+                        $promoter->login($remember);
+                        // $user->login($remember);
+                        Router::redirect('promoter/index');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
                 } else {
-                    $validation->addError("There is an error with your uesrname or password");
+                    Router::redirect('home/admin');
                 }
+
             } 
         }
         $this->view->displayErrors = $validation->displayErrors();

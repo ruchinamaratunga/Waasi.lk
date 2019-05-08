@@ -8,6 +8,11 @@
         "Tool 3" : "tools/third"        
     },
     "Promotion" : "promotion/index",
+    "MyPromo" : {
+        "MyPromo" : "promoter/mypromo",
+        "AddPromo" : "promoter/addpromo",
+        "EditPromo" : "promoter/editpromo"
+    },
     "Login" : "register/login",
     "Logout" : "register/logout"
 }

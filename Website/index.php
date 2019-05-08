@@ -19,6 +19,12 @@
 
     spl_autoload_register('autoload');
     session_start();
+    
+    // $u = currentUser()->acls();
+    // dnd($u);
+    // $user = new Users('ruchin1');
+    // $ruchin = $user->findByUsername('pizzahut');
+    // dnd($user);
     // dnd(currentDate());
     // dnd('2018-05-24'>'2019-04-25');
     // $db = DB::getInstance();

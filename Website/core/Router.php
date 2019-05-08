@@ -77,7 +77,7 @@ class Router {
                 $current_user_acls[] = $a;
             }
         }
-        
+
         foreach($current_user_acls as $level) {
             if(array_key_exists($level,$acl) && array_key_exists($controller_name,$acl[$level])) {
                 if(in_array($action_name, $acl[$level][$controller_name]) || in_array("*", $acl[$level][$controller_name])) {
@@ -95,6 +95,7 @@ class Router {
                 break;
             }
         }
+        
         return $grantAccess;
     }
 
@@ -102,7 +103,6 @@ class Router {
         $menuAry = [];
         $menuFile = file_get_contents(ROOT . DS . 'app' . DS . $menu . '.json');
         $acl = json_decode($menuFile, true);
-        
         foreach($acl as $key=> $val) {
             if(is_array($val)) {  
                 $sub =[];

@@ -20,7 +20,7 @@ class View {
               $_layout = DEFAULT_LAYOUT;
     public $diplayErrors,
            $searchResults,
-           $allResults;
+           $currentUser;
     
 
     public function __construct() {

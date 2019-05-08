@@ -209,9 +209,6 @@
 	
 	
 	?>
-
-    <!--END MAIN CATEGORIES AREA-->
-
     
 <?php $this->end(); ?>
 

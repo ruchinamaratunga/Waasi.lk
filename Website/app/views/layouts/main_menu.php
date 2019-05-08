@@ -1,4 +1,12 @@
 <?php
+  // $user =currentUser()->username;
+  // if($user == 'Customer') {
+
+  // } elseif($user == 'Promoter') {
+
+  // } else {
+    
+  // }
   $menu = Router::getMenu('menu_acl');
   $currentPage = currentPage();
 ?>
