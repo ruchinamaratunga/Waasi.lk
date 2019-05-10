@@ -31,9 +31,7 @@ class Promotion extends Model {
 
     public function getPromoByCatagory($catagory) {
         $today = currentDate();
-
         $results = $this->find(['conditions' => ['catagory = ?' ,'end_date > ?','state = ?'],'bind' => [$catagory,$today,'Approved'],'order' => "start_date DESC"]);
-
         return $results;
     }
 

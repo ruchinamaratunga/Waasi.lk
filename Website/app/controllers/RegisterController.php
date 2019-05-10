@@ -123,4 +123,54 @@ class RegisterController extends Controller {
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('register/register');
     }
+
+    public function promoterRegistrationAction() {
+        $validation = new Validate();
+        $posted_values = ['username'=>'','promoter_name'=>'','email'=>'','password'=>'','confirm'=>'','phone_number'=>'', 'website'=>'','fb_link'=>''];
+        if($_POST) {
+
+            $posted_values = posted_values($_POST);
+            $validation->check($_POST, [
+                'username' => [
+                    'display'=> 'Username',
+                    'required'=> true,
+                    'unique' => 'users',
+                    'min' => 6,
+                    'max' => 150
+                ],
+                'email' => [
+                    'display'=> 'Email',
+                    'required'=> true,
+                    'unique' => 'users',
+                    'max' => 150
+                ],
+                'password' => [
+                    'display' => 'Password',
+                    'required' => true,
+                    'min' => 6
+                ],
+                'confirm' => [
+                    'display' => 'Confirm Password',
+                    'required' =>true,
+                    'matches' => 'password'
+                ],
+                'phone_number' => [
+                    'display' => 'Contact Number',
+                    'required' => true
+                ]
+
+            ]);
+            
+            dnd($validation->passed());
+            if($validation->passed()) {
+                $newuser = new Users();
+                $newuser->registerNewUser($_POST);
+                $newpromoter = new Promoter();
+                $newpromoter->registerNewPromoter($_POST);
+                Router::redirect('register/login');
+            }
+        }
+        $this->view->post = $posted_values;
+        $this->view->render('register/promoterRegistration');
+    }
 }
