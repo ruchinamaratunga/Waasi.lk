@@ -78,7 +78,7 @@ class Promoter extends Model {
         return true;
     }
 
-    public function registerNewUser($params) {
+    public function registerNewPromoter($params) {
         $this->assign($params);
         $this->deleted = 0;
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -90,3 +90,5 @@ class Promoter extends Model {
         return json_decode($this->acl,true);
     }
 }
+
+

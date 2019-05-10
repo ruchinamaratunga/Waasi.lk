@@ -114,8 +114,7 @@ class RegisterController extends Controller {
 
             if($validation->passed()) {
                 $newUser = new Users();
-                $newUser->registerNewUser($_POST);
-                // $newUser->login();
+                $newUser->registerNewUser(array_merge($_POST,['user_type'=>'Customer']));
                 Router::redirect('register/login');
             }
         }
@@ -161,10 +160,11 @@ class RegisterController extends Controller {
 
             ]);
             
-            dnd($validation->passed());
+            // dnd($validation->passed());
             if($validation->passed()) {
                 $newuser = new Users();
-                $newuser->registerNewUser($_POST);
+                $userary = ['fname' => '','lname'=>'','username'=>$_POST['username'],'email'=>$_POST['email'],'acl'=>['Promoter'],'user_type'=>'Promoter'];
+                $newuser->registerNewUser($userary);
                 $newpromoter = new Promoter();
                 $newpromoter->registerNewPromoter($_POST);
                 Router::redirect('register/login');
