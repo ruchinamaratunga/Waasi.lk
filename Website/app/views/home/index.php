@@ -68,86 +68,88 @@
         </div>
         <div class="container">
             <div class="row">
+
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
-						<a href="food.php">
-						<div class ="blog-image">
-							<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats.jpg" alt="example-image">
-							<figcaption>
-								<h3 align="center">FOOD</h3>
-								<p align="center">“If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.” 
-								― J.R.R. Tolkien</p>
-								<p align="center">Check out food promotions here!</p>
-							</figcaption>
-							</figure>
-						</div>
+						<a href="catagory/food">
+							<div class ="blog-image">
+								<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats.jpg" alt="example-image">
+								<figcaption>
+									<h3 align="center">FOOD</h3>
+									<p align="center">“If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.” 
+									― J.R.R. Tolkien</p>
+									<p align="center">Check out food promotions here!</p>
+								</figcaption>
+								</figure>
+							</div>
 						</a>
                     </div>
                 </div>
+
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.3s">
-						<a href="cloths.php">
-						<div class ="blog-image">
-							<figure class="imghvr-hinge-up"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats (1).jpg" alt="example-image">
-							<figcaption>
-								<h3 align="center">CLOTHS &amp; ACCESSORIES</h3>
-								<p align="center">"You can have anything you want in life if you dress for it." — Edith Head.</p>
-								<p align="center">Check out cloths &amp; accessories promotions here!</p>
-							</figcaption>
-							</figure>
-						</div>
+						<a href="catagory/cloths">
+							<div class ="blog-image">
+								<figure class="imghvr-hinge-up"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats (1).jpg" alt="example-image">
+								<figcaption>
+									<h3 align="center">CLOTHS &amp; ACCESSORIES</h3>
+									<p align="center">"You can have anything you want in life if you dress for it." — Edith Head.</p>
+									<p align="center">Check out cloths &amp; accessories promotions here!</p>
+								</figcaption>
+								</figure>
+							</div>
 						</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href= "movies.php">
-						<div class ="blog-image">
-							<figure class="imghvr-hinge-right"><img src="<?=PROOT?>img/blog/movies.jpg" alt="example-image">
-							<figcaption>
-								<h3 align="center">MOVIES</h3>
-								<p align="center">“It's funny how the colors of the real world only seem really real when you watch them on a screen.” 
-								― anthony burgess, A Clockwork Orange.</p>
-								<p align="center">Check out movies promotions here!</p>
-							</figcaption>
-							</figure>
-						</div>
+						<a href= "catagory/movies">
+							<div class ="blog-image">
+								<figure class="imghvr-hinge-right"><img src="<?=PROOT?>img/blog/movies.jpg" alt="example-image">
+								<figcaption>
+									<h3 align="center">MOVIES</h3>
+									<p align="center">“It's funny how the colors of the real world only seem really real when you watch them on a screen.” 
+									― anthony burgess, A Clockwork Orange.</p>
+									<p align="center">Check out movies promotions here!</p>
+								</figcaption>
+								</figure>
+							</div>
 						</a>
                     </div>
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href="electronic.php">
-						<div class ="blog-image">
-							<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/perfect-selfie.jpg" alt="example-image">
-							<figcaption>
-								<h3 align="center">ELECTRONIC DEVICES</h3>
-								<p align="center">"The new electronic independence re-creates the world in the image of a global village"- Marshall McLuhan.</p>
-								<p align="center">Check out electronic devices promotions here!</p>
-							</figcaption>
-							</figure>
-						</div>
+						<a href="catagory/electronics">
+							<div class ="blog-image">
+								<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/perfect-selfie.jpg" alt="example-image">
+								<figcaption>
+									<h3 align="center">ELECTRONIC DEVICES</h3>
+									<p align="center">"The new electronic independence re-creates the world in the image of a global village"- Marshall McLuhan.</p>
+									<p align="center">Check out electronic devices promotions here!</p>
+								</figcaption>
+								</figure>
+							</div>
 						</a>
                     </div>
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href="sports.php">
-                        <div class ="blog-image">
-							<figure class="imghvr-hinge-down"><img src="<?=PROOT?>img/blog/Girl_Soccer_Goalie.jpg" alt="example-image">
-							<figcaption>
-								<h3 align="center">SPORTS EQUIPMENTS</h3>
-								<p align="center">"Champions keep playing until they get it right" - Billie Jean King</p>
-								<p align="center">Check out sports equipments promotions here!</p>
-							</figcaption>
-							
-							</figure>
-						</div>
+						<a href="catagory/sports">
+							<div class ="blog-image">
+								<figure class="imghvr-hinge-down"><img src="<?=PROOT?>img/blog/Girl_Soccer_Goalie.jpg" alt="example-image">
+								<figcaption>
+									<h3 align="center">SPORTS EQUIPMENTS</h3>
+									<p align="center">"Champions keep playing until they get it right" - Billie Jean King</p>
+									<p align="center">Check out sports equipments promotions here!</p>
+								</figcaption>
+								</figure>
+							</div>
 						</a>
                     </div>
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
+					<a href="catagory/others">
                         <div class ="blog-image">
 							<figure class="imghvr-hinge-right"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coat11s.jpg"="example-image">
 							<figcaption>
@@ -156,6 +158,7 @@
 							</figcaption>
 							</figure>
 						</div>
+					</a>
                     </div>
                 </div>
             </div>

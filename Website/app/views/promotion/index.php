@@ -3,43 +3,14 @@
 ?>
 
 <?php $this->setSiteTitle("වාසි.lk"); ?>
+
 <?php $this->start('head'); ?>
-
-    <style>
-
-        .card{
-            background-color : #f39c12;
-            border: 1px solid black;
-            border-radius : 6px;
-            padding: 10px;
-            width: 30rem;
-            margin-bottom : 30px;
-        }
-
-        /* .input-group {
-            width : 22rem;
-        } */
-
-        .search {
-            margin-bottom : 3rem;
-            margin-right : 12%;
-            width: 35rem;
-        }
-
-        .section-padding{
-            padding : 50px;
-        }
-
-        .nopromo {
-            font-size : 525%;
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="<?=PROOT?>css/promotion_card.css">
 <?php $this->end();?>
+
 <?php $this->start('body'); ?>
 
-<header class="top-area single-page" id="home">
+    <header class="top-area single-page" id="home">
         <div class="top-area-bg-login" data-stellar-background-ratio="0.6">
             <div class="login-top"></div>
         </div>

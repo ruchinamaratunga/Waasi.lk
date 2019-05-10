@@ -13,11 +13,11 @@ class Promotion extends Model {
         $today = currentDate();
 
         if($params["promoter"] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],$today]);
+            $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
         } elseif ($params['catagory'] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  catagory = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],$today]);
+            $this->query("SELECT * FROM promotion WHERE  catagory = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
         } else {
-            $this->query("SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],$today]);
+            $this->query("SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
         }
         $resultsQuery = $this->_db->results();
         foreach($resultsQuery as $result) {
@@ -27,7 +27,28 @@ class Promotion extends Model {
         }
 
         return $results;
-        
+    }
+
+    public function getPromoByCatagory($catagory) {
+        $today = currentDate();
+
+        $results = $this->find(['conditions' => ['catagory = ?' ,'end_date > ?','state = ?'],'bind' => [$catagory,$today,'Approved'],'order' => "start_date DESC"]);
+
+        return $results;
+    }
+
+    public function comfirmPromotions($promotion) {
+        $this->update($promotion->id,array(
+            'state' => 'Approved'
+        ));
+    }
+
+    public function validatePromo() {
+
+    }
+
+    public function registerPromo() {
+
     }
 
     
@@ -53,10 +74,3 @@ class Promotion extends Model {
 
 
 }
-
-// $contact =DB::getInstance()->find('contacts', [
-//     'conditions' => ['lname => ?', 'fname => ?' ],
-//     'bind' => ['Subasinghe'],
-//     'order' => "lname,fname",
-//     'limit' => 5
-// ]);

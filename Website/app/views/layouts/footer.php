@@ -42,12 +42,12 @@
                         <div class="single-footer-widget list-widget">
                             <h3>Main Catgories</h3>
                             <ul>
-                                <li><a href="food.php">Food</a></li>
-                                <li><a href="movies.php">Movies</a></li>
-                                <li><a href="cloths.php">Cloths and Accessories</a></li>
-								<li><a href="electronic.php">Electronic Equipments</a></li>
-                                <li><a href="sports.php">Sports Equipments</a></li>
-								<li><a href="other.php">Other</a></li>
+                                <li><a href="catagory/food">Food</a></li>
+                                <li><a href="catagory/movies">Movies</a></li>
+                                <li><a href="catagory/cloths">Cloths and Accessories</a></li>
+								<li><a href="catagory/electronics">Electronic Equipments</a></li>
+                                <li><a href="catagory/sports">Sports Equipments</a></li>
+								<li><a href="catagory/others">Other</a></li>
                             </ul>
                         </div>
                     </div>

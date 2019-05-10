@@ -23,4 +23,7 @@ class HomeController extends Controller{
         $this->view->render('home/admin');
     }
 
+    public function aboutAction() {
+        $this->view->render('home/about');
+    }
 }

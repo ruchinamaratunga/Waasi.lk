@@ -4,7 +4,8 @@
         "Home" : ["*"],
         "Promotion" : ["index"],
         "Register" : ["login","register"],
-        "Restricted" : ["*"]
+        "Restricted" : ["*"],
+        "Catagory" : ["*"]
         
     },
     "loggedIn" : {
@@ -31,7 +32,8 @@
         "denied" : {
             "Promotion" : ["index"],
             "Home" : [""],
-            "Tools" : [""]
+            "Tools" : [""],
+            "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
         "Promoter" : ["index","mypromo","addpromo","editpromo"],
         "Register" : ["logout"]
