@@ -17,7 +17,7 @@
     <!--====== MAIN STYLESHEETS ======-->
 
   <link rel="stylesheet" href="<?=PROOT?>css/style2.css"> 
-  <link rel="stylesheet" href="<?=PROOT?>/css/style/style.css">
+  <link rel="stylesheet" href="<?=PROOT?>css/style/style.css">
   <link rel="stylesheet" href="<?=PROOT?>css/responsive.css">
 	<link rel="stylesheet" href="<?=PROOT?>css/ihover.css">
 

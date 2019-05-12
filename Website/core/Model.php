@@ -23,16 +23,17 @@ class Model {
      * populate each column with null 
      */
     protected function _setTableColumns() {
-        $columns = $this->get_columns();
-        foreach($columns as $column) {
-            $columnName = $column->Field;
-            $this->_columnNames[] = $column->Field;
-            $this->{$columnName} = null;
+        $columns = $this->get_columns();                    //column objects of a table, in each object it contains all the properties such as Field,defult,int/varchar...,type,null,key....etc
+        foreach($columns as $column) {                      
+            $columnName = $column->Field;                   //field is the name of a particular column eg: in promotions id,title,pr_username,end_date are those names
+            $this->_columnNames[] = $column->Field;             
+            $this->{$columnName} = null;                    //initially we set them to null then later populate them
         }
     }
 
+
     public function get_columns() {
-        return $this->_db->get_columns($this->_table);
+        return $this->_db->get_columns($this->_table);      // get_column is a method in php , since modles dont directly communicate with db this method was created
     }
 
     /**

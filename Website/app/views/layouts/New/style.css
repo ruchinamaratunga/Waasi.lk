@@ -264,7 +264,7 @@ input:-webkit-autofill:focus {
 
 .area-title h2::before,
 .area-title h2::after {
-    background: rgba(0, 0, 0, 0) url("img/title-border.png") repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/alphapack-master/alphapack-Refactor/Website/img/title-border.png") repeat scroll 0 0;
     bottom: 0;
     content: "";
     height: 2px;
@@ -691,7 +691,7 @@ ul#nav li ul a,
 }
 
 .slider-bg-one {
-    background: url("../img/slider/girl-blowing-bubbles.png") no-repeat scroll center center / cover;
+    background: url("/alphapack-master/alphapack-Refactor/Website/img/slider/girl-blowing-bubbles.png") no-repeat scroll center center / cover;
 }
 
 .slider-bg-two {
@@ -2227,7 +2227,7 @@ a.scrolltotop:hover {
 }
 
 .home-four .service-bottom-area-bg {
-    background: rgba(0, 0, 0, 0) url("img/service/service-area-bg-2.jpg") repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/alphapack-master/alphapack-Refactor/Website/img/service/service-area-bg-2.jpg") repeat scroll 0 0;
 }
 
 .top-area.single-page {

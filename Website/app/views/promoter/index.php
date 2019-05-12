@@ -19,10 +19,9 @@
         </div>
     </div>
 </header>
-    <!--END TOP AREA-->
 
     <!--BLOG AREA-->
-    <section class="blog-area gray-bg">
+    <section class="blog-area gray-bg" style ="padding-bottom: 200px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">

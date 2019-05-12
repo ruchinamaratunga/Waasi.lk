@@ -20,6 +20,23 @@
     spl_autoload_register('autoload');
     session_start();
     
+    // $u = new Users((int)Session::get(CURRENT_USER_SESSION_NAME));
+
+    // dnd(Session::get(CURRENT_USER_SESSION_NAME));
+
+    // $db = DB::getInstance();
+    // $columns = $db->get_columns('promotion');
+    // dnd($columns);
+    
+
+    // $user = new Users(1);
+    // $username = 'username';
+    // // dnd($user->{$username});
+    // $new = $user->findById(3);
+    // dnd($new);
+
+
+
     // $u = currentUser()->acls();
     // dnd($u);
     // $user = new Users('ruchin1');
