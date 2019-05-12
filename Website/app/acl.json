@@ -13,15 +13,12 @@
             "Register" : ["login","register"]
         },
         "Register" : ["logout"],
-        "Tools" : ["*"],
         "Promotion" : ["*"]
         
     },
     "Admin" : {
         "denied" : {
-            "Home" :[""],
-            "Tools" : [""]
-
+            "Home" :[""]
         },
 
         "Register" : ["logout"],
@@ -32,7 +29,6 @@
         "denied" : {
             "Promotion" : ["index"],
             "Home" : [""],
-            "Tools" : [""],
             "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
         "Promoter" : ["index","mypromo","addpromo","editpromo"],

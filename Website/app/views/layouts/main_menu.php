@@ -1,12 +1,15 @@
 <?php
-  // $user =currentUser()->username;
-  // if($user == 'Customer') {
-
-  // } elseif($user == 'Promoter') {
-
-  // } else {
-    
-  // }
+  if(currentUser()) {
+    $userType = currentUser()->user_type;
+    $username = currentUser()->username;
+    if($userType == 'Customer') {
+      $user = new Customer($username);
+    } elseif($userType == 'Promoter') {
+      $user = new Promoter($username);
+    } else {
+      $user = new Administrator($username);    
+    }
+  }
   $menu = Router::getMenu('menu_acl');
   $currentPage = currentPage();
 ?>
@@ -22,7 +25,7 @@
         <div id="main-nav" class="stellarnav">
               <ul id ="nav" class="nav navbar-nav pull-right">
                 <?php if(currentUser()): ?>
-                  <li><a href="#">Hello <?=currentUser()->fname?></a></li>
+                  <li><a href="#">Hello <?=currentUser()->user_type?></a></li>
                 <?php endif;?>
               </ul>
               <ul id="nav" class="nav navbar-nav">

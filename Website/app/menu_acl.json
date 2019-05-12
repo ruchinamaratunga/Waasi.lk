@@ -1,20 +1,10 @@
 {
     "Home" : "home",
-    "Home" : "promoter/index",
     "About" : "home/about",
-    "Tools" : {
-        "My Tools" : "tools",
-        "Tool 1" : "tools/first",
-        "Tool 2" : "tools/second",
-        "separator" : "",
-        "Tool 3" : "tools/third"        
-    },
     "Promotion" : "promotion/index",
-    "MyPromo" : {
-        "MyPromo" : "promoter/mypromo",
-        "AddPromo" : "promoter/addpromo",
-        "EditPromo" : "promoter/editpromo"
-    },
+    "MyPromo" : "promoter/mypromo",
+    "AddPromo" : "promoter/addpromo",
+    "EditPromo" : "promoter/editpromo",
     "Login" : "register/login",
     "Logout" : "register/logout"
 }

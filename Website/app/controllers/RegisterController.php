@@ -38,7 +38,8 @@ class RegisterController extends Controller {
                 if($usertype == 'Customer') {
                     if($user && password_verify(Input::get('password'), $user->password)) {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
-                        $this->view->currentUser = $user;
+                        $customer = new Customer($user->username);
+                        $this->view->currentUser = $customer;
                         $user->login($remember);
                         Router::redirect('');
                     } else {
@@ -49,16 +50,23 @@ class RegisterController extends Controller {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
                         $promoter = new Promoter($user->username);
                         $this->view->currentUser = $promoter;
-                        $promoter->login($remember);
+                        $user->login($remember);
                         // $user->login($remember);
                         Router::redirect('promoter/index');
                     } else {
                         $validation->addError("There is an error with your uesrname or password");
                     }
                 } else {
-                    Router::redirect('home/admin');
+                    if($user && password_verify(Input::get('password'),$user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
+                        $admin = new Administrator($user->username);
+                        $this->view->currentUser = $admin;
+                        $user->login($remember);
+                        Router::redirect('home/admin');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
                 }
-
             } 
         }
         $this->view->displayErrors = $validation->displayErrors();
@@ -115,6 +123,8 @@ class RegisterController extends Controller {
             if($validation->passed()) {
                 $newUser = new Users();
                 $newUser->registerNewUser(array_merge($_POST,['user_type'=>'Customer']));
+                $newcustomer = new Customer();
+                $newcustomer->registerNewCustomer($_POST);
                 Router::redirect('register/login');
             }
         }
