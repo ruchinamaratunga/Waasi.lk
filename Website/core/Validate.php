@@ -101,6 +101,12 @@ class Validate {
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
         $image=basename($target_file);
+
+        if(empty($_FILES["fileToUpload"]["tmp_name"])){
+            $this->addError("Image file is required.");
+            return false;
+        }
+
         // Check if image file is a actual image or fake image
         if(isset($_POST["addpromo-submit"])) {
             //echo($_FILES["fileToUpload"]["tmp_name"]."sdf");
