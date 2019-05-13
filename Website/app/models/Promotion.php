@@ -41,6 +41,40 @@ class Promotion extends Model {
         ));
     }
 
+    public function addPromo($params) {
+        $this->assign($params);
+        $this->deleted = 0;
+        $this->save();
+    }
+
+    public function uploadImage(){
+
+        $target_dir = IMAGE_STORE_PATH;
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"],".tmp").".".strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
+
+//        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        $image=basename($target_file);
+
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+//                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            return $image;
+
+        } else {
+//          echo "Sorry, there was an error uploading your file.";
+            return null;
+        }
+
+        // End of file upload
+
+//        //$promotion->image=("../Extra/img/users/promotions/".$image);
+//        $tmp=$_SESSION["userName"];
+//        $promotion=new Promotion(null,$category,$title,$description,("../Extra/img/users/promotions/".$image),$link,$state,$startTime,$endTime,$location,$tmp,$ad_username);
+//
+//        Promotion::addPromotionToDB($promotion);
+
+    }
+
     public function validatePromo() {
 
     }

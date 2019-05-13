@@ -7,7 +7,7 @@ class UserSessions extends Model {
     }
 
     public static function getFromCookie() {
-        if(COOKIE::exists(REMEMBER_ME_COOKIE_NAME)){
+        if(Cookie::exists(REMEMBER_ME_COOKIE_NAME)){
             $userSession = new self();
             $userSession = $userSession->findFirst([
                 'conditions' => "user_agent = ? AND session = ?",
