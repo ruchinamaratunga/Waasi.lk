@@ -24,7 +24,6 @@ class Customer extends Model {
                     $this->$key = $val;
                 }
             }
-            // echo $this->username;
         }
     }
 

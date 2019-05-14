@@ -15,9 +15,9 @@ class Promoter extends Model {
 
         if($user != '') {
             if(is_int($user)) {
-                $u = $this->_db->findFirst('users',['conditions'=>'id = ?', 'bind'=>[$user]]);
+                $u = $this->_db->findFirst('promoter',['conditions'=>'id = ?', 'bind'=>[$user]]);
             } else {
-                $u = $this->_db->findFirst('users',['conditions'=>'username = ?', 'bind'=>[$user]]);
+                $u = $this->_db->findFirst('promoter',['conditions'=>'promoter_name = ?', 'bind'=>[$user]]);
             }
             if($u) {
                 foreach($u as $key =>$val) {
@@ -88,6 +88,12 @@ class Promoter extends Model {
     public function acls() {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
+    }
+
+    public function getPromotions() {
+        $p = new Promotion();
+        $promotions = $p->getPromoByPromoter($this->username);
+        return $promotions;
     }
 }
 

@@ -26,4 +26,11 @@ class HomeController extends Controller{
     public function aboutAction() {
         $this->view->render('home/about');
     }
+
+    public function promoterpageAction() {
+        // if($_GET) {
+        //     dnd($_GET);
+        // }
+        $this->view->render('home/promoterpage');
+    }
 }

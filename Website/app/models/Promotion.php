@@ -35,6 +35,11 @@ class Promotion extends Model {
         return $results;
     }
 
+    public function getPromoByPromoter($promoter) {
+        $today = currentDate();
+        return $this->find(['conditions' => ['pr_username = ?' ,'end_date > ?','state = ?'],'bind' => [$promoter,$today,'Approved'],'order' => "start_date DESC"]);
+    }
+
     public function comfirmPromotions($promotion) {
         $this->update($promotion->id,array(
             'state' => 'Approved'
