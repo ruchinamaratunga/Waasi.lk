@@ -31,9 +31,9 @@
                         </div>-->
                         <div class="blog-details text-center">
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
-                            <h3><a href="addPromo.php">ADD PROMOTIONS</a></h3>
+                            <h3><a href="addpromo">ADD PROMOTIONS</a></h3>
                             <p>Click below to add a new promotion!</p>
-                            <a href="addPromo.php" class="read-more">ADD</a>
+                            <a href="addpromo" class="read-more">ADD</a>
                         </div>
                     </div>
                 </div>
@@ -59,14 +59,14 @@
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
 							<?php
 							//echo('<h3><a href="promoterTemplate.php?pr_username='.$_SESSION['userName'].'">VIEW PROMOTIONS</a></h3>');
-                                echo('<h3><a href="myPromotion.php">VIEW PROMOTIONS</a></h3>');
+                                echo('<h3><a href="mypromo">VIEW PROMOTIONS</a></h3>');
 
                             ?>
                             
                             <p>Click below to view promotions of your business.</p>
 							<?php
 							//echo('<a href="promoterTemplate.php?pr_username='.$_SESSION['userName'].'" class="read-more">VIEW</a>');
-                                echo('<a href="myPromotion.php" class="read-more">VIEW</a>');
+                                echo('<a href="mypromo" class="read-more">VIEW</a>');
 
                             ?>
                           

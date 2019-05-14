@@ -13,7 +13,7 @@
             }elseif(file_exists(ROOT . DS . 'app' .DS . 'controllers' . DS . $className . '.php')) {
                 require_once(ROOT . DS . 'app' . DS . 'controllers' . DS . $className . '.php');
             }elseif(file_exists(ROOT . DS . 'app' .DS . 'models' . DS . $className . '.php')) {
-                require_once(ROOT . DS . 'app' . DS . 'models ' . DS . $className . '.php');
+                require_once(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php');
             }
         }
 
@@ -57,7 +57,7 @@
     // dnd(password_hash('pizzahut', PASSWORD_DEFAULT));
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : [];
 
-    if(!Session::exists(CURRENT_USER_SESSION_NAME) && COOKIE::exists(REMEMBER_ME_COOKIE_NAME)) {
+    if(!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
         Users::loginUserFromCookie();
     }
 
