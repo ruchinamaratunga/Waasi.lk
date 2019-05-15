@@ -95,7 +95,7 @@ class Validate {
     }
 
     public function imageFileValidate(){
-        $target_dir = IMAGE_STORE_PATH;
+        $target_dir = ROOT.'/img/Promotions/';
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"],".tmp").".".strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
