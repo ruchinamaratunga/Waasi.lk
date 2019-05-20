@@ -88,6 +88,17 @@ class Customer extends Model {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
     }
+
+    public function subscribe($promoter){
+        $this->_db->insert('subscribe',array(
+            'customer' => $this->username,
+            'promoter' => $promoter
+        ));
+    }
+
+    public function unsubscribe($promoter) {
+        $this->_db->query("DELETE FROM subscribe WHERE customer = ? AND promoter = ?" , array($this->username,$promoter));
+    }
 }
 
 

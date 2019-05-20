@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="blog-details">
                                         <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                                        <h3><a href="<?=PROOT?>home/promoterpage?promoter=<?php echo($result->pr_username);?>"><?=$result->title?></a></h3>
+                                        <h3><a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>"><?=$result->title?></a></h3>
                                         <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
                                         <p><?=$result->description?></p> 
                                         <a href="<?=$result->link?>" class="read-more">Visit us</a>

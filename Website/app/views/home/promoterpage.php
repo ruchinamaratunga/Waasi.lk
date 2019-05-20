@@ -1,12 +1,108 @@
 <?php
-    $promoter = new Promoter($_GET['promoter']);
-    // dnd($promoter->promoter_name);
+    $promoter = $this->promoter;
+    $promotions = $this->promotions;
+    $user = currentUser();
+    $comments = $this->promoter->showComments();
+    $count = $this->promoter->count;
+    $subscribe = $this->subscribe;
+    // dnd($subscribe);
+    // $subscribe = true;
 ?>
 
 <?php $this->start('head'); ?>
+
+    <style>
+        .submit {
+            background: #5d6b82 none repeat scroll 0 0;
+            border: 0 none;
+            border-radius: 5px;
+            color: #fff;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            -webkit-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+        }
+
+        .submit:hover {
+            background: #f39c12;
+            color: #fff;
+        }
+
+    </style>
+
+
 <?php $this->end(); ?>
 
 <?php $this->start('body'); ?>
+
+<script type="text/javascript"> 
+
+var count = 5;
+var promoter = '<?=$promoter->username?>';
+
+
+$(document).ready(function(){
+    $("#comment-submit").click(function(){
+        var comment = $("#comment").val().trim();
+        if(comment != '') {
+            $.ajax({
+            type : "POST",
+            url : "<?=PROOT?>home/comment",
+            data : {comment : comment,
+                promoter: promoter
+                },
+            success : function(resp) {
+                $("#comment").val('');
+                $('#thanks').html("Thanks for the comment");
+            }
+        });
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    if('<?=$subscribe?>') {
+        $("#subscribe").html('Unubscribe');
+    } else {
+        $("#subscribe").html('Subscribe');
+    }
+    
+    $("#subscribe").click(function() {
+            $.ajax({
+                type : "POST",
+                url : '<?=PROOT?>home/subscribe',
+                data : {promoter : promoter},
+                success : function(resp) {
+                    console.log(resp);
+                    $("#subscribe").html(resp['resp']);
+                }
+            });
+        });
+
+});
+
+$(document).ready(function() {
+    var count = 5;
+    $("#see-more").click(function() {
+        count = count + 5;
+        $.ajax({
+            type : "POST",
+            url : '<?=PROOT?>home/seeComment',
+            data : {count:count, promoter:promoter},
+            success : function(resp) {
+                $("#see-comment").html(resp);
+                $("#see-more").html("more comments");
+            }
+        });
+    });
+});
+
+
+</script>
+
+
 
 <header class="top-area single-page-promoter" id="home">
 
@@ -18,87 +114,52 @@
 	   </div>
    </div>
 		
-
-    </header>
+</header>
 
 
 <section class="blog-area blog-page section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-                    <div class="single-blog wow fadeIn">
-                        <div class="blog-image">
-                            <img src="<?=PROOT?>/img/blog/blog_7.jpg" alt="">
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                            <h3><a href="single-blog.html">Quick Transportation Service in the world</a></h3>
-                            <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>20 January, 2015</a></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            <a href="single-blog.html" class="read-more">Read More</a>
-                        </div>
+            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <?php if(count($promotions)):?>
+                    <?php foreach($promotions as $promotion): ?>
+                        
+                            <div class="single-blog wow fadeIn">
+                                <div class="blog-image">
+                                    <img src="<?=PROOT?><?=$promotion->image_path?>" alt="">
+                                </div>
+                                <div class="blog-details">
+                                    <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
+                                    <h3><a href="<?=PROOT?>home/promoterpage/<?=$promotion->pr_username?>"><?=$promotion->title?></a></h3>
+                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$promotion->start_date?></a></div>
+                                    <p><?=$promotion->description?></p> 
+                                    <a href="<?=$promotion->link?>" class="read-more">Visit us</a>
+                                </div>
+                            </div>
+                        
+                    <?php endforeach;?>
+                <?php else: ?>
+                    <div class="nopromo">
+                        <div class="text-center">No Promotions</div>
                     </div>
-                    <div class="single-blog wow fadeIn">
-                        <div class="blog-image">
-                            <img src="<?=PROOT?>/img/blog/blog_8.jpg" alt="">
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                            <h3><a href="single-blog.html">Quick Transportation Service in the world</a></h3>
-                            <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>20 January, 2015</a></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            <a href="single-blog.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    <div class="single-blog wow fadeIn">
-                        <div class="blog-image">
-                            <img src="<?=PROOT?>/img/blog/blog_9.jpg" alt="">
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                            <h3><a href="single-blog.html">Quick Transportation Service in the world</a></h3>
-                            <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>20 January, 2015</a></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            <a href="single-blog.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    <div class="single-blog wow fadeIn">
-                        <div class="blog-image">
-                            <img src="<?=PROOT?>/img/blog/blog_10.jpg" alt="">
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                            <h3><a href="single-blog.html">Quick Transportation Service in the world</a></h3>
-                            <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>20 January, 2015</a></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            <a href="single-blog.html" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endif; ?>
+            
+
+            </div>
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="sidebar-area wow fadeIn">
-					  <div class="single-sidebar-widget widget_categories">
-							<form class="quote-form subscribe" action="#">
-								<button type="submit">Subscribe</button>	
-							</form>
-                   	  </div>
-                        <div class="single-sidebar-widget widget_search">
-                            <h4>Search</h4>
-                            <form action="#">
-                                <input type="text" name="s" id="s" placeholder="Search Here...">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
+					    <div class="single-sidebar-widget widget_categories">
+                            <div class="quote-form">
+                                <button id="subscribe">subscribe</button>  
+                            </div>                          
+                   	    </div>
+ 
 						<div class="single-sidebar-widget widget_search">
 							<h4>Contact us</h4>
 							<ul>
-                                <li><i class="fa fa-phone"></i> <a href="callto:+8801911854378">&nbsp;&nbsp;011-299-9999</a></li>
-                                <li><i class="fa fa-envelope"></i> <a href="mailto:backpiper.com@gmail.com">&nbsp;xxx.com@gmail.com</a></li>
-								<li><i class="fa fa-facebook"></i> <a href="#">&nbsp;&nbsp;&nbsp;Facebook Link</a></li>
+                                <li><i class="fa fa-phone"></i> <a href="callto:+8801911854378">&nbsp;&nbsp;<?=$promoter->phone_number?></a></li>
+                                <li><i class="fa fa-envelope"></i> <a href="mailto:backpiper.com@gmail.com">&nbsp;<?=$promoter->email?></a></li>
+								<li><i class="fa fa-facebook"></i> <a href="#">&nbsp;&nbsp;&nbsp;<?=$promoter->fb_link?></a></li>
                             </ul>
                     	</div>
 						<div class="single-sidebar-widget widget_categories">
@@ -110,34 +171,58 @@
 
 						<div class="single-sidebar-widget widget_categories">
 							<h3>Give a comment</h3>
-							<form class="quote-form" action="#">
-								<p>
-									<textarea name="quote-message" id="quote-message" cols="30" rows="4" placeholder="Your Comment..."></textarea>
-								</p>
-								<button type="submit">Comment</button>
-							</form>
+                            <div class="quote-form">
+                                <p><textarea name="comment" id="comment" cols="30" rows="4" form="comment-form" placeholder="Your Comment..."></textarea></p>
+								<button id="comment-submit">Comment</button>
+                                <p id="thanks"></p>
+                            </div>
                     	</div>
-						<div class="single-sidebar-widget widget_categories">
-							<h3>Give a comment</h3>
-							<form class="quote-form" action="#">
-							</form>
-                    	</div>
-                        <div class="single-sidebar-widget widget_categories">
-                            <h4>Main Categories</h4>
-                            <ul>
-                                <li><a href="food.php">Food</a></li>
-                                <li><a href="#">Cloths and Accessories</a></li>
-                                <li><a href="#">Movies</a></li>
-                                <li><a href="#">Electronic Devices</a></li>
-                                <li><a href="#">Sports Equipments</a></li>
-								<li><a href="#">Other</a></li>
-                            </ul>
+                        
+
+                        <div class="container" style="width: 500px;">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                <h3>Comments</h3>
+                                </div>
+                            </div>
+
+                            <div id="see-comment">
+                                <?php if($comments): ?>
+                                    <?php for($i=0;$i<min(5,count($comments));$i++): ?>
+                                        <div class="row">
+                                            <div class="col-sm-2 col-xs-2">
+                                                <div class="thumbnail">
+                                                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-10 col-xs-10">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <strong style="padding-left: 5px;"><?=$comments[$i]->customer?></strong> <span class="text-muted pull-right"><?=$comments[$i]->date?></span>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <?=$comments[$i]->comment?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php endfor; ?>
+                                <?php else: ?>
+                                    <div class="nopromo">
+                                        <div class="text-center">No comments</div>
+                                    </div>
+                                <?php endif; ?>
+                            <!-- </div> -->
+
+                            
                         </div>
+                        <div id="see-more" class="text-right" ><a id="get-comments">see more...</a></div>
+						
 
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <ul class="pagination">
                         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
@@ -148,7 +233,7 @@
                         <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 <?php $this->end(); ?>

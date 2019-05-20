@@ -5,6 +5,7 @@ class Promoter extends Model {
             $_sessionName,
             $_cookieName;
     public static $currentLoggedInUser = null;
+    public $count = 5;
 
     public function __construct($user='') {
         $table = 'promoter';
@@ -17,7 +18,7 @@ class Promoter extends Model {
             if(is_int($user)) {
                 $u = $this->_db->findFirst('promoter',['conditions'=>'id = ?', 'bind'=>[$user]]);
             } else {
-                $u = $this->_db->findFirst('promoter',['conditions'=>'promoter_name = ?', 'bind'=>[$user]]);
+                $u = $this->_db->findFirst('promoter',['conditions'=>'username = ?', 'bind'=>[$user]]);
             }
             if($u) {
                 foreach($u as $key =>$val) {
@@ -95,6 +96,40 @@ class Promoter extends Model {
         $promotions = $p->getPromoByPromoter($this->username);
         return $promotions;
     }
+
+    public function recieveComment($comment,$commentee) {
+        $promoter = $this->username;
+        $date = currentDate();
+        $this->_db->insert('comments',array(
+            'promoter' => $promoter,
+            'customer' => $commentee,
+            'comment' => $comment,
+            'date' => $date
+        ));
+    }
+
+    public function showComments() {
+        // $comments = $this->query("SELECT * FROM comments WHERE promoter = ?", array($this->username));
+        $comments = $this->_db->find('comments',array(
+            'condition' => 'promoter = ?',
+            'bind' => [$this->username]
+        ));
+        return $comments;
+    }
+
+    public function isSubscribe() {
+        $customer = currentUser()->username;
+        // dnd($customer);
+        // dnd($this->_db->find('subscribe',['conditions' =>['promoter = ?','customer = ?'],'bind'=>[$this->username,$customer]]));
+        if($this->_db->find('subscribe',['conditions' =>['promoter = ?','customer = ?'],'bind'=>[$this->username,$customer]])){
+            return true;
+        }
+        return false;
+    }
+
+    
+
+
 }
 
 

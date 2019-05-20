@@ -28,7 +28,7 @@
     "Promoter" : {
         "denied" : {
             "Promotion" : ["index"],
-            "Home" : [""],
+            "Home" : ["promoterpage"],
             "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
         "Promoter" : ["index","mypromo","addpromo","editpromo"],
