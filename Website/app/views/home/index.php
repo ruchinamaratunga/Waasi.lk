@@ -1,3 +1,13 @@
+<?php
+	$subscribes = false;
+	if(currentUser()){
+		$subscribes = $this->customer->subscribePromoters();
+	}
+	
+	// dnd($subscribes);
+?>
+
+
 <!-- Here $this means View class -->
 <?php $this->setSiteTitle('වාසි.lk'); ?>
 
@@ -166,54 +176,49 @@
         </div>
     </section>
 	
-	<?php
 	
-		// if(isset($_SESSION['userNameCustomer'])){
-			
-		// 	echo('<section class="service-area-three section-padding">
-        // 			<div class="container">
-        //     		<div class="row">
-        //         	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
-        //             <div class="area-title text-center wow fadeIn">
-        //                 <h2>Subscribed Promoters</h2>
-        //                 <p>List of promoters I have subscribed.</p>
-        //             </div>
-        //         	</div>
-        //     		</div>
-        //     		<div class="row">');
-			
-		// 	if(empty($subscribedCompanies)){
-		// 		echo('<div class="single-blog wow fadeIn">
-		// 		<div class="blog-details">
-		// 		<div class="blog-meta"></div>
-		// 		<h3>You have not subscribed any promoters</h3>
-		// 		</div>
-		// 		</div><br />');				
-		// 	}
-		// 	else{
-				
-		// 		$len = sizeof($subscribedCompanies);
-		// 		for ($i=0; $i<$len ; $i++){
-		// 			$temp = $subscribedCompanies[$i];
-		// 			$tempCompanyName = $temp[1];
-		// 			$tempPrUsername = $temp[0];
-		// 			echo('<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-        //             	<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
-        //                 <div class="service-icon-three"><i class="fa fa-building"></i></div>
-        //                 <a href = "promoterTemplate.php?pr_username='.$tempPrUsername.'"><h4>'.$tempCompanyName.'</h4></a>
-        //             	</div>
-        //         		</div>');
-		// 		}
-				
-		// 	}
-		// 	echo('</div>
-		// 		</div>
-    	// 		</section>');
-		// }
+	<section class="service-area-three section-padding">
+    	<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+					<div class="area-title text-center wow fadeIn">
+						<h2>Subscribed Promoters</h2>
+						<p>List of promoters I have subscribed.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<?php if(currentUser()): ?>
+					<?php if($subscribes):?>
+						<?php foreach($subscribes as $subscribe):?>
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+									<div class="service-icon-three"><i class="fa fa-building"></i></div>
+									<a href = "<?=PROOT?>home/promoterpage/<?=$subscribe->promoter?>"><h4>'.<?=$subscribe->promoter?>.'</h4></a>
+								</div>
+							</div>
+						<?php endforeach;?>
+					<?php else: ?>
+						<div class="single-blog wow fadeIn">
+							<div class="blog-details">
+								<div class="blog-meta"></div>
+								<h3>You have not subscribed any promoters</h3>
+							</div>
+						</div><br/>
+					<?php endif;?>
+				<?php else: ?>
+				<div class="single-blog wow fadeIn">
+							<div class="blog-details">
+								<div class="blog-meta"></div>
+								<h3>LoggIn to subscribe</h3>
+							</div>
+						</div>
+				<?php endif;?>
+			</div>
+		</div>
+    </section>
 	
-	
-	?>
-    
 <?php $this->end(); ?>
 
 

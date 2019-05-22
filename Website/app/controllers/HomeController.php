@@ -7,6 +7,10 @@ class HomeController extends Controller{
     }
 
     public function indexAction() {                   //queryParam will be passed into the method 
+        if(userType() == "Customer"){
+            $customer = new Customer(currentUser()->username);
+            $this->view->customer = $customer;
+        }
         $this->view->render('home/index');
     }
 

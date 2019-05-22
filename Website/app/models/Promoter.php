@@ -25,7 +25,6 @@ class Promoter extends Model {
                     $this->$key = $val;
                 }
             }
-            // echo $this->username;
         }
     }
 
@@ -111,7 +110,7 @@ class Promoter extends Model {
     public function showComments() {
         // $comments = $this->query("SELECT * FROM comments WHERE promoter = ?", array($this->username));
         $comments = $this->_db->find('comments',array(
-            'condition' => 'promoter = ?',
+            'conditions' => 'promoter = ?',
             'bind' => [$this->username]
         ));
         return $comments;
@@ -127,7 +126,12 @@ class Promoter extends Model {
         return false;
     }
 
-    
+    public function getSubscribers() {
+        return $this->_db->find('subscribe',array(
+            'conditions' => 'promoter = ?',
+            'bind' => [$this->username]
+        ));
+    }
 
 
 }

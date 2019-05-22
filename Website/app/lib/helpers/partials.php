@@ -15,3 +15,23 @@ function notificationHead($customer,$comment,$date){
     
     return $html;
 }
+
+function subscribersBlock($subscribes) {
+    if($subscribes){
+		foreach($subscribes as $subscribe){
+			echo ('<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+				<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+					<div class="service-icon-three"><i class="fa fa-building"></i></div>
+					<a href = "<?=PROOT?>home/promoterpage/'.$subscribe->promoter.'"><h4>'.$subscribe->promoter.'</h4></a>
+				</div>
+			</div>');
+		}
+	} else {
+		echo ('<div class="single-blog wow fadeIn">
+			<div class="blog-details">
+				<div class="blog-meta"></div>
+				<h3>You have not subscribed any promoters</h3>
+			</div>
+		</div><br/>');
+    }
+}

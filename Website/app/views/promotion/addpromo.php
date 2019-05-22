@@ -1,6 +1,6 @@
 <?php $this->setSiteTitle("වාසි.lk"); ?>
 <?php $this->start('body'); ?>
-
+<!-- 
 <header class="top-area single-page" id="home">
         <div class="top-area-bg-login" data-stellar-background-ratio="0.6">
             <div class="login-top"></div>
@@ -98,5 +98,5 @@
     </div>
 
 
-    </section>
+    </section> -->
 <?php $this->end() ?>

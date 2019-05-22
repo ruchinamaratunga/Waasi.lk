@@ -1,16 +1,21 @@
 <?php
+  $menu_file = 'menu_acl';
   if(currentUser()) {
     $userType = currentUser()->user_type;
+    // test($userType);
     $username = currentUser()->username;
     if($userType == 'Customer') {
       $user = new Customer($username);
     } elseif($userType == 'Promoter') {
+      $menu_file = 'promoter_menu';
       $user = new Promoter($username);
     } else {
+      $menu_file = 'admin_menu';
       $user = new Administrator($username);    
     }
   }
-  $menu = Router::getMenu('menu_acl');
+  // test($menu_file);
+  $menu = Router::getMenu($menu_file);
   $currentPage = currentPage();
 ?>
 

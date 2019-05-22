@@ -1,0 +1,9 @@
+{
+    "Home" : "promoter/index",
+    "About" : "home/about",
+    "MyPromo" : "promoter/mypromo",
+    "AddPromo" : "promoter/addpromo",
+    "EditPromo" : "promoter/editpromo",
+    "Login" : "register/login",
+    "Logout" : "register/logout"
+}

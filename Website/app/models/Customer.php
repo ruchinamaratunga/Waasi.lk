@@ -99,6 +99,14 @@ class Customer extends Model {
     public function unsubscribe($promoter) {
         $this->_db->query("DELETE FROM subscribe WHERE customer = ? AND promoter = ?" , array($this->username,$promoter));
     }
+
+    public function subscribePromoters() {
+        // return $this->_db->query("SELECT * FROM subscribe WHERE customer = ?", array($this->username));
+        return $this->_db->find('subscribe',array(
+            'conditions' => 'customer = ?',
+            'bind' => [$this->username]
+        ));
+    }
 }
 
 

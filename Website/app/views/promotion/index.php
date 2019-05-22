@@ -1,13 +1,13 @@
 <?php 
     $results = $this->searchResults ;
 
-    function runMyFunction() {
-        echo 'I just ran a php function';
-      }
+    // function runMyFunction() {
+    //     echo 'I just ran a php function';
+    //   }
     
-      if (isset($_GET['hello'])) {
-        echo $_GET['hello'];
-      }
+    //   if (isset($_GET['hello'])) {
+    //     echo $_GET['hello'];
+    //   }
 ?>
 
 <?php $this->setSiteTitle("වාසි.lk"); ?>
@@ -47,11 +47,11 @@
             </div> -->
             <div class="single-sidebar-widget widget_search">
                 <form method= "post" style="border : none;">
-                    <div class="dropdown pull-right">
+                    <!-- <div class="dropdown pull-right">
                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
+                        </button> -->
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
                             <div class="input-group">
                                 <input name = "promoter" id="promoter" type="checkbox" aria-label="...">
                                 <label for="promoter">Promoter</label>
@@ -62,8 +62,8 @@
                                     <input name = "catagory" id="catagory" type="checkbox" aria-label="...">
                                 </span><label for="catagory">Catagory</label>
                             </div>
-                        </ul>
-                    </div>
+                        </ul> 
+                     </div> -->
                 
                     <div class="input-group pull-right">
                         <input type="text" class="form-control" id="search" name="search"  placeholder="Search">
@@ -128,6 +128,6 @@
                     <?php endif; ?>
                 </div>
             </div>
-        </div> -->
+        </div>  -->
     </section>
 <?php $this->end() ?>

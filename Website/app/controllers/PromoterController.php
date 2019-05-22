@@ -9,6 +9,8 @@ class PromoterController extends Controller {
     }
 
     public function indexAction() {
+        $promoter = new Promoter(currentUser()->username);
+        $this->view->promoter = $promoter;
         $this->view->render('promoter/index');
     }
 

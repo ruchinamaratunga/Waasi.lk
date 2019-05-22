@@ -120,7 +120,7 @@ class DB {
 
             //backtickes to define the fields / not nessasary 
             $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values}) ";
-            
+            test($sql);
             if(!$this->query($sql, $fields)->error()) {
                 return true;
             }
@@ -164,7 +164,7 @@ class DB {
             $limit = ' LIMIT ' . $params['limit'];
         }
         $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
-        
+        // test($sql);
         if($this->query($sql,$bind)) {
             if(!$this->count()) return false;
             return true;

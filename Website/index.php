@@ -43,7 +43,10 @@
     // dnd(currentDate());
     // dnd('2018-05-24'>'2019-04-25');
     // $db = DB::getInstance();
-    // $db->query("SELECT * FROM promotion WHERE pr_username = ? AND end_date > ? ORDER BY start_date DESC",array('Food',currentDate()));
+    // $params = array('search'=>'pizza hut');
+    // $today = currentDate();
+    // $db->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
+        // $db->query("SELECT * FROM promotion WHERE pr_username = ? AND end_date > ? ORDER BY start_date DESC",array('Food',currentDate()));
     // dnd($db->results());
     // $temp = $db->results()[0]->lname;
     // dnd($temp);

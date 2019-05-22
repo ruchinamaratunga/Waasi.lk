@@ -11,15 +11,11 @@ class Promotion extends Model {
     public function Search($params=[]) {
         $results = [];
         $today = currentDate();
-
-        if($params["promoter"] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
-        } elseif ($params['catagory'] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  catagory = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
-        } else {
-            $this->query("SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
-        }
+        // dnd($params);
+        $this->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
+        
         $resultsQuery = $this->_db->results();
+        // dnd($resultsQuery);
         foreach($resultsQuery as $result) {
             $obj = new Promotion($this->_table);
             $obj->populateObjData($result);
