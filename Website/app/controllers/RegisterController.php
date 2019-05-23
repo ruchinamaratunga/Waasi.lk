@@ -27,8 +27,8 @@ class RegisterController extends Controller {
                 ],
                 'password' => [
                     'display' => 'password',
-                    'required' => true,
-                    'min' => 6
+                    'required' => true
+//                    'min' => 6
                 ]
             ]);
             

@@ -49,12 +49,12 @@ class Promotion extends Model {
 
     public function uploadImage(){
 
-        $target_dir = IMAGE_STORE_PATH;
+        $target_dir = ROOT.'/img/Promotions/';
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"],".tmp").".".strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
 
 //        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        $image=basename($target_file);
+        $image='/img/Promotions/'.basename($target_file);
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 //                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";

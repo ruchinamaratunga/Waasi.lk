@@ -87,6 +87,54 @@ $(document).ready(function() {
         }
     });
 
+    $("#form-register-customer").validate({
+        rules: {
+            fname: 'required',
+            lname: 'required',
+            email:{
+                required:true,
+                email:true
+            },
+            username: 'required',
+
+            password:{
+                required: true,
+                minlength:6
+
+
+            },
+            confirm:{
+                required: true,
+                equalTo: "#password"
+
+
+            }
+
+        },
+        messages: {
+            fname: 'This field is required',
+            lname: 'This field is required',
+            email: {
+                required: 'This field is required'
+
+            },
+            username: 'This field is required',
+
+            password: {
+                required: 'This field is required'
+
+
+            },
+            confirm: {
+                required: "This field is required."
+
+
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 
     $('.deletemember').click(function() {
 
