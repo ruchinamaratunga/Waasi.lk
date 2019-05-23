@@ -18,7 +18,7 @@ class View {
               $_siteTitle  = SITE_TITLE,
               $_outputBuffer,
               $_layout = DEFAULT_LAYOUT;
-    public $diplayErrors,
+    public $displayErrors,
            $searchResults,
            $currentUser;
     

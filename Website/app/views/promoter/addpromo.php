@@ -7,7 +7,6 @@
     <script type="text/javascript" src="<?=PROOT?>js/datepicker.js"></script>
     <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
 
-    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 
 
 <?php $this->end(); ?>

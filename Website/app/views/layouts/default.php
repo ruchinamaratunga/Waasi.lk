@@ -28,6 +28,8 @@
   
   <?= $this->content('head'); ?>
 
+  <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
   </head>
   <body>
 
