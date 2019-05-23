@@ -10,7 +10,7 @@
     },
     "loggedIn" : {
         "denied" : {
-            "Register" : ["login","register"]
+            "Register" : ["login","register","promoterRegistration"]
         },
         "Register" : ["logout"],
         "Promotion" : ["*"]

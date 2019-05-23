@@ -1,4 +1,7 @@
 <?php $this->start('head'); ?>
+    <link rel="stylesheet" href="<?=PROOT?>css/style/registerform.css">
+    <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
+
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
 
@@ -23,81 +26,70 @@
 
     <!--ABOUT AREA-->
 	<section class="about-area gray-bg" style = "padding-bottom: 300px;">
-		<div class="container-signup">	
-      		<!-- <div class="form"> -->
-                <form class="form" method="post">
-                    <div class="bg-danger"><?= $this->displayErrors ?></div>
-                    <div class = "form-group">
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name ="fname" class="form-control" value="<?=$this->post['fname']?>">
+        <div class="panel-body">
+            <form  action="<?=PROOT?>register/register" id="form-register-customer" method="post" enctype="multipart/form-data" class="form-horizontal" >
+                <div class="bg-danger text-center"><?= $this->displayErrors ?></div>
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="fname">First Name:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" placeholder="Enter the First Name" id="fname" name="fname">
                     </div>
-                    <div class = "form-group">
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name ="lname" class="form-control" value="<?=$this->post['lname']?>">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="lname">Last Name:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" placeholder="Enter the Last Name" id="lname" name="lname">
                     </div>
-                    <div class = "form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name ="email" class="form-control" value="<?=$this->post['email']?>">
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="email">Email:</label>
+                    <div class="col-sm-5">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
                     </div>
-                    <div class = "form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name ="username" class="form-control" value="<?=$this->post['username']?>">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="username">Username:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="username" placeholder="Enter an Username" name="username">
                     </div>
-                    <div class = "form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name ="password" class="form-control" value="<?=$this->post['password']?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="password">Password:</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" id="password" placeholder="Enter a Password" name="password">
                     </div>
-                    <div class = "form-group">
-                        <label for="password">Confirm Password</label>
-                        <input type="password" id="confirm" name ="confirm" class="form-control" value="<?=$this->post['confirm']?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="confirm">Confirm Password:</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" id="confirm" placeholder="Re-enter the Password" name="confirm">
                     </div>
-                    <div class="pull-right">
-                        <input type="submit" class="btn btn-primary btn-large" value="Register">
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-4">
+                        <button type="submit" class="btn btn-primary"  name="register-customer-submit">Sign Up</button>
                     </div>
-                    <!-- <input type="text" placeholder="Enter the User name" name="uid">
-                    <input type="password" placeholder="Enter the password" name="password">
-                    <input type="password" placeholder="Re enter the password" name="re-password">
-                    <input type="email" placeholder="Enter your email" name="email">
-                    <input type="number" placeholder="Enter your phone number" name="phone">
-                    <button type="submit" name="signup-submit">Sign Up</button> --> 
-                </form>
-			<!-- </div> -->
-		</div>	
+                </div>
+            </form>
+
+
+
+        </div>
     </section>
 
-    <!-- <div class="col-md-6 col-md-offset-3 well">
-        <h3 class="text-center">Register Here</h3><hr>
-        <form class="form" action="" method = "post">
-            <div class="bg-danger"><?= $this->displayErrors ?></div>
-            <div class = "form-group">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name ="fname" class="form-control" value="<?=$this->post['fname']?>">
-            </div>
-            <div class = "form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name ="lname" class="form-control" value="<?=$this->post['lname']?>">
-            </div>
-            <div class = "form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name ="email" class="form-control" value="<?=$this->post['email']?>">
-            </div>
-            <div class = "form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name ="username" class="form-control" value="<?=$this->post['username']?>">
-            </div>
-            <div class = "form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name ="password" class="form-control" value="<?=$this->post['password']?>">
-            </div>
-            <div class = "form-group">
-                <label for="password">Confirm Password</label>
-                <input type="password" id="confirm" name ="confirm" class="form-control" value="<?=$this->post['confirm']?>">
-            </div>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary btn-large" value="Register">
-            </div>
-        </form>
-    </div> -->
 <?php $this->end(); ?>
 
 
