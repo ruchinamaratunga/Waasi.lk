@@ -24,7 +24,4 @@ class PromotionController extends Controller {
         $this->view->render('promotion/index');
     }
 
-    public function addpromoAction() {
-        $this->view->render('promotion/addpromo');
-    }
 }
