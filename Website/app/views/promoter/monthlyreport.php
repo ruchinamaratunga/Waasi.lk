@@ -28,43 +28,43 @@
             </div>
         </div>
     </header>
-    <div>
-    <div class="table-responsive" id= "table">
-        <table class="table table-hover " >
-            <thead>
-                
+    <div class  = "report">
+        <div>
+            <div class="badge badge-primary text-wrap">Promoter Name: <?php echo $username?></div><br>
+            <div class="badge badge-primary text-wrap">No of Subscribers: <?php echo $subscribedCount?></div><br><br>
+        <div class="table-responsive" id= "table">
+            <table class="table table-hover " >
+                <thead>
                     <th>Title</th>
                     <th>Category</th>
                     <th>Description</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>State</th>
-                
-            </thead>
-            <tbody>
-                <tr>
-                    <?php
-                        foreach ($promotionList as $promo){
-                            echo "<tr>";
-                            echo "<td>   ".$promo["title"]."</td>";
-                            echo "<td>".$promo["category"]."</td>";
-                            echo "<td>".$promo["description"]."</td>";
-                            echo "<td>".$promo["start_date"]."</td>";
-                            echo "<td>".$promo["end_date"]."</td>";
-                            echo "<td>".$promo["state"]."</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <form action="<?=PROOT?>promoter/monthlyreport" method="post" target="_blank">
-        <input type="submit" value="Download Pdf" name="generatepdf"><br>
-    </form>
-        <!-- <button type= "button" id = "generatePdf" value="generatePdfAction()">Download pdf</button> -->
-    <div>
-    <!-- <button type= "button" id = "generatePdf" onclick="generatePdf()">Download pdf</button> -->
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php
+                            foreach ($promotionList as $promo){
+                                echo "<tr>";
+                                echo "<td>".$promo["title"]."</td>";
+                                echo "<td>".$promo["category"]."</td>";
+                                echo "<td>".$promo["description"]."</td>";
+                                echo "<td>".$promo["start_date"]."</td>";
+                                echo "<td>".$promo["end_date"]."</td>";
+                                echo "<td>".$promo["state"]."</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group" align = "right">
+            <form action="<?=PROOT?>promoter/monthlyreport" method="post" target="_blank">
+                <input type="submit" value="Download Pdf" name="generatepdf" class="btn btn-warning"><br>
+            </form>
+        </div>
     </div>
 <?php $this->end();?>
 
