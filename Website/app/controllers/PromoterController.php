@@ -1,5 +1,5 @@
 <?php
-include_once("C:/xampp/htdocs/alphapack-Refactor/Website/app/lib/pdf.php");
+include_once(ROOT."/app/lib/fpdf/fpdf.php");
 
 class PromoterController extends Controller {
 
@@ -127,7 +127,7 @@ class PromoterController extends Controller {
                 $header = array('Title','Category','Start Date','End Date','State');
                 
                 ob_start();
-                require_once('C:/xampp/htdocs/alphapack-Refactor/Website/app/lib/fpdf/fpdf.php');
+                require_once(ROOT.'/app/lib/fpdf/fpdf.php');
 
                 $pdf = new FPDF();
                 $pdf->SetFont('Arial','B');
