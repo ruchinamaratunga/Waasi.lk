@@ -69,10 +69,32 @@ class PromoterController extends Controller {
     }
 
     public function editPromoAction() {
-        $this->view->render('promoter/editpromo');
+        if(isset($_POST["editpromo-submit"])){
+//            dnd($_POST);
+            $this->view->render('promoter/editpromo');
+        }
+        else{
+//            $this->view->render('promoter/addpromo');
+            header("Location: ../");
+            die();
+//            redirect('promoter/index');
+        }
+
     }
 
     public function myPromoAction() {
+//        dnd(currentUser()->username);
+        // $posted_value = ['promoter' =>'off','catagory'=>'off','search' =>''];
+        $p = new Promotion();
+//        $this->view->searchResults = $p->find(['conditions'=>'end_date > ?','bind'=>[currentDate()],'order' => "start_date DESC"]);
+        $this->view->searchResults = $p->find(['conditions'=>'pr_username = ?','bind'=>[currentUser()->username],'order' => "start_date DESC"]);
+        // dnd($_POST);
+//        dnd($this->view->searchResults);
+//        if($_POST) {
+//            // $posted_values = mergeArray($posted_value,posted_values($_POST));
+//            $p = new Promotion();
+//            $this->view->searchResults = $p->Search($_POST);
+//        }
         $this->view->render('promoter/mypromo');
     }
 
