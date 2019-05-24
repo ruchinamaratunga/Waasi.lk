@@ -31,7 +31,7 @@
             "Home" : [""],
             "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
-        "Promoter" : ["index","mypromo","addpromo","editpromo"],
+        "Promoter" : ["index","mypromo","addpromo","editpromo","monthlyreport"],
         "Register" : ["logout"]
     }
 }

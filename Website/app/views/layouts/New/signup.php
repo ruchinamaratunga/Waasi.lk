@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+
     <meta charset="UTF-8">
     <title>Customer Signup</title>
     <link rel="shortcut icon" type="image/ico" href="<?=PROOT?>img/favicon.png" />

@@ -8,7 +8,7 @@ class Promotion extends Model {
         $this->_softDelete = true;
     }
 
-    public function Search($params=[]) {
+    public function search($params=[]) {
         $results = [];
         $today = currentDate();
 
@@ -16,6 +16,8 @@ class Promotion extends Model {
             $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
         } elseif ($params['catagory'] == "on") {
             $this->query("SELECT * FROM promotion WHERE  catagory = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
+        } elseif ($params['promoterDetails'] == "on") {
+            $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND deleted = ? AND end_date > ?  ORDER BY start_date DESC" , [$params['search'],$params['deleted'],$today]);
         } else {
             $this->query("SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
         }
@@ -74,6 +76,7 @@ class Promotion extends Model {
 //        Promotion::addPromotionToDB($promotion);
 
     }
+
 
     public function validatePromo() {
 

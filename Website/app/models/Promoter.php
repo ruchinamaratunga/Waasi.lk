@@ -28,8 +28,26 @@ class Promoter extends Model {
         }
     }
 
+    /*
+    * This method is used to read the first result of the result query
+    */
     public function findByUsername($username) {
         return $this->findFirst(['condition' => "username = ?" , 'bind' => [$username]]);
+    }
+    
+    /*
+    * This method is used to read all the results of the result query
+    */
+    public function findPromotionsByUsername($username) {
+        return $this->find(['condition' => "username = ?" , 'bind' => [$username]]);
+    }
+
+    /*
+    * This method is used to read the number of subscribed customers of the promoter
+    */
+    public function findSubscribedCustomerCount($username){
+        $count_obj =  ($this->query("SELECT COUNT(DISTINCT customer) FROM subscribe WHERE promoter = (?)",[$username]))->results()[0];
+        return ($count_obj->{"COUNT(DISTINCT customer)"});
     }
 
     /**
