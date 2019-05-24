@@ -1,4 +1,4 @@
-<?php $this->setSiteTitle("About Us"); ?>
+<?php $this->setSiteTitle("Contact Us"); ?>
 <?php $this->start('body'); ?>
 
 <header class="top-area single-page" id="home">
@@ -10,7 +10,7 @@
                 <div class="row flex-v-center">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="welcome-text text-center">
-                            <h2>About Us</h2>
+                            <h2>Contact Us</h2>
                         </div>
                     </div>
                 </div>
@@ -24,12 +24,8 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="area-title text-center">
-                            <h3>What is waasi.lk?</h3>
-                            <p>waasi.lk is a website where you can buy and sell almost everything. The best deals are often done with people who live in your own city or on your own street, so on ikman.lk it's easy to buy and sell locally. All you have to do is select your region.</p>
-							<p>It takes less than 2 minutes to post an ad on waasi.lk. You can sign up for a free account and post ads easily every time.</p>
-							<p>wassi.lk has the widest selection of popular second hand items all over Sri Lanka, which makes it easy to find exactly what you are looking for. So if you're looking for a car, mobile phone, house, computer or maybe a pet, you will find the best deal on ikman.lk.</p>
-							<p>waasi.lk does not specialize in any specific category - here you can buy and sell items in 6 different categories. We also carefully review all ads that are being published, to make sure the quality is up to our standards.</p>
-							<p>If you'd like to get in touch with us, go to <a href="<?=PROOT?>home/contactus" style="color:#F9D970" target="new">Contact us.</a></p>
+                            <h3>GET IN TOUCH</h3>
+                            <p>Need any help jusct send a message via our email address</p>
                         </div>
                     </div>
                 </div>
@@ -86,6 +82,13 @@
 <!--                    </div>-->
 					<div class="area-title text-center wow fadeIn">
                         <div class="contact-image">
+                            <div class="contact-address">
+                                <p>Phone: <a href="callto:01744430440">+88-01744-430-440</a></p>
+                                <p>Email: <a href="mailto:backpiper.com@gmail.com">backpiper.com@gmail.com</a></p>
+                                <address>
+                                    Office  :  29 road, Sec-08, Uttara-1204, Dhaka, Bangladesh.
+                                </address>
+                            </div>
                             <div class="social-bookmark">
                                 <h4>Follow Us </h4>
                                 <ul>

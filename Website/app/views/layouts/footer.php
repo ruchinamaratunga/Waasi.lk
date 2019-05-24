@@ -29,11 +29,15 @@
                         <div class="single-footer-widget list-widget">
                             <h3>Customer Service</h3>
                             <ul>
+<!--
                                 <li><a href="#">Support Forums</a></li>
                                 <li><a href="#">Communication</a></li>
                                 <li><a href="#">FAQS</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Contact Us</a></li>
+-->							
+                                <li><a href="<?=PROOT?>home/contactus">Contact Us</a></li>
+								<?php if (get_current_user()): ?>
+									<li><a href="<?=PROOT?>home/settings" target="new">Settings</a></li>
+								<?php endif ?>
                             </ul>
                         </div>
                     </div>
@@ -82,7 +86,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="footer-social-bookmark text-right wow fadeIn">
                             <ul class="social-bookmark">
-								<li><a href="https://www.facebook.com/%E0%B7%80%E0%B7%8F%E0%B7%83%E0%B7%92lk-491144901414109/?modal=admin_todo_tour"><i class="fa fa-facebook fa-2x"></i></a></li>
+								<li><a href="https://www.facebook.com/%E0%B7%80%E0%B7%8F%E0%B7%83%E0%B7%92lk-491144901414109/?modal=admin_todo_tour" target="new"><i class="fa fa-facebook fa-2x"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
                             </ul>
                         </div>

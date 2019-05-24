@@ -25,7 +25,12 @@
         <div id="main-nav" class="stellarnav">
               <ul id ="nav" class="nav navbar-nav pull-right">
                 <?php if(currentUser()): ?>
-                  <li><a href="#">Hello <?=currentUser()->user_type?></a></li>
+                  <li class="logged-user"><a href="#">Hello <?=currentUser()->username?></a>
+					  <ul>
+						  <li><a href="<?=PROOT?>home/settings" target="new">Settings</a></li>
+						  <li><a href="register/logout">Logout</a></li>
+					  </ul>
+				  </li>
                 <?php endif;?>
               </ul>
               <ul id="nav" class="nav navbar-nav">
@@ -47,7 +52,13 @@
                     </li>
                   <?php else: 
                     $active = ($val == $currentPage) ? 'active':'';?>
+				  	<?php if($key == 'Login'): ?>
+						<li class = "logged-user"><a class="<?=$active?>" href="<?=$val?>"><?=$key?></a></li>
+				    <?php elseif($key=='Logout'): ?>
+				  		<? ?>
+				  	<?php else: ?>
                       <li><a class="<?=$active?>" href="<?=$val?>"><?=$key?></a></li>
+				  	<?php endif ?>
                   <?php endif;?>
                 <?php endforeach;?>
                 <!-- <li><a href="#">home</a></li>

@@ -26,4 +26,12 @@ class HomeController extends Controller{
     public function aboutAction() {
         $this->view->render('home/about');
     }
+	
+	public function contactusAction(){
+        $this->view->render('home/contactus');	
+	}
+	
+	public function settingsAction(){
+        $this->view->render('home/settings');	
+	}
 }

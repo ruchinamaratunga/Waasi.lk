@@ -7,6 +7,30 @@ h2.index-h2{
 
 /*-------------------------------------------*/
 
+/*Contact Us*/
+.top-area-bg-contact-us{
+	background: rgba(0, 0, 0, 0) url("../img/blog/blog_7.jpg") no-repeat scroll center center / cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top-area-bg-contact-us::after{
+	background: #3c4147;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+/*-------------------------------------------*/
+
 /*Promoter Template*/
 .top-area-bg-promoter-index{
 	background: rgba(0, 0, 0, 0) url("../img/slider/slide_1.jpg") no-repeat scroll center center / cover;
