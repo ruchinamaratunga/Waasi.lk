@@ -21,7 +21,7 @@ class HomeController extends Controller{
     public function aboutAction() {
         $this->view->render('home/about');
     }
-<<<<<<< HEAD
+
 	
 	public function contactusAction(){
         $this->view->render('home/contactus');	
@@ -30,8 +30,7 @@ class HomeController extends Controller{
 	public function settingsAction(){
         $this->view->render('home/settings');	
 	}
-}
-=======
+
 
     public function promoterpageAction($username) {
         $promoter = new Promoter($username);
@@ -106,6 +105,3 @@ class HomeController extends Controller{
     }
 }
 
-
-
->>>>>>> origin/ruchin
