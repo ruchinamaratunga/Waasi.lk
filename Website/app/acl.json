@@ -1,7 +1,7 @@
 {
     "Guest" : {
         "denied" : {},
-        "Home" : ["*"],
+        "Home" : ["index","about"],
         "Promotion" : ["index"],
         "Register" : ["login","register","promoterRegistration"],
         "Restricted" : ["*"],
@@ -10,10 +10,13 @@
     },
     "loggedIn" : {
         "denied" : {
-            "Register" : ["login","register"]
+            "Register" : ["login","register","promoterRegistration"]
         },
+        "Notifications" : ["*"],
+        "Home" : ["promoterpage"],
         "Register" : ["logout"],
-        "Promotion" : ["*"]
+        "Promotion" : ["*"],
+        "Settings" : ["*"]
         
     },
     "Admin" : {
@@ -28,10 +31,10 @@
     "Promoter" : {
         "denied" : {
             "Promotion" : ["index"],
-            "Home" : [""],
+            "Home" : ["promoterpage","index"],
             "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
-        "Promoter" : ["index","mypromo","addpromo","editpromo"],
+        "Promoter" : ["index","mypromo","addpromo","editpromo","monthlyreport"],
         "Register" : ["logout"]
     }
 }

@@ -8,18 +8,14 @@ class Promotion extends Model {
         $this->_softDelete = true;
     }
 
-    public function Search($params=[]) {
+    public function search($params=[]) {
         $results = [];
         $today = currentDate();
-
-        if($params["promoter"] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  pr_username = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
-        } elseif ($params['catagory'] == "on") {
-            $this->query("SELECT * FROM promotion WHERE  catagory = ? AND state = ? AND end_date > ? ORDER BY start_date DESC" , [$params['search'],"Approved",$today]);
-        } else {
-            $this->query("SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
-        }
+        // dnd($params);
+        $this->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
+        
         $resultsQuery = $this->_db->results();
+        // dnd($resultsQuery);
         foreach($resultsQuery as $result) {
             $obj = new Promotion($this->_table);
             $obj->populateObjData($result);
@@ -33,6 +29,11 @@ class Promotion extends Model {
         $today = currentDate();
         $results = $this->find(['conditions' => ['catagory = ?' ,'end_date > ?','state = ?'],'bind' => [$catagory,$today,'Approved'],'order' => "start_date DESC"]);
         return $results;
+    }
+
+    public function getPromoByPromoter($promoter) {
+        $today = currentDate();
+        return $this->find(['conditions' => ['pr_username = ?' ,'end_date > ?','state = ?'],'bind' => [$promoter,$today,'Approved'],'order' => "start_date DESC"]);
     }
 
     public function comfirmPromotions($promotion) {
@@ -49,12 +50,12 @@ class Promotion extends Model {
 
     public function uploadImage(){
 
-        $target_dir = IMAGE_STORE_PATH;
+        $target_dir = ROOT.'/img/Promotions/';
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"],".tmp").".".strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
 
 //        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        $image=basename($target_file);
+        $image='/img/Promotions/'.basename($target_file);
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 //                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
@@ -74,6 +75,7 @@ class Promotion extends Model {
 //        Promotion::addPromotionToDB($promotion);
 
     }
+
 
     public function validatePromo() {
 

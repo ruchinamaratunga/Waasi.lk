@@ -24,7 +24,6 @@ class Customer extends Model {
                     $this->$key = $val;
                 }
             }
-            // echo $this->username;
         }
     }
 
@@ -88,6 +87,25 @@ class Customer extends Model {
     public function acls() {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
+    }
+
+    public function subscribe($promoter){
+        $this->_db->insert('subscribe',array(
+            'customer' => $this->username,
+            'promoter' => $promoter
+        ));
+    }
+
+    public function unsubscribe($promoter) {
+        $this->_db->query("DELETE FROM subscribe WHERE customer = ? AND promoter = ?" , array($this->username,$promoter));
+    }
+
+    public function subscribePromoters() {
+        // return $this->_db->query("SELECT * FROM subscribe WHERE customer = ?", array($this->username));
+        return $this->_db->find('subscribe',array(
+            'conditions' => 'customer = ?',
+            'bind' => [$this->username]
+        ));
     }
 }
 

@@ -5,6 +5,7 @@ class Promoter extends Model {
             $_sessionName,
             $_cookieName;
     public static $currentLoggedInUser = null;
+    public $count = 5;
 
     public function __construct($user='') {
         $table = 'promoter';
@@ -15,21 +16,38 @@ class Promoter extends Model {
 
         if($user != '') {
             if(is_int($user)) {
-                $u = $this->_db->findFirst('users',['conditions'=>'id = ?', 'bind'=>[$user]]);
+                $u = $this->_db->findFirst('promoter',['conditions'=>'id = ?', 'bind'=>[$user]]);
             } else {
-                $u = $this->_db->findFirst('users',['conditions'=>'username = ?', 'bind'=>[$user]]);
+                $u = $this->_db->findFirst('promoter',['conditions'=>'username = ?', 'bind'=>[$user]]);
             }
             if($u) {
                 foreach($u as $key =>$val) {
                     $this->$key = $val;
                 }
             }
-            // echo $this->username;
         }
     }
 
+    /*
+    * This method is used to read the first result of the result query
+    */
     public function findByUsername($username) {
         return $this->findFirst(['condition' => "username = ?" , 'bind' => [$username]]);
+    }
+    
+    /*
+    * This method is used to read all the results of the result query
+    */
+    public function findPromotionsByUsername($username) {
+        return $this->find(['condition' => "username = ?" , 'bind' => [$username]]);
+    }
+
+    /*
+    * This method is used to read the number of subscribed customers of the promoter
+    */
+    public function findSubscribedCustomerCount($username){
+        $count_obj =  ($this->query("SELECT COUNT(DISTINCT customer) FROM subscribe WHERE promoter = (?)",[$username]))->results()[0];
+        return ($count_obj->{"COUNT(DISTINCT customer)"});
     }
 
     /**
@@ -89,6 +107,51 @@ class Promoter extends Model {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
     }
+
+    public function getPromotions() {
+        $p = new Promotion();
+        $promotions = $p->getPromoByPromoter($this->username);
+        return $promotions;
+    }
+
+    public function recieveComment($comment,$commentee) {
+        $promoter = $this->username;
+        $date = currentDate();
+        $this->_db->insert('comments',array(
+            'promoter' => $promoter,
+            'customer' => $commentee,
+            'comment' => $comment,
+            'date' => $date
+        ));
+    }
+
+    public function showComments() {
+        // $comments = $this->query("SELECT * FROM comments WHERE promoter = ?", array($this->username));
+        $comments = $this->_db->find('comments',array(
+            'conditions' => 'promoter = ?',
+            'bind' => [$this->username]
+        ));
+        return $comments;
+    }
+
+    public function isSubscribe() {
+        $customer = currentUser()->username;
+        // dnd($customer);
+        // dnd($this->_db->find('subscribe',['conditions' =>['promoter = ?','customer = ?'],'bind'=>[$this->username,$customer]]));
+        if($this->_db->find('subscribe',['conditions' =>['promoter = ?','customer = ?'],'bind'=>[$this->username,$customer]])){
+            return true;
+        }
+        return false;
+    }
+
+    public function getSubscribers() {
+        return $this->_db->find('subscribe',array(
+            'conditions' => 'promoter = ?',
+            'bind' => [$this->username]
+        ));
+    }
+
+
 }
 
 

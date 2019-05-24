@@ -27,6 +27,12 @@ function currentUser() {
     return Users::currentLoggedInUser();
 }
 
+function userType() {
+    if(currentUser()){
+        return currentUser()->user_type;
+    }
+}
+
 function posted_values($post) {
     $clean_ary = [];
     foreach($post as $key=>$value) {

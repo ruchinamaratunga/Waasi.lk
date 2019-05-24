@@ -12,18 +12,16 @@ class PromotionController extends Controller {
     }
 
     public function indexAction() {
-        $posted_value = ['promoter' =>'off','catagory'=>'off','search' =>''];
-        $this->view->searchResults = $this->PromotionModel->find(['order' => "start_date DESC"]);
-        
+        // $posted_value = ['promoter' =>'off','catagory'=>'off','search' =>''];
+        $this->view->searchResults = $this->PromotionModel->find(['conditions'=>'end_date > ?','bind'=>[currentDate()],'order' => "start_date DESC"]);
+        // dnd($_POST);
         if($_POST) {
-            $posted_values = mergeArray($posted_value,posted_values($_POST));
-            $this->view->searchResults = $this->PromotionModel->Search($posted_values);
+            // $posted_values = mergeArray($posted_value,posted_values($_POST));
+            $p = new Promotion();
+            $this->view->searchResults = $p->Search($_POST);
         }
         
         $this->view->render('promotion/index');
     }
 
-    public function addpromoAction() {
-        $this->view->render('promotion/addpromo');
-    }
 }

@@ -25,7 +25,7 @@
   <script src="<?=PROOT?>js/vendor/bootstrap.min.js"></script>  
   <script src="<?=PROOT?>js/vendor/modernizr-2.8.3.min.js"></script>
 
-  
+  <title><?= $this->siteTitle(); ?></title>
   <?= $this->content('head'); ?>
 
   </head>
@@ -41,9 +41,9 @@
   
     <div class="top-area-bg" data-stellar-background-ratio="0.6"></div>
     <div class="header-top-area">
-        <?php include 'main_menu.php' ?>
+        <?php include 'main_menu.php'  ?>
     </div>
-    <?= $this->content('body'); ?>
+    <?= $this->content('body'); ?>  
     <div >
       <?php include 'footer.php' ?>
     </div>
