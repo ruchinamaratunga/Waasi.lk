@@ -34,7 +34,9 @@
     // // dnd($user->{$username});
     // $new = $user->findById(3);
     // dnd($new);
-
+    // $p = new Customer(currentUser()->username);
+    // $k =$p->getNotifications();
+    // dnd($k);
     // $u = currentUser()->acls();
     // dnd($u);
     // $user = new Users('ruchin1');

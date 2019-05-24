@@ -1,5 +1,5 @@
 {
-    "Notifications" : {"Notifications":"home/index"},
+    "Notifications" : {"Notifications":"Notifications"},
     "Home" : "home/index",
     "About" : "home/about",
     "Promotion" : "promotion/index",

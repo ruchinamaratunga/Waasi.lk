@@ -12,8 +12,7 @@
         "denied" : {
             "Register" : ["login","register","promoterRegistration"]
         },
-        "Notifications" : ["*"],
-        "Home" : ["promoterpage"],
+        "Home" : ["*"],
         "Register" : ["logout"],
         "Promotion" : ["*"],
         "Settings" : ["*"]

@@ -10,4 +10,13 @@ class SettingsController extends Controller {
     public function indexAction() {
         $this->view->render('settings/index');
     }
+
+    public function notificationAction() {
+        
+
+        exit;
+        $resp = ['resp' => 'more comments'];
+        $this->jsonResponse($resp);
+        
+    }
 }

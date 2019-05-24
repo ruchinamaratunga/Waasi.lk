@@ -36,6 +36,11 @@ class Promotion extends Model {
         return $this->find(['conditions' => ['pr_username = ?' ,'end_date > ?','state = ?'],'bind' => [$promoter,$today,'Approved'],'order' => "start_date DESC"]);
     }
 
+    public function getPromoById($id) {
+        $today = currentDate();
+        return $this->find(['conditions' => ['promo_id = ?' ,'end_date > ?','state = ?'],'bind' => [$id,$today,'Approved'],'order' => "start_date DESC"]);
+    }
+
     public function comfirmPromotions($promotion) {
         $this->update($promotion->id,array(
             'state' => 'Approved'
@@ -84,26 +89,11 @@ class Promotion extends Model {
 
     }
 
-    
-
-    // public static function readPromotionFromDB($promoID){
-	// 	$dbh=new Dbh();
-	// 	$conn = $dbh->connect();
-	// 	$sql = $conn->prepare("SELECT * from confirmed_promotion WHERE promo_id = ?");
-				
-	// 	$sql->bind_param("s", $promoID);
-	// 	$sql->execute();
-	// 	$results = $sql->get_result();
-	// 	if($row = $results->fetch_array(MYSQLI_ASSOC)){
-
-	// 		//$promoID,$category,$title,$description,$image,$link,$state,$startDate,$endDate,$location,$pr_username,$ad_username
-    //         return new Promotion($row["promo_id"],$row["category"],$row["title"],$row["description"],$row["image_path"],$row["link"],$row["state"],$row["start_date"],$row["end_date"],$row["location"],$row['pr_username'],$row["ad_username"]);
-	// 	}
-
-	// 	else{
-	// 		return null;
-	// 	}	
-	// }
+    public function confirmPromotion() {
+        $this->update($this->promo_id,array(
+            'state' => 'Approved'
+        ));
+    }
 
 
 }
