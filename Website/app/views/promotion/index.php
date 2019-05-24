@@ -1,5 +1,13 @@
 <?php 
     $results = $this->searchResults ;
+
+    // function runMyFunction() {
+    //     echo 'I just ran a php function';
+    //   }
+    
+    //   if (isset($_GET['hello'])) {
+    //     echo $_GET['hello'];
+    //   }
 ?>
 
 <?php $this->setSiteTitle("වාසි.lk"); ?>
@@ -39,11 +47,11 @@
             </div> -->
             <div class="single-sidebar-widget widget_search">
                 <form method= "post" style="border : none;">
-                    <div class="dropdown pull-right">
+                    <!-- <div class="dropdown pull-right">
                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
+                        </button> -->
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" method="post">
                             <div class="input-group">
                                 <input name = "promoter" id="promoter" type="checkbox" aria-label="...">
                                 <label for="promoter">Promoter</label>
@@ -54,8 +62,8 @@
                                     <input name = "catagory" id="catagory" type="checkbox" aria-label="...">
                                 </span><label for="catagory">Catagory</label>
                             </div>
-                        </ul>
-                    </div>
+                        </ul> 
+                     </div> -->
                 
                     <div class="input-group pull-right">
                         <input type="text" class="form-control" id="search" name="search"  placeholder="Search">
@@ -73,9 +81,38 @@
                 <div class="row">
                     <?php if(count($results)):?>
                         <?php foreach($results as $result): ?>
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                <div class="single-blog wow fadeIn">
+                                    <div class="blog-image">
+                                        <img src="<?=PROOT?><?=$result->image_path?>" alt="">
+                                    </div>
+                                    <div class="blog-details">
+                                        <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
+                                        <h3><a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>"><?=$result->title?></a></h3>
+                                        <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
+                                        <p><?=$result->description?></p> 
+                                        <a href="<?=$result->link?>" class="read-more">Visit us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach;?>
+                    <?php else: ?>
+                        <div class="nopromo">
+                            <div class="text-center">No Promotions</div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="panel-body">
+            <div class="container">
+                <div class="row">
+                    <?php if(count($results)):?>
+                        <?php foreach($results as $result): ?>
                             <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                                 <div class="card">
-                                    <img src="<?=PROOT?><?=$result->image_path?> " class="img-rounded card-img-top" alt="...">
+                                    <img src="<?=PROOT?><?=$result->image_path?>" class="img-rounded card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?=$result->title?></h5>
                                         <p class="card-text"><?=$result->description?></p>
@@ -91,6 +128,6 @@
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
+        </div>  -->
     </section>
 <?php $this->end() ?>

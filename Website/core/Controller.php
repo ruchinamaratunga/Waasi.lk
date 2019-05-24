@@ -23,4 +23,12 @@ class Controller extends Application {
             $this->{$model.'Model'} = new $model();           // create a object of it self, if $model = user instantiating a register return a userModel object
         }
     }
+
+    public function jsonResponse($resp) {
+        header("Access-Control-Allow-Origin: *");
+        header("Content-Type: application/json; chsrset=UTF-8");
+        http_response_code(200);
+        echo json_encode($resp);
+        exit;
+    }
 }  

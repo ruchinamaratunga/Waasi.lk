@@ -35,8 +35,6 @@
     // $new = $user->findById(3);
     // dnd($new);
 
-
-
     // $u = currentUser()->acls();
     // dnd($u);
     // $user = new Users('ruchin1');
@@ -45,7 +43,10 @@
     // dnd(currentDate());
     // dnd('2018-05-24'>'2019-04-25');
     // $db = DB::getInstance();
-    // $db->query("SELECT * FROM promotion WHERE pr_username = ? AND end_date > ? ORDER BY start_date DESC",array('Food',currentDate()));
+    // $params = array('search'=>'pizza hut');
+    // $today = currentDate();
+    // $db->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
+        // $db->query("SELECT * FROM promotion WHERE pr_username = ? AND end_date > ? ORDER BY start_date DESC",array('Food',currentDate()));
     // dnd($db->results());
     // $temp = $db->results()[0]->lname;
     // dnd($temp);
@@ -54,9 +55,8 @@
     // "SELECT * FROM promotion WHERE pr_username => ? AND end_date > ? ORDER BY start_date
     // SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND end_date > ? ORDER BY start_date
 
-    // dnd(password_hash('pizzahut', PASSWORD_DEFAULT));
+    // dnd(password_hash('arthurspizza', PASSWORD_DEFAULT));
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : [];
-
     if(!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
         Users::loginUserFromCookie();
     }
