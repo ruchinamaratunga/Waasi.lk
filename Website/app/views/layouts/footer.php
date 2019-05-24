@@ -33,9 +33,9 @@
                                 <li><a href="#">Support Forums</a></li>
                                 <li><a href="#">Communication</a></li>
                                 <li><a href="#">FAQS</a></li>
--->							
+-->								<li><a href="<?=PROOT ?>home/about">About Us</a></li>
                                 <li><a href="<?=PROOT?>home/contactus">Contact Us</a></li>
-								<?php if (get_current_user()): ?>
+								<?php if (currentUser()): ?>
 									<li><a href="<?=PROOT?>home/settings" target="new">Settings</a></li>
 								<?php endif ?>
                             </ul>
