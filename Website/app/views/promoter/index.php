@@ -1,3 +1,6 @@
+<?php
+    $subscribes = $this->promoter->getSubscribers(); 
+?>
 
 <?php $this->start('head');?>
     
@@ -81,76 +84,66 @@
     <!--TESTMONIAL AREA -->
 	
 	<!-- COMMENT SECTION -->
-	<?php			
-			echo('<section class="service-area-three section-padding">
-        			<div class="container">
-            		<div class="row">
-                	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+    <!-- <section class="service-area-three section-padding">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
                     <div class="area-title text-center wow fadeIn">
                         <h2>What does customers says..</h2>
                         <p>Customer comments.</p>
                     </div>
-                	</div>
-            		</div>
-            		<div class="row">');
-			
-			if(empty($comments)){
-				echo('<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    	<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                    <div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
                         <div class="service-icon-three"><i class="fa fa-comment"></i></div>
                         <h4>No comments just yet..</h4>
-                    	</div>
-                		</div>');
-			}
-			else{
-				
-				$len = sizeof($comments);
-				for ($i=0; $i<$len ; $i++){
-					$temp = $comments[$i];
-					echo('<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    	<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+                    </div>
+                </div>
+			    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                	<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
                         <div class="service-icon-three"><i class="fa fa-comment"></i></div>
                         <h4>'.$temp[1].'</h4>
 						<h5>'.$temp[0].'</h5>
-                    	</div>
-                		</div>');
-				}
-				
-			}
-			echo('</div>
-				</div>
-    			</section>');
-	
-	
-	?>
+                	</div>
+            	</div>
+			</div>
+		</div>
+    </section> -->
+
 	
 	<!--SUBSCRIBERS SECTION-->
-	<?php
-	
-		echo('<section class="service-area-three section-padding">
-        			<div class="container">
-            		<div class="row">
-                	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+    <section class="service-area-three section-padding">
+        <div class="container">
+        	<div class="row">
+            	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
                     <div class="area-title text-center wow fadeIn">
-                        <h2>Subscribers count</h2>
+                        <h2>Subscribers</h2>
                         <p>People who have subscribed you!</p>
                     </div>
-                	</div>
-            		</div>
-            		<div class="row">');
+            	</div>
+        	</div>
+            <div class="row">
+                <?php if($subscribes):?>
+		            <?php foreach($subscribes as $subscribe):?>
+                        <?php subscribersBlock($subscribes) ?>
+		            <?php endforeach;?>
+		        <?php else: ?>
+		            <div class="single-blog wow fadeIn">
+			            <div class="blog-details">
+				            <div class="blog-meta"></div>
+				            <h3>You have not subscribed any promoters</h3>
+			            </div>
+		            </div><br/>
+		        <?php endif;?>
+	        </div>
+        </div>
+    </section>
+
+
 	
-	
-		echo('<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-             <div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
-             <div class="service-icon-three"><i class="fa fa-users"></i></div>
-             <h4>'.$subCount.'</h4>
-             </div>
-               </div>');
-	
-		echo('</div>
-			</div>
-    		</section>');
-	
-	?>
+
 
 <?php $this->end();?>

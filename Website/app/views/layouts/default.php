@@ -25,7 +25,7 @@
   <script src="<?=PROOT?>js/vendor/bootstrap.min.js"></script>  
   <script src="<?=PROOT?>js/vendor/modernizr-2.8.3.min.js"></script>
 
-  
+  <title><?= $this->siteTitle(); ?></title>
   <?= $this->content('head'); ?>
 
   </head>

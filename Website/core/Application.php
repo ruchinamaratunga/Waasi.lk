@@ -1,9 +1,3 @@
-<!-- 
-For all the private methods and attribute we start 
-with the name with "_" 
--->
-
-<!-- Application is the parent class of every Controller -->
 
 <?php
 

@@ -9,6 +9,8 @@ class PromoterController extends Controller {
     }
 
     public function indexAction() {
+        $promoter = new Promoter(currentUser()->username);
+        $this->view->promoter = $promoter;
         $this->view->render('promoter/index');
     }
 
@@ -17,12 +19,6 @@ class PromoterController extends Controller {
         // echo password_hash('password', PASSWORD_DEFAULT);
         $validation = new Validate();
         if($_POST) {
-            // $validation = true;
-            // if($validation) {
-            //     $user = $this->UsersModel->findByUsername($_POST['username']);
-            //     dnd($user);
-            // }
-            //from valisation
             $validation->check($_POST,[
                 'title' =>[
                     'display' => "Title",
@@ -45,8 +41,6 @@ class PromoterController extends Controller {
             $validation->imageFileValidate();
 
             if($validation->passed()) {
-
-
                 $promotion = new Promotion();
                 $image_path = $promotion->uploadImage();
 //                $image_path="testpath";
