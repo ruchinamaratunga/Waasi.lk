@@ -42,9 +42,21 @@ h2.index-h2{
     background-color: #FFCA28;
 }
 
+.report{
+    margin:40px;    
+}
+
+.report table{
+    border-radius: 25px;
+}
+
+.report submit{
+    align:right;
+}
+
 #table {
-    margin:40px;
-  }
+    border-radius: 5px;
+}
 #table table{
     border-collapse: collapse;
     width: 100%;
