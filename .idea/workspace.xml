@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8472cfbd-e555-429f-ba67-556939fb7bc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/controllers/PromotionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/controllers/PromotionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/views/promotion/addpromo.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/config/config.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Website/app/controllers/PromoterController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="85" column="13" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="13" />
+            <state relative-caret-position="45">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -30,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/mypromo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
-              <caret line="105" column="58" lean-forward="true" selection-start-line="105" selection-start-column="58" selection-end-line="105" selection-end-column="58" />
+              <caret line="105" column="58" selection-start-line="105" selection-start-column="58" selection-end-line="105" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -39,7 +35,16 @@
         <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="53" column="84" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="84" />
+              <caret line="53" column="84" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Website/app/controllers/PromoterController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -59,6 +64,7 @@
       <find>input</find>
       <find>pass</find>
       <find>current</find>
+      <find>dnd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -83,10 +89,10 @@
         <option value="$PROJECT_DIR$/Website/css/style/registerform.css" />
         <option value="$PROJECT_DIR$/Website/app/views/register/register.php" />
         <option value="$PROJECT_DIR$/Website/js/formValidation.js" />
-        <option value="$PROJECT_DIR$/Website/config/config.php" />
         <option value="$PROJECT_DIR$/Website/app/controllers/PromotionController.php" />
-        <option value="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" />
         <option value="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" />
+        <option value="$PROJECT_DIR$/Website/config/config.php" />
+        <option value="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" />
       </list>
     </option>
   </component>
@@ -133,6 +139,12 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="promoter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,7 +198,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91814000" />
+    <option name="totallyTimeSpent" value="91943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="7" />
@@ -373,13 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/acl.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37">
@@ -497,21 +502,28 @@
     <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/mypromo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="105" column="58" lean-forward="true" selection-start-line="105" selection-start-column="58" selection-end-line="105" selection-end-column="58" />
+          <caret line="105" column="58" selection-start-line="105" selection-start-column="58" selection-end-line="105" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="53" column="84" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="84" />
+          <caret line="53" column="84" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/controllers/PromoterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="85" column="13" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="13" />
+        <state relative-caret-position="383">
+          <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
         </state>
       </provider>
     </entry>
