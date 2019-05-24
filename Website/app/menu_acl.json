@@ -1,4 +1,5 @@
 {
+    "Notifications" : {"Notifications":"home/index"},
     "Home" : "home/index",
     "About" : "home/about",
     "Promotion" : "promotion/index",

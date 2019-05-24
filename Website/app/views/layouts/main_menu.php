@@ -33,36 +33,44 @@
                   <li><a href="#">Hello <?=currentUser()->user_type?></a></li>
                 <?php endif;?>
               </ul>
-              <ul id="nav" class="nav navbar-nav">
+              <ul id="nav" class="nav navbar-nav">                  
+                
                 <?php foreach($menu as $key => $val): 
                   $active = '';?>
                   <?php if(is_array($val)):?>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$key?> <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <?php foreach($val as $k => $v):
-                          $active = ($v == $currentPage) ? 'active':''; ?>
-                          <?php if($k == 'seperator'): ?>
-                            <li role="separator" class="divider"></li>
-                          <?php else: ?>
-                            <li><a class="<?=$active?>" href="<?=$v?>"><?=$k?></a></li>                    
-                          <?php endif; ?>
-                        <?php endforeach; ?>
-                      </ul>
-                    </li>
+                    
+                    <?php if($val == "Notifications"): ?>
+                      <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification <span class="badge" style="color:white">5</span></a>
+                        <ul class="dropdown-menu">
+                          <a href="#">
+                            <small><i>feb 18, 2019</i></small><br>
+                            Odel 40% off for Sampath Credit card
+                          </a>
+                          <li role="separator" class="divider"></li>
+                        </ul>
+                      </li>
+                    <?php else:?>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$key?></a>
+                        <ul class="dropdown-menu">
+                          <?php foreach($val as $k => $v):
+                            $active = ($v == $currentPage) ? 'active':''; ?>
+                            <?php if($k == 'seperator'): ?>
+                              <li role="separator" class="divider"></li>
+                            <?php else: ?>
+                              <li><a class="<?=$active?>" href="<?=$v?>"><?=$k?></a></li>                    
+                            <?php endif; ?>
+                          <?php endforeach; ?>
+                        </ul>
+                      </li>
+                    <?php endif;?>
                   <?php else: 
                     $active = ($val == $currentPage) ? 'active':'';?>
                       <li><a class="<?=$active?>" href="<?=$val?>"><?=$key?></a></li>
                   <?php endif;?>
                 <?php endforeach;?>
-                <!-- <li><a href="#">home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">Service</a>
-                  <ul>
-                    <li><a href="promoterSignup.php">Register as a promoter</a></li>
-                  </ul>
-                </li>
-                <li class="logged-user"><a href="login.php">LOGIN</a></li>	 -->
+    
               </ul>
         </div>
       </div>

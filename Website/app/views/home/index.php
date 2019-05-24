@@ -69,6 +69,7 @@
 
     <!--MAIN CATEGORIES AREA-->
     <section class="service-area-three section-padding" id="categories">
+
 		<div class="row">
 			<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
 				<div class="area-title text-center wow fadeIn">
@@ -209,11 +210,11 @@
 					<?php endif;?>
 				<?php else: ?>
 				<div class="single-blog wow fadeIn">
-							<div class="blog-details">
-								<div class="blog-meta"></div>
-								<h3>LoggIn to subscribe</h3>
-							</div>
-						</div>
+					<div class="blog-details">
+						<div class="blog-meta"></div>
+						<h3>LoggIn to subscribe</h3>
+					</div>
+				</div>
 				<?php endif;?>
 			</div>
 		</div>
