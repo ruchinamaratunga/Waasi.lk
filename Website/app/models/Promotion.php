@@ -8,7 +8,7 @@ class Promotion extends Model {
         $this->_softDelete = true;
     }
 
-    public function Search($params=[]) {
+    public function search($params=[]) {
         $results = [];
         $today = currentDate();
         // dnd($params);
@@ -75,6 +75,7 @@ class Promotion extends Model {
 //        Promotion::addPromotionToDB($promotion);
 
     }
+
 
     public function validatePromo() {
 

@@ -10,6 +10,7 @@
         "Promoter": "register/promoterRegistration",
         "Customer": "register/register"
     },
+    "Monthly Report" : "promoter/monthlyreport",
     "Login" : "register/login",
     "Logout" : "register/logout"
 }
