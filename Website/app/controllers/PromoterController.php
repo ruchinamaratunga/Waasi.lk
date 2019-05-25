@@ -69,8 +69,67 @@ class PromoterController extends Controller {
     }
 
     public function editPromoAction() {
-        if(isset($_POST["editpromo-submit"])){
+        if(isset($_POST["editthispromo-submit"])){
 //            dnd($_POST);
+            $this->view->displayErrors=null;
+            $p = new Promotion();
+            $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$_POST['promo_id']]]);
+
+
+            $this->view->render('promoter/editpromo');
+        }
+        else if(isset($_POST["editpromo-submit"])) {
+            $validation = new Validate();
+            $validation->check($_POST,[
+                'title' =>[
+                    'display' => "Title",
+                    'required' => true
+                ],
+                'description' =>[
+                    'display' => "Description",
+                    'required' => true
+                ],
+                'start_date' =>[
+                    'display' => "Start Date",
+                    'required' => true
+                ],
+                'end_date' =>[
+                    'display' => "Expire Date",
+                    'required' => true
+                ]
+            ]);
+
+            if($_FILES['fileToUpload']["error"] == 0){
+                $validation->imageFileValidate();
+                if($validation->passed()){
+                    $promotion = new Promotion();
+                    $image_path = $promotion->uploadImage();
+                }
+                if(empty($image_path)){
+                    $validation->addError("Image upload failed.");
+                }
+            }
+
+
+
+            if($validation->passed()) {
+
+                $promotion = new Promotion();
+
+//                dnd($_POST);
+                $promotion->addPromo(array_merge($_POST,['image_path'=>$image_path,'state'=>'Pending','pr_username'=>Promoter::currentLoggedInUser()->username,'ad_username'=>'admin','promo_id'=>$_POST['promo_id']]));
+
+                if($validation->passed()){
+
+                    $validation->addError("Promotion updated successfully.");
+                    $this->view->displayErrors = $validation->displayErrors();
+                    $this->view->render('promoter/editpromo');
+//                        Router::redirect('promoter/addpromo');
+                }
+
+            }
+
+            $this->view->displayErrors = $validation->displayErrors();
             $this->view->render('promoter/editpromo');
         }
         else{
