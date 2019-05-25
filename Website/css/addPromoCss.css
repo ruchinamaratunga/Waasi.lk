@@ -1,0 +1,10 @@
+/* CSS Document */
+button [name = 'addpromo-submit']:hover{
+	transform: scale(1.05);
+	background: #F9D970;
+}
+
+#addpromo-submit :hover{
+	transform: scale(1.05);
+	background: #F9D970;
+}

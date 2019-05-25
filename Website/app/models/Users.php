@@ -88,4 +88,82 @@ class Users extends Model {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
     }
+	
+	public function checkPassword($password){
+		
+		if(password_verify($password, $this->password)){
+			return true;
+		}
+		else{
+			return false;
+		}
+
+		
+	}
+	
+	public function passwordChange($id,$username,$newPassword){
+		$password = password_hash($newPassword, PASSWORD_DEFAULT);
+		$this->update($id,array('password' => $password));
+		if ($this->user_type == 'Customer'){
+			$user = new Customer($username);
+			$user->update($user->id,array('password' => $password));
+		}
+		elseif ($this->user_type == 'Promoter'){
+			$user = new Promoter($username);
+			$user->update($user->id,array('password' => $password));
+		}
+		$this->save();
+	}
+	
+	public function usernameChange($id,$currentUsername,$newUsername){
+		
+		if($this->update($id,['username' => $newUsername])){
+			if ($this->user_type == 'Customer'){
+				$user = new Customer($currentUsername);
+				if($user->update($user->id,['username' => $newUsername])){
+					return true;
+				}
+				return false;
+			}
+			elseif ($this->user_type == 'Promoter'){
+				$user = new Promoter($currentUsername);
+				if($user->update($user->id,['username' => $newUsername])){
+					return true;
+				}
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+
+//		$this->save();
+	}
+	
+	public function emailChange($id,$username,$newEmail){
+		
+		if($this->update($id,['email' => $newEmail])){
+			if ($this->user_type == 'Customer'){
+				$user = new Customer($username);
+				if($user->update($user->id,['email' => $newEmail])){
+					return true;
+				}
+				return false;
+			}
+			elseif ($this->user_type == 'Promoter'){
+				$user = new Promoter($username);
+				if($user->update($user->id,['email' => $newEmail])){
+					return true;
+				}
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+
+//		$this->save();
+	}
+	
+	
 }

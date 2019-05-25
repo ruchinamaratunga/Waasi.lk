@@ -1,7 +1,7 @@
 <?php
 	$subscribes = false;
 	if(currentUser()){
-		$subscribes = $this->customer->subscribePromoters();
+		//$subscribes = $this->customer->subscribePromoters();
 	}
 	
 	// dnd($subscribes);
@@ -83,7 +83,7 @@
 
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
-						<a href="catagory/food">
+						<a href="<?=PROOT?>catagory/food" target="_blank">
 							<div class ="blog-image">
 								<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats.jpg" alt="example-image">
 								<figcaption>
@@ -100,7 +100,7 @@
 
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.3s">
-						<a href="catagory/cloths">
+						<a href="<?=PROOT?>catagory/cloths" target="_blank">
 							<div class ="blog-image">
 								<figure class="imghvr-hinge-up"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coats (1).jpg" alt="example-image">
 								<figcaption>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href= "catagory/movies">
+						<a href= "<?=PROOT?>catagory/movies" target="_blank">
 							<div class ="blog-image">
 								<figure class="imghvr-hinge-right"><img src="<?=PROOT?>img/blog/movies.jpg" alt="example-image">
 								<figcaption>
@@ -131,7 +131,7 @@
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href="catagory/electronics">
+						<a href="<?=PROOT?>catagory/electronics" target="_blank">
 							<div class ="blog-image">
 								<figure class="imghvr-hinge-left"><img src="<?=PROOT?>img/blog/perfect-selfie.jpg" alt="example-image">
 								<figcaption>
@@ -146,7 +146,7 @@
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-						<a href="catagory/sports">
+						<a href="<?=PROOT?>catagory/sports" target="_blank">
 							<div class ="blog-image">
 								<figure class="imghvr-hinge-down"><img src="<?=PROOT?>img/blog/Girl_Soccer_Goalie.jpg" alt="example-image">
 								<figcaption>
@@ -161,7 +161,7 @@
                 </div>
 				<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.4s">
-					<a href="catagory/others">
+					<a href="<?=PROOT?>catagory/others" target="_blank">
                         <div class ="blog-image">
 							<figure class="imghvr-hinge-right"><img src="<?=PROOT?>img/blog/04-fashion-upgrades-classic-coat11s.jpg"="example-image">
 							<figcaption>

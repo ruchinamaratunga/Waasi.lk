@@ -27,9 +27,74 @@ class HomeController extends Controller{
         $this->view->render('home/contactus');	
 	}
 	
-	public function settingsAction(){
-        $this->view->render('home/settings');	
-	}
+//	public function settingsAction(){
+//	
+//        $validation = new Validate();
+//        if($_POST) {
+//            $validation->check($_POST,[
+//                'current' =>[
+//                    'display' => "Current Password",
+//                    'required' => true
+//                ],
+//                'new' =>[
+//                    'display' => "New Password",
+//                    'required' => true,
+//					'min' => 6
+//                ],
+//                'new-check' =>[
+//                    'display' => "New Password",
+//                    'required' => true,
+//					'matches' => 'new'
+//                ]
+//            ]);
+//			
+////							$newPassword = $POST['new_password'];
+////				$newCheckPassword = $_POST['new_check_password'];
+//
+//            if($validation->passed()) {
+//
+//				$username = currentUser()->username;
+//				$user = new Users($username);
+//				if($user && password_verify(Input::get('current_password'), $user->password)){
+//					$newPassword = $POST['new_password'];
+//					//$newCheckPassword = $_POST['new_check_password'];
+//					$id = $user->id;
+//					$user->passwordChange($id,$username,$newPassword);
+//					Router::redirect('register/login');
+//					
+//				}
+//				else{
+//					 $validation->addError("There is an error with your current password!");
+//				}
+//				
+////                $promotion = new Promotion();
+////                $image_path = $promotion->uploadImage();
+//////                $image_path="testpath";
+////                if ($image_path) {
+//////                    dnd($_POST);
+////                    $promotion->addPromo(array_merge($_POST,['image_path'=>$image_path,'state'=>'Pending','pr_username'=>Promoter::currentLoggedInUser()->username,'ad_username'=>'admin']));
+//////                    Promoter::currentLoggedInUser()->promoter_name
+////
+////                    if($validation->passed()){
+////
+////                        $validation->addError("Promotion added successfully.");
+////                        $this->view->displayErrors = $validation->displayErrors();
+////                        $this->view->render('promoter/addpromo');
+//////                        Router::redirect('promoter/addpromo');
+////                    }
+////
+////                }
+////                else{
+////                    $validation->addError(["Image upload failed"]);
+////                }
+//            }
+//        }
+////        dnd($validation->displayErrors());
+//       // $this->view->displayErrors = $validation->displayErrors();
+//        //$this->view->render('promoter/addpromo');
+//    
+//        $this->view->render('home/settings');	
+//	}
 
 
     public function promoterpageAction($username) {

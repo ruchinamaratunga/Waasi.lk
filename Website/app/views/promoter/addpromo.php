@@ -8,6 +8,7 @@
     <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
 
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<link rel="stylesheet" href="<?=PROOT?>css/addPromoCss.css">	
 
 
 <?php $this->end(); ?>
@@ -116,7 +117,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-4">
-                        <button type="submit" class="btn btn-primary"  name="addpromo-submit">Add Promo</button>
+                        <button type="submit" class="btn btn-primary"  name="addpromo-submit" onMouseOver="background:'#F9D970'" onMouseOut="background:'#337ab7'" style="background: '#F9D970'" id = "addpromo-submit">Add Promo</button>
                     </div>
                 </div>
             </form>

@@ -35,8 +35,8 @@
                                 <li><a href="#">FAQS</a></li>
 -->								<li><a href="<?=PROOT ?>home/about">About Us</a></li>
                                 <li><a href="<?=PROOT?>home/contactus">Contact Us</a></li>
-								<?php if (currentUser()): ?>
-									<li><a href="<?=PROOT?>home/settings" target="new">Settings</a></li>
+								<?php if (currentUser()->user_type != 'Admin'): ?>
+									<li><a href="<?=PROOT?>settings/index" target="new">Settings</a></li>
 								<?php endif ?>
                             </ul>
                         </div>
