@@ -2,9 +2,8 @@
 //    $subscribes = $this->promoter->getSubscribers(); 
 ?>
 
-<?php $this->start('head');?>
-    
-<?php $this->end();?>
+
+		  
 <?php $this->start('body'); ?>
 
 <header class="top-area" id="home">
@@ -37,7 +36,7 @@
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
                             <h3><a href="addpromo" target = "new">ADD PROMOTIONS</a></h3>
                             <p>Click below to add a new promotion!</p>
-                            <a href="addpromo" class="read-more" target = "new">ADD</a>
+                            <a href="addpromo" class="read-more" target = "_blank">ADD</a>
                         </div>
                     </div>
                 </div>
