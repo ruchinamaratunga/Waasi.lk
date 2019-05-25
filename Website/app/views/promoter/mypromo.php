@@ -110,7 +110,7 @@ $results = $this->searchResults ;
                                         <form action="<?=PROOT?>promoter/editpromo"  method="post" enctype="multipart/form-data">
 <!--                                            <br>-->
                                             <input type="hidden" value=<?=$result->promo_id?> name="promo_id" />
-                                            <button type="submit" class="btn btn-warning"  name="editpromo-submit">Edit</button>
+                                            <button type="submit" class="btn btn-warning"  name="editthispromo-submit">Edit</button>
                                         </form>
                                     </div>
                                 </div>
