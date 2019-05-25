@@ -53,23 +53,30 @@ class SettingsController extends Controller {
                     'display' => "Current Password",
                     'required' => true
                 ],
-				'username' =>[
-                    'display' => "username",
-                    'required' => true					
+				'newPassword' =>[
+                    'display' => "New Password",
+                    'required' => true,
+					'min'=>6
+				],
+				'newCheckPassword' =>[
+                    'display' => "New Password Check",
+                    'required' => true,
+					'matches' => 'newPassword'
 				]
             ]);
 			
 
             if($validation->passed()) {
 
-				$currentUsername = currentUser()->username;
-				$user = new Users($currentUsername);
-				if($user->passwordCheck($_POST['current_password'])){
-					$newPassword = $POST['new_password'];
+				$username = currentUser()->username;
+				$user = new Users($username);
+				if($user->checkPassword($_POST['current_password'])){
+					$newPassword = $_POST['newPassword'];
 					//$newCheckPassword = $_POST['new_check_password'];
 					$id = $user->id;
-					$user->usernameChange($id,$username,$newPassword);
-					Router::redirect('settings/index');
+					$user->passwordChange($id,$username,$newPassword);
+					Router::redirect('register/logout');
+					//Router::redirect('settings/index');
 				}
 				else{
 					 $validation->addError("Password you entered is wrong!");

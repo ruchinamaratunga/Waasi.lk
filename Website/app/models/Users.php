@@ -102,17 +102,30 @@ class Users extends Model {
 	}
 	
 	public function passwordChange($id,$username,$newPassword){
-		$password = password_hash($newPassword, PASSWORD_DEFAULT);
-		$this->update($id,array('password' => $password));
-		if ($this->user_type == 'Customer'){
-			$user = new Customer($username);
-			$user->update($user->id,array('password' => $password));
+		
+		$newPassword= password_hash($newPassword, PASSWORD_DEFAULT);
+		
+		if($this->update($id,['password' => $newPassword])){
+			if ($this->user_type == 'Customer'){
+				$user = new Customer($username);
+				if($user->update($user->id,['password' => $newPassword])){
+					return true;
+				}
+				return false;
+			}
+			elseif ($this->user_type == 'Promoter'){
+				$user = new Promoter($username);
+				if($user->update($user->id,['password' => $newPassword])){
+					return true;
+				}
+				return false;
+			}
 		}
-		elseif ($this->user_type == 'Promoter'){
-			$user = new Promoter($username);
-			$user->update($user->id,array('password' => $password));
+		else{
+			return false;
 		}
-		$this->save();
+
+//		$this->save();
 	}
 	
 	public function usernameChange($id,$currentUsername,$newUsername){
