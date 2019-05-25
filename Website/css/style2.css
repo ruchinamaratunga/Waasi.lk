@@ -140,6 +140,11 @@ h2.index-h2{
     width: 100%;
 }
 
+/*-------------------------------------------*/
+/*Promotion Based on location*/
+#modal-close{
+    margin-top:20px;
+}
 
 /*-------------------------------------------*/
 /*Add promotions*/

@@ -1,6 +1,7 @@
 <?php 
-    $results = $this->searchResults ;
-
+// dnd($this->searchResults[0]);
+    $results = $this->searchResults[0];
+    $districtList = $this->searchResults[1];
     // function runMyFunction() {
     //     echo 'I just ran a php function';
     //   }
@@ -14,9 +15,13 @@
 
 <?php $this->start('head'); ?>
     <link rel="stylesheet" href="<?=PROOT?>css/promotion_card.css">
+
+    
+
 <?php $this->end();?>
 
 <?php $this->start('body'); ?>
+
 
     <header class="top-area single-page" id="home">
         <div class="top-area-bg-login" data-stellar-background-ratio="0.6">
@@ -75,7 +80,93 @@
             </div> 
             
         </div>
+        <div class= "panel-body">
+            <form id="district" action="<?=PROOT?>promotion/index/" method= "post" style="border : none; ">    
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+                Select Location     
+                <span class="glyphicon glyphicon-search"></span></button>
 
+                <!-- Modal -->
+                <div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Select a City</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            <div class=".p-3">
+                                
+                                <div class="dropdown">
+                                    <div class="col-sm-6">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <?php
+                                            $midlength = (int)(sizeof($districtList["districts"])/2)+1;
+                                            $townlist = $districtList["towns"];
+                                            // dnd($midlength);
+                                            for($i=0;$i<$midlength;$i++){ 
+                                                $ln = sizeof($townlist[$i]);
+                                                echo("<li class='dropdown'>
+                                                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'  >".
+                                                    
+                                                        $districtList["districts"][$i]."
+                                                        <b class='caret'></b>
+                                                    </a>
+                                                    <ul class='dropdown-menu' >");
+                                                    for($j=0;$j<$ln;$j++){      
+                                                        // echo "<input type='hidden' name='town' value='".$townlist[$i][$j]."'>";  
+                                                        echo"<li ><a href='".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
+                                                    }
+                                                echo("</ul>
+                                                </li>");
+                                            }
+                                            ?>
+                                        </ul>
+                                
+                                    </div> 
+                                    <div class="col-sm-6">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <?php
+                                            $midlength = sizeof($districtList["districts"])/2+1;
+                                            $length = sizeof($districtList["districts"]);
+                                            $townlist = $districtList["towns"];
+                                            for($i=$midlength;$i<$length;$i++){ 
+                                                $ln = sizeof($townlist[$i]);
+                                                echo("<li class='dropdown'>
+                                                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'  >".
+                                                    
+                                                        $districtList["districts"][$i]."
+                                                        <b class='caret'></b>
+                                                    </a>
+                                                    <ul class='dropdown-menu' >");
+                                                    for($j=0;$j<$ln;$j++){      
+                                                        // echo "<input type='hidden' name='town' value='".$townlist[$i][$j]."'>";  
+                                                        echo"<li ><a href='".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
+                                                    }
+                                                echo("</ul>
+                                                </li>");
+                                            }
+                                            ?>
+                                        </ul>
+                                        
+                                    </div> 
+                                </div>
+                                
+                            </div>    
+                            
+                            <div class="modal-footer">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6">
+                                <button type="button" id="modal-close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="panel-body">
             <div class="container">
                 <div class="row">
