@@ -1,7 +1,7 @@
 {
     "Guest" : {
         "denied" : {
-			"Home": ["settings"]
+			"Settings": ["*"]
 		},
         "Home" : ["index","about"],
         "Promotion" : ["index"],
@@ -10,17 +10,19 @@
         "Catagory" : ["*"]
         
     },
+	
     "loggedIn" : {
         "denied" : {
-            "Register" : ["login","register","promoterRegistration"]
+            "Register" : ["login","register","promoterRegistration"],
+			"Settings" : ["website","fb"]
         },
         "Notifications" : ["*"],
-        "Home" : ["promoterpage,settings"],
+        "Home" : ["promoterpage"],
         "Register" : ["logout"],
         "Promotion" : ["*"],
-        "Settings" : ["index,password,username,email"]
-        
+		"Settings"  : ["index","password","email"]   
     },
+	
     "Admin" : {
         "denied" : {
             "Home" :[""],
@@ -39,7 +41,7 @@
         },
         "Promoter" : ["index","mypromo","addpromo","editpromo","monthlyreport"],
         "Register" : ["logout"],
-		"Home"	   : ["settings"],
+		"Home"	   : ["contactus"],
 		"Settings" : ["*"]
     }
 }

@@ -7,41 +7,7 @@ class SettingsController extends Controller {
         $this->view->setLayout('default');
     }
 	
-//	public function indexcheckAction(){
-//		
-//	
-//        $validation = new Validate();
-//        if($_POST) {
-//            $validation->check($_POST,[
-//                'current_password' =>[
-//                    'display' => "Current Password",
-//                    'required' => true
-//                ]
-//            ]);
-//			
-//
-//            if($validation->passed()) {
-//
-//				$username = currentUser()->username;
-//				$user = new Users($username);
-//				if(password_verify(Input::get('current_password'), $user->password)){
-//
-//					$this->view->render('settings/index');
-//					
-//				}
-//				else{
-//					 $validation->addError("Password you entered is wrong!");
-//				}
-//				
-//
-//            }
-//			
-//        }
-//		$this->view->displayErrors = $validation->displayErrors();
-//		$this->view->render('settings/indexcheck');
-//	}
-	
-    public function indexAction() {
+	public function indexAction() {
         $this->view->render('settings/index');
     }
 	
@@ -90,45 +56,45 @@ class SettingsController extends Controller {
 		
 	}
 	
-	public function usernameAction(){
-		$validation = new Validate();
-		if($_POST) {
-            $validation->check($_POST,[
-                'current_password' =>[
-                    'display' => "Current Password",
-                    'required' => true
-                ],
-				'username' =>[
-                    'display' => "username",
-                    'required' => true					
-				]
-            ]);
-			
-
-            if($validation->passed()) {
-
-				$currentUsername = currentUser()->username;
-				$user = new Users($currentUsername);
-				if($user->checkPassword($_POST['current_password'])){
-					$newUserPassword = $_POST['username'];
-					$id = $user->id;
-					if($user->usernameChange($id,$currentUsername,$newUserPassword)){
-						Router::redirect('settings/index');
-					}
-					else{
-						$validation->addError("Database error!");
-					}
-				}
-				else{
-					 $validation->addError("Password you entered is wrong!");
-				}
-				
-            }
-			
-        }
-		$this->view->displayErrors = $validation->displayErrors();
-		$this->view->render('settings/username');
-	}
+//	public function usernameAction(){
+//		$validation = new Validate();
+//		if($_POST) {
+//            $validation->check($_POST,[
+//                'current_password' =>[
+//                    'display' => "Current Password",
+//                    'required' => true
+//                ],
+//				'username' =>[
+//                    'display' => "username",
+//                    'required' => true					
+//				]
+//            ]);
+//			
+//
+//            if($validation->passed()) {
+//
+//				$currentUsername = currentUser()->username;
+//				$user = new Users($currentUsername);
+//				if($user->checkPassword($_POST['current_password'])){
+//					$newUserPassword = $_POST['username'];
+//					$id = $user->id;
+//					if($user->usernameChange($id,$currentUsername,$newUserPassword)){
+//						Router::redirect('settings/index');
+//					}
+//					else{
+//						$validation->addError("Database error!");
+//					}
+//				}
+//				else{
+//					 $validation->addError("Password you entered is wrong!");
+//				}
+//				
+//            }
+//			
+//        }
+//		$this->view->displayErrors = $validation->displayErrors();
+//		$this->view->render('settings/username');
+//	}
 
 	public function emailAction(){
 		$validation = new Validate();

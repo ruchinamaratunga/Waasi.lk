@@ -30,6 +30,7 @@
 				</a> 
 				
 				
+<!--
 				<a href="<?=PROOT ?>settings/username" target="_blank">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-service-three wow fadeInUp" data-wow-delay="0.3s">
@@ -39,6 +40,7 @@
                     </div>
                 </div>
 				</a>
+-->
 					
 				<a href="<?=PROOT ?>settings/email" target="_blank">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
