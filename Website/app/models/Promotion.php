@@ -98,6 +98,16 @@ class Promotion extends Model {
 //        $this->save();
     }
 
+    public function deletePromo($promo_id){
+        $this->deleted = 0;
+        $sql = "UPDATE {$this->_table} SET state = ? WHERE promo_id = {$promo_id}";
+//        dnd($sql);
+        if(!$this->query($sql, ['Deleted'])->error()) {
+            return true;
+        }
+        return false;
+    }
+
     public function validatePromo() {
 
     }

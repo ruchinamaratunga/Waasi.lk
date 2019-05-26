@@ -108,14 +108,16 @@ $results = $this->searchResults ;
 
                                         </div>
 
-<!--                                        <button class="btn btn-warning" ><a href="--><?//=PROOT?><!--promoter/editpromo/--><?//=$result->promo_id?><!--">Edit</a></button>-->
-                                        <a href="<?=PROOT?>promoter/editpromo/<?=$result->promo_id?>"><button class="btn btn-warning" >Edit</button></a>
+                                        <div class="row " style="display: flex;">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="col-sm" href="<?=PROOT?>promoter/editpromo/<?=$result->promo_id?>"><button class="btn btn-warning" >Edit</button></a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <form class="col-sm" action="<?=PROOT?>promoter/deletepromo/<?=$result->promo_id?> " onsubmit="return confirm('Are you sure you want to delete this Promo?');" method="post">
 
-                                        <!--                                        <form action="--><?//=PROOT?><!--promoter/editpromo"  method="post" enctype="multipart/form-data">-->
-<!---->
-<!--                                            <input type="hidden" value=--><?//=$result->promo_id?><!-- name="promo_id" />-->
-<!--                                            <button type="submit" class="btn btn-warning"  name="editthispromo-submit">Edit</button>-->
-<!--                                        </form>-->
+                                                <button type="submit"   class="btn btn-warning"  name="deletepromo-submit">Delete</button>
+                                            </form>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

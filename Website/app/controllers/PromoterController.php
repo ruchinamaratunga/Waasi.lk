@@ -164,6 +164,18 @@ class PromoterController extends Controller {
 
     }
 
+    public function deletepromoAction($promo_id='-1'){
+        if($promo_id=='-1'){
+            Router::redirect('');
+        }
+
+        if(isset($_POST["deletepromo-submit"])){
+            $p=new Promotion();
+            $p->deletePromo($promo_id);
+        }
+        Router::redirect('promoter/mypromo');
+    }
+
     public function myPromoAction() {
 //        dnd(currentUser()->username);
         // $posted_value = ['promoter' =>'off','catagory'=>'off','search' =>''];
