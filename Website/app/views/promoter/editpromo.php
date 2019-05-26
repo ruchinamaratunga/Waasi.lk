@@ -44,7 +44,12 @@ if(count($results)){
     <section class="about-area gray-bg section-padding">
 
         <div class="panel-body">
-            <form  action="<?=PROOT?>promoter/editpromo" id="editpromoform" method="post" enctype="multipart/form-data" class="form-horizontal" >
+            <form>
+                <input type="hidden" id="start_date_hidden" value="<?=$result->start_date?>" name="start_date_hidden" />
+                <input type="hidden" id="end_date_hidden" value="<?=$result->end_date?>" name="end_date_hidden" />
+
+            </form>
+            <form id="editpromoform" method="post" enctype="multipart/form-data" class="form-horizontal" >
                 <div class="bg-danger text-center"><?= $this->displayErrors ?></div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="catagory">Category:</label>
@@ -93,7 +98,6 @@ if(count($results)){
                 <div class="form-group"> <!-- Date input -->
                     <label class="col-sm-4 control-label" for="start_date">Start Date:</label>
                     <div class="col-sm-5">
-                        <input type="hidden" id="start_date_hidden" value="<?=$result->start_date?>" name="start_date_hidden" />
 
                         <input class="form-control" id="start_date" value="<?=$thispromo->start_date?>" name="start_date" placeholder="MM/DD/YYY" type="text"/>
                     </div>
@@ -102,7 +106,6 @@ if(count($results)){
                 <div class="form-group"> <!-- Date input -->
                     <label class="col-sm-4 control-label" for="end_date">Expire Date:</label>
                     <div class="col-sm-5">
-                        <input type="hidden" id="end_date_hidden" value="<?=$result->end_date?>" name="end_date_hidden" />
 
                         <input class="form-control" id="end_date" name="end_date" placeholder="MM/DD/YYY" type="text"/>
                     </div>

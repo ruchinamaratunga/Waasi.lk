@@ -107,11 +107,15 @@ $results = $this->searchResults ;
                                             <p class="<?=$txtformat?>" id="statefl"><?=$result->state?></p>
 
                                         </div>
-                                        <form action="<?=PROOT?>promoter/editpromo"  method="post" enctype="multipart/form-data">
-<!--                                            <br>-->
-                                            <input type="hidden" value=<?=$result->promo_id?> name="promo_id" />
-                                            <button type="submit" class="btn btn-warning"  name="editthispromo-submit">Edit</button>
-                                        </form>
+
+<!--                                        <button class="btn btn-warning" ><a href="--><?//=PROOT?><!--promoter/editpromo/--><?//=$result->promo_id?><!--">Edit</a></button>-->
+                                        <a href="<?=PROOT?>promoter/editpromo/<?=$result->promo_id?>"><button class="btn btn-warning" >Edit</button></a>
+
+                                        <!--                                        <form action="--><?//=PROOT?><!--promoter/editpromo"  method="post" enctype="multipart/form-data">-->
+<!---->
+<!--                                            <input type="hidden" value=--><?//=$result->promo_id?><!-- name="promo_id" />-->
+<!--                                            <button type="submit" class="btn btn-warning"  name="editthispromo-submit">Edit</button>-->
+<!--                                        </form>-->
                                     </div>
                                 </div>
                             </div>
