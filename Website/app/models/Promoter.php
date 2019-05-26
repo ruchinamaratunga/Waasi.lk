@@ -150,6 +150,20 @@ class Promoter extends Model {
             'bind' => [$this->username]
         ));
     }
+	
+	public function websiteChange($newWebsite){
+			if($this->update($this->id,['website' => $newWebsite])){
+				return true;
+			}
+				return false;
+	}
+	
+	public function fblinkChange($newFb){
+			if($this->update($this->id,['fb_link' => $newFb])){
+				return true;
+			}
+				return false;
+	}
 
 
 }

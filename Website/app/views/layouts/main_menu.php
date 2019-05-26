@@ -24,7 +24,18 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-header">
-          <a href="home" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+			<?php if(currentUser()): ?>
+				<?php if($userType=='Customer'): ?>
+					<a href="<?=PROOT?>home/index" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+				<?php elseif($userType=='Promoter'):?>
+					<a href="<?=PROOT?>promoter/index" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+				<?php else: ?>
+					<a href="<?=PROOT?>admin/admin" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+				<?php endif;?>
+			<?php else :?>
+				<a href="<?=PROOT?>home/index" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>
+			<?php endif; ?>
+<!--          	<a href="home" class="navbar-brand"><img src="<?=PROOT?>img/logo.png" alt="logo"></a>-->
         </div>
           
         <div id="main-nav" class="stellarnav">
@@ -32,8 +43,8 @@
                 <?php if(currentUser()): ?>
                   <li class="logged-user"><a href="#">Hello <?=currentUser()->username?></a>
 					  <ul>
-						  <li><a href="<?=PROOT?>home/settings" target="new">Settings</a></li>
-						  <li><a href="register/logout">Logout</a></li>
+						  <li><a href="<?=PROOT?>settings/index" target="new">Settings</a></li>
+						  <li><a href="<?=PROOT?>register/logout">Logout</a></li>
 					  </ul>
 				  </li>
                 <?php endif;?>
