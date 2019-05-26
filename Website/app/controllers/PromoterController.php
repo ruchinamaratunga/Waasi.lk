@@ -143,6 +143,7 @@ class PromoterController extends Controller {
 
                 if($validation->passed()){
 
+                    $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
                     $validation->addError("Promotion updated successfully.");
                     $this->view->displayErrors = $validation->displayErrors();
                     $this->view->render('promoter/editpromo');
@@ -150,7 +151,7 @@ class PromoterController extends Controller {
                 }
 
             }
-
+            $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
             $this->view->displayErrors = $validation->displayErrors();
             $this->view->render('promoter/editpromo');
         }
