@@ -2,9 +2,8 @@
     $subscribes = $this->promoter->getSubscribers(); 
 ?>
 
-<?php $this->start('head');?>
-    
-<?php $this->end();?>
+
+		  
 <?php $this->start('body'); ?>
 
 <header class="top-area" id="home">
@@ -24,9 +23,10 @@
 </header>
 
     <!--BLOG AREA-->
-    <section class="blog-area gray-bg" style ="padding-bottom: 200px;">
+    <section class="blog-area gray-bg" style ="padding-bottom: 25px;">
         <div class="container">
             <div class="row">
+				<br />
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
                         <!--<div class="blog-image">
@@ -34,9 +34,9 @@
                         </div>-->
                         <div class="blog-details text-center">
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
-                            <h3><a href="addpromo">ADD PROMOTIONS</a></h3>
+                            <h3><a href="addpromo" target = "new">ADD PROMOTIONS</a></h3>
                             <p>Click below to add a new promotion!</p>
-                            <a href="addpromo" class="read-more">ADD</a>
+                            <a href="addpromo" class="read-more" target = "_blank">ADD</a>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                         </div>-->
                         <div class="blog-details text-center">
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
-                            <h3><a href="single-blog.html">UPDATE DETAILS</a></h3>
+                            <h3><a href="<?=PROOT?>settings/index" target = "_blank">UPDATE DETAILS</a></h3>
                             <p>Click below to upadte your business details!</p>
-                            <a href="#" class="read-more">UPDATE</a>
+                            <a href="<?=PROOT?>settings/index" class="read-more" target = "_blank">UPDATE</a>
                         </div>
                     </div>
                 </div>
@@ -62,14 +62,14 @@
                             <div class="blog-meta"><a href="#"><!--<i class="fa fa-ship"></i>--></a></div>
 							<?php
 							//echo('<h3><a href="promoterTemplate.php?pr_username='.$_SESSION['userName'].'">VIEW PROMOTIONS</a></h3>');
-                                echo('<h3><a href="mypromo">VIEW PROMOTIONS</a></h3>');
+                                echo('<h3><a href="mypromo" target = "_blank">VIEW PROMOTIONS</a></h3>');
 
                             ?>
                             
                             <p>Click below to view promotions of your business.</p>
 							<?php
 							//echo('<a href="promoterTemplate.php?pr_username='.$_SESSION['userName'].'" class="read-more">VIEW</a>');
-                                echo('<a href="mypromo" class="read-more">VIEW</a>');
+                                echo('<a href="mypromo" class="read-more" target = "_blank">VIEW</a>');
 
                             ?>
                           

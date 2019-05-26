@@ -27,11 +27,7 @@ class HomeController extends Controller{
         $this->view->render('home/contactus');	
 	}
 	
-	public function settingsAction(){
-        $this->view->render('home/settings');	
-	}
-
-
+	
     public function promoterpageAction($username) {
         $promoter = new Promoter($username);
         $this->view->promoter = $promoter;
