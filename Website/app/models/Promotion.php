@@ -76,6 +76,37 @@ class Promotion extends Model {
 
     }
 
+    public function updatePromo($params,$promo_id) {
+        //$this->assign($params);
+        $this->deleted = 0;
+
+        $fieldString = '';
+        $values = array();
+
+        foreach($params as $field => $value) {
+            $fieldString .= ' ' . $field . ' = ?,';
+            $values[] = $value;
+        }
+        $fieldString = trim($fieldString);
+        $fieldString = rtrim($fieldString,',');
+        $sql = "UPDATE {$this->_table} SET {$fieldString} WHERE promo_id = {$promo_id}";
+//        dnd($sql);
+        if(!$this->query($sql, $values)->error()) {
+            return true;
+        }
+        return false;
+//        $this->save();
+    }
+
+    public function deletePromo($promo_id){
+        $this->deleted = 0;
+        $sql = "UPDATE {$this->_table} SET state = ? WHERE promo_id = {$promo_id}";
+//        dnd($sql);
+        if(!$this->query($sql, ['Deleted'])->error()) {
+            return true;
+        }
+        return false;
+    }
 
     public function validatePromo() {
 
