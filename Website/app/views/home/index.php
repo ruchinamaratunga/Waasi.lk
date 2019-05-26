@@ -1,7 +1,7 @@
 <?php
 	$subscribes = false;
 	if(currentUser()){
-		//$subscribes = $this->customer->subscribePromoters();
+		$subscribes = $this->customer->subscribePromoters();
 	}
 	
 	// dnd($subscribes);

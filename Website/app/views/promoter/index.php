@@ -1,5 +1,5 @@
 <?php
-//    $subscribes = $this->promoter->getSubscribers(); 
+    $subscribes = $this->promoter->getSubscribers(); 
 ?>
 
 
