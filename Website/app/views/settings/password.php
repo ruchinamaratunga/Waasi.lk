@@ -46,7 +46,7 @@
 					
 					
                 </div>
-                		<button class="btn btn-default pull-right" style="margin : 20px; background-color: #f39c12; color: white; transform:scale(1.10)" type="submit">Save</button>
+                		<button class="btn btn-default pull-right" style="margin : 20px; background-color: #f39c12; color: white; transform:scale(1.10)" type="submit" id="settingsSave">Save</button>
 					</form>
     
 			</div>

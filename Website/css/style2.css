@@ -100,6 +100,7 @@ h2.index-h2{
 /*-------------------------------------------*/
 /*View Promotion*/
 
+/*
 .top-area-bg-food{
 	background: rgba(0, 0, 0, 0) url("../img/blog/food-facebook-cover-timeline-banner-for-fb.jpg") no-repeat scroll center center / cover;
     height: 100%;
@@ -119,9 +120,10 @@ h2.index-h2{
     top: 0;
     width: 100%;
 }
+*/
 
 .top-area-bg-movies{
-	background: rgba(0, 0, 0, 0) url("../img/blog/best-movie-covers-ever.jpg") no-repeat scroll center center / cover;
+	background: rgba(0, 0, 0, 0) url("../img/blog/New folder/Promotionla_Image_banner_Sept_2017.jpg") no-repeat scroll center center / cover;
     height: 100%;
     left: 0;
     position: absolute;
