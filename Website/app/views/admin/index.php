@@ -57,7 +57,13 @@ $results = $this->searchResults;
                                     <?php endforeach;?>
                                 <?php else: ?>
                                     <div class="nopromo">
-                                        <div class="text-center">No Promotions</div>
+                                        <div class="single-blog wow fadeIn">
+											<div class="blog-details">
+												<div class="blog-meta"></div>
+												<h3>NO PROMOTIONS</h3>
+											</div>
+										</div>
+                                        <!-- <div class="text-center">No Promotions</div> -->
                                     </div>
                                 <?php endif; ?>
                             </div>
