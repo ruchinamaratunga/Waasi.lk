@@ -68,9 +68,91 @@ class PromoterController extends Controller {
         $this->view->render('promoter/addpromo');
     }
 
-    public function editPromoAction() {
-        if(isset($_POST["editpromo-submit"])){
+    public function editPromoAction($promo_id='-1') {
+        if($promo_id=='-1'){
+            header("Location: ../");
+            die();
+        }
+        $this->view->displayErrors=null;
+        $p = new Promotion();
+        $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
+
+        if(isset($promo_id)&&!isset($_POST["editpromo-submit"])){
 //            dnd($_POST);
+//            $this->view->displayErrors=null;
+//            $p = new Promotion();
+//            $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
+//            dnd($this->view->searchResults);
+            if(count($this->view->searchResults)){
+                $this->view->render('promoter/editpromo');
+            }
+            else{
+                Router::redirect('promoter/mypromo');
+            }
+
+
+        }
+        else if(isset($promo_id)&&isset($_POST["editpromo-submit"])) {
+//            dnd($_POST);
+            $validation = new Validate();
+            $validation->check($_POST,[
+                'title' =>[
+                    'display' => "Title",
+                    'required' => true
+                ],
+                'description' =>[
+                    'display' => "Description",
+                    'required' => true
+                ],
+                'start_date' =>[
+                    'display' => "Start Date",
+                    'required' => true
+                ],
+                'end_date' =>[
+                    'display' => "Expire Date",
+                    'required' => true
+                ]
+            ]);
+
+            $image_path=null;
+            if($_FILES['fileToUpload']["error"] == 0){
+                $validation->imageFileValidate();
+                if($validation->passed()){
+                    $promotion = new Promotion();
+                    $image_path = $promotion->uploadImage();
+                }
+                if(empty($image_path)){
+                    $validation->addError("Image upload failed.");
+                }
+            }
+
+
+
+            if($validation->passed()) {
+
+                $promotion = new Promotion();
+
+//                dnd($_POST);
+                if(empty($image_path)){
+//                    dnd($_POST);
+                    $promotion->updatePromo(['catagory'=>$_POST['catagory'],'title'=>$_POST['title'],'description'=>$_POST['description'],'start_date'=>$_POST['start_date'],'end_date'=>$_POST['end_date'],'link'=>$_POST['link'],'location'=>$_POST['location'],'state'=>'Pending','pr_username'=>Promoter::currentLoggedInUser()->username,'ad_username'=>'admin'],$promo_id);
+                }
+                else{
+                    $promotion->updatePromo(['catagory'=>$_POST['catagory'],'title'=>$_POST['title'],'description'=>$_POST['description'],'start_date'=>$_POST['start_date'],'end_date'=>$_POST['end_date'],'link'=>$_POST['link'],'location'=>$_POST['location'],'image_path'=>$image_path,'state'=>'Pending','pr_username'=>Promoter::currentLoggedInUser()->username,'ad_username'=>'admin'],$promo_id);
+                }
+
+                if($validation->passed()){
+
+                    $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
+                    $validation->addError("Promotion updated successfully.");
+                    $this->view->displayErrors = $validation->displayErrors();
+                    $this->view->render('promoter/editpromo');
+//                        Router::redirect('promoter/addpromo');
+                }
+
+            }
+            $this->view->searchResults = $p->find(['conditions'=>'promo_id = ?','bind'=>[$promo_id]]);
+            $this->view->displayErrors = $validation->displayErrors();
             $this->view->render('promoter/editpromo');
         }
         else{
@@ -80,6 +162,18 @@ class PromoterController extends Controller {
 //            redirect('promoter/index');
         }
 
+    }
+
+    public function deletepromoAction($promo_id='-1'){
+        if($promo_id=='-1'){
+            Router::redirect('');
+        }
+
+        if(isset($_POST["deletepromo-submit"])){
+            $p=new Promotion();
+            $p->deletePromo($promo_id);
+        }
+        Router::redirect('promoter/mypromo');
     }
 
     public function myPromoAction() {
