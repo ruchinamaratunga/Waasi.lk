@@ -33,99 +33,87 @@
     </header>
 
     <section class="about-area gray-bg section-padding">
+        <div class="container">
+            <div class="single-blog wow fadeIn" style="margin: 50px;">
 
-        <div class="panel-body">
-            <form  action="<?=PROOT?>promoter/addpromo" id="form" method="post" enctype="multipart/form-data" class="form-horizontal" >
-                <div class="bg-danger text-center"><?= $this->displayErrors ?></div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="catagory">Category:</label>
-                    <div class="col-sm-5">
-                        <select name="catagory" id="catagory">
-                            <option value="food">FOOD</option>
-                            <option value="cloths-accessories">CLOTHS & ACCESSORIES</option>
-                            <option value="movies">MOVIES</option>
-                            <option value="electronic-devices">ELECTRONIC DEVICES</option>
-                            <option value="sport-equipments">SPORTS EQUIPMENTS</option>
-                            <option value="other">OTHER</option>
-                        </select>
-                        <!--                        <input type="text" class="form-control" id="firstname1" name="firstname1" placeholder="First name" />-->
-                    </div>
+                <div class="blog-details " >
+                    <div class="blog-meta"></div>
+                    <h4>Enter Promotion Details...</h4>
+                    <div class="form-group" style="padding: 20px;">
+
+                        <form  action="<?=PROOT?>promoter/addpromo" id="form" method="post" enctype="multipart/form-data" class="form-horizontal" >
+                            <div class="bg-danger"><?= $this->displayErrors ?></div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="catagory">Category:</label>
+                                <div class="col-sm-5 custom-select" id="custom-select" >
+                                    <select name="catagory" id="catagory">
+                                        <option value="food">FOOD</option>
+                                        <option value="cloths-accessories">CLOTHS & ACCESSORIES</option>
+                                        <option value="movies">MOVIES</option>
+                                        <option value="electronic-devices">ELECTRONIC DEVICES</option>
+                                        <option value="sport-equipments">SPORTS EQUIPMENTS</option>
+                                        <option value="other">OTHER</option>
+                                    </select>
+                                    <!--                        <input type="text" class="form-control" id="firstname1" name="firstname1" placeholder="First name" />-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="title">Title:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control addpromo" placeholder="Enter the Title" id="title" name="title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="description">Description:</label>
+                                <div class="col-sm-5">
+                                    <textarea class="form-control addpromo" placeholder="Enter the Description" id="description" name="description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> <!-- Date input -->
+                                <label class="col-sm-4 control-label" for="start_date">Start Date:</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control addpromo" id="start_date" name="start_date" placeholder="MM/DD/YYY" type="text"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> <!-- Date input -->
+                                <label class="col-sm-4 control-label" for="end_date">Expire Date:</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control addpromo" id="end_date" name="end_date" placeholder="MM/DD/YYY" type="text"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="link">Link to Original Site:</label>
+                                <div class="col-sm-5">
+                                    <input type="url" class="form-control addpromo" id="link" placeholder="Enter your link" name="link">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="location">Location:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control addpromo" id="location" placeholder="Enter the location" name="location">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="fileToUpload">Promo Image:</label>
+                                <div class="col-sm-5">
+                                    <input type="file" class="form-control addpromo" id="fileToUpload" name="fileToUpload" >
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-9 col-sm-offset-4">
+                                    <button type="submit" class="btn btn-primary"  name="addpromo-submit" onMouseOver="background:'#F9D970'" onMouseOut="background:'#337ab7'" style="background-color:#f39c12; color: white; border-color: #FD9000"  id = "addpromo-submit">Add Promo</button>
+                                </div>
+                            </div>
+                        </form>
+
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="title">Title:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control addpromo" placeholder="Enter the Title" id="title" name="title">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="description">Description:</label>
-                    <div class="col-sm-5">
-                        <textarea class="form-control addpromo" placeholder="Enter the Description" id="description" name="description"></textarea>
-                    </div>
-                </div>
-
-
-
-
-<!---->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-4 control-label" for="start_date">Start Date:</label>-->
-<!--                    <div class="col-sm-5">-->
-<!--                        <input type="date" class="form-control" id="start_date" placeholder="Enter the Start Date" name="start_date">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label class="col-sm-4 control-label" for="end_date">Expire Date:</label>-->
-<!--                    <div class="col-sm-5">-->
-<!--                        <input type="date" class="form-control" id="end_date" placeholder="Enter the end date" name="end_date">-->
-<!--                    </div>-->
-<!--                </div>-->
-
-                <div class="form-group"> <!-- Date input -->
-                    <label class="col-sm-4 control-label" for="start_date">Start Date:</label>
-                    <div class="col-sm-5">
-                    <input class="form-control addpromo" id="start_date" name="start_date" placeholder="MM/DD/YYY" type="text"/>
-                    </div>
-                </div>
-
-                <div class="form-group"> <!-- Date input -->
-                    <label class="col-sm-4 control-label" for="end_date">Expire Date:</label>
-                    <div class="col-sm-5">
-                    <input class="form-control addpromo" id="end_date" name="end_date" placeholder="MM/DD/YYY" type="text"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="link">Link to Original Site:</label>
-                    <div class="col-sm-5"> 
-                        <input type="url" class="form-control addpromo" id="link" placeholder="Enter your link" name="link">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="location">Location:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control addpromo" id="location" placeholder="Enter the location" name="location">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="fileToUpload">Promo Image:</label>
-                    <div class="col-sm-5">
-                        <input type="file" class="form-control addpromo" id="fileToUpload" name="fileToUpload" >
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-4">
-                        <button type="submit" class="btn btn-primary"  name="addpromo-submit" onMouseOver="background:'#F9D970'" onMouseOut="background:'#337ab7'" style="background-color:#f39c12; color: white; border-color: #FD9000"  id = "addpromo-submit">Add Promo</button>
-                    </div>
-                </div>
-            </form>
-
-
-
+            </div>
         </div>
-
 
     </section>
 

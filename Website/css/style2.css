@@ -405,3 +405,12 @@ h2.index-h2{
 	width:300px;
 	float: left;
 }
+
+#catagory{
+    background-color: white;
+    border-radius: 4px;
+    /*color: white;*/
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+}
