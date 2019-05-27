@@ -1,7 +1,7 @@
 {
     "Guest" : {
         "denied" : {
-			"Settings": ["*"]
+            "Settings": ["*"]
 		},
         "Home" : ["index","about","contactus"],
         "Promotion" : ["index"],

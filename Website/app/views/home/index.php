@@ -196,7 +196,7 @@
 							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
 								<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
 									<div class="service-icon-three"><i class="fa fa-building"></i></div>
-									<a href = "<?=PROOT?>home/promoterpage/<?=$subscribe->promoter?>"><h4>'.<?=$subscribe->promoter?>.'</h4></a>
+									<a href = "<?=PROOT?>home/promoterpage/<?=$subscribe->promoter?>"><h4><?=$subscribe->promoter?></h4></a>
 								</div>
 							</div>
 						<?php endforeach;?>

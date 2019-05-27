@@ -73,14 +73,13 @@
                 <div class="row">
                     <?php if(count($results)):?>
                         <?php foreach($results as $result): ?>
-                        <a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>">
                             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                 <div class="single-blog wow fadeIn">
                                     <div class="blog-image">
                                         <img src="<?=PROOT?><?=$result->image_path?>" alt="">
                                     </div>
                                     <div class="blog-details">
-                                        <div class="blog-meta"><span><i class="fa fa-ship" style="color:white" ></i></span></div>
+                                        <div class="blog-meta"><a><i class="fa fa-ship" style="color:white" ></i></a></div>
                                         <h3><?=$result->title?></h3>
                                         <div class="post-date"><a><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
                                         <p><?=$result->description?></p> 
@@ -89,9 +88,7 @@
 										<a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>" class="read-more" target="_blank">Contact Us</a>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                            
+                            </div>                            
                         <?php endforeach;?>
                     <?php else: ?>
                         <div class="nopromo">

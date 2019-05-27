@@ -124,14 +124,6 @@ class Promotion extends Model {
         return false;
     }
 
-    public function validatePromo() {
-
-    // }
-
-    // public function registerPromo() {
-
-    // }
-
     public function confirmPromotion($promo_id) {
         $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?",array('Approved',$promo_id));
     }
