@@ -214,4 +214,13 @@ class SettingsController extends Controller {
 		$this->view->render('settings/fb');
 	}
 
+
+    public function notificationAction() {
+        
+
+        exit;
+        $resp = ['resp' => 'more comments'];
+        $this->jsonResponse($resp);
+        
+    }
 }

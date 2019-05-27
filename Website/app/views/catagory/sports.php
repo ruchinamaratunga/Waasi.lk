@@ -32,8 +32,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="tab-content about-details-content">
                         <div id="team" class="team-list tab-pane fade in active">
-                            <div class="row">
-								
+                            <div class="row">							
                                 <?php if(count($results)):?>
                                     <?php foreach($results as $result): ?>
                                         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
@@ -62,10 +61,8 @@
 										</div>
                                     </div>
                                 <?php endif; ?>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

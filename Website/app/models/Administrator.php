@@ -32,58 +32,6 @@ class Administrator extends Model {
         return $this->findFirst(['condition' => "username = ?" , 'bind' => [$username]]);
     }
 
-    /**
-     * static method is used becoz we want to log out from all the devices we use
-     */
-    public static function currentLoggedInUser() {
-        if(!isset(self::$currentLoggedInUser) && Session::exists(CURRENT_USER_SESSION_NAME)) {
-                $u = new Users((int)Session::get(CURRENT_USER_SESSION_NAME));
-                self::$currentLoggedInUser = $u;
-        } 
-        return self::$currentLoggedInUser;
-    }
-
-    public function login($rememberMe = false) {
-        Session::set($this->_sessionName,$this->id);
-        if($rememberMe) {
-            $hash = md5(uniqid() + rand(0,100));
-            $user_agent = Session::uagent_no_version();
-            Cookie::set($this->_cookieName, $hash, REMEMBER_ME_COOKIE_EXPIRY);
-            $fields = ['session' => $hash, 'user_agent' =>$user_agent, 'user_id' =>$this->id];
-            $this->_db->query("DELETE FROM user_sessions WHERE user_id = ? AND user_agent = ?",[$this->id, $user_agent]);      //delete old cookies saved in the DB
-            $this->_db->insert('user_sessions', $fields);
-        }
-    }
-
-    public static function loginUserFromCookie() {
-        $userSession = UserSessions::getFromCookie();
-        if($userSession->user_id != '') {
-            $user = new self((int)$userSession->user_id);
-        }
-        if($user) {
-            $user->login();
-        }
-        return $user;
-    }
-
-    public function logout() {
-        $userSession = UserSessions::getFromCookie();
-        if($userSession) $userSession->delete();
-        Session::delete(CURRENT_USER_SESSION_NAME);
-        if(Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
-            Cookie::delete(REMEMBER_ME_COOKIE_NAME);
-        }
-        self::$currentLoggedInUser = null;
-        return true;
-    }
-
-    public function registerNewUser($params) {
-        $this->assign($params);
-        $this->deleted = 0;
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-        $this->save();
-    }
-
     public function acls() {
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
@@ -94,41 +42,37 @@ class Administrator extends Model {
      * have to refactor
      */
     private function viewPromotion(){
-		
-		$conn = $this->dbh->connect();
-		$sql = $conn->prepare("SELECT * from confirmed_promotion WHERE state = 'Pending'");
-		$sql->execute();
-		$results = $sql->get_result();
-		$i = 0;
-		while($row = $results->fetch_array(MYSQLI_ASSOC)){
-			$tempPromo = new Promotion($row['promo_id'],$row['category'],$row['title'],$row['description'],$row['image_path'],$row['link'],$row['state'],$row['start_date'],$row['end_date'],$row['location'],$row['pr_username'],null);
-			
-			$this->viewPromo[$i] = $tempPromo;
-			$i = $i +1;
-		}
-		return $this->viewPromo;
+		return $this->_db->find('promotion',array(
+            'conditions' => ['state = ?','end_date > ?'],
+            'bind' => ["Pending",currentDate()] 
+        ));
 
 	}
 
-    private function acceptPromotion($promoID){
-		
-		$conn = $this->dbh->connect();
-		$sql = $conn->prepare("UPDATE `confirmed_promotion` SET state='Accepted' WHERE `promo_id` =".$promoID.";");
-		$sql->execute();
-		
+    public function acceptPromotion($promo_id){
+        $promotion = new Promotion((int)$promo_id);
+        $promotion->confirmPromotion($promo_id);
+        $promoter = new Promoter($promotion->pr_username);
+        // dnd($promoter);
+        $subscribers = $promoter->getSubscribers();
+        // dnd($subscribers);
+        foreach ($subscribers as $subscriber) {
+            $c = new Customer($subscriber->customer);
+            $customer_id = $c->id;
+            $this->_db->insert('notification_system',array(
+                'promo_id' => $promo_id,
+                'customer_id' => $customer_id,
+                'status'=> 'unread'
+            ));
+        }  
+
     }
     
-    private function rejectPromotion($promoID){
-		
-		$conn = $this->dbh->connect();
-		$sql = $conn->prepare("UPDATE `confirmed_promotion` SET state='Rejected' WHERE `promo_id` =".$promoID.";");
-		$sql->execute();
-		
+    public function rejectPromotion($promo_id){
+        $promotion = new Promotion((int)$promo_id);
+        $promotion->reject();
     }
-    
-    public function getAcceptedPromotion($promoID){
-		$this->acceptPromotion($promoID);
-    }
+
     
     public function getRejecteddPromotion($promoID){
 		$this->rejectPromotion($promoID);
@@ -139,5 +83,6 @@ class Administrator extends Model {
 		return $temp;
 	}
 
+    
 
 }

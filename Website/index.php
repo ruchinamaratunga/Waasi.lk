@@ -34,7 +34,9 @@
     // // dnd($user->{$username});
     // $new = $user->findById(3);
     // dnd($new);
-
+    // $p = new Customer(currentUser()->username);
+    // $k =$p->getNotifications();
+    // dnd($k);
     // $u = currentUser()->acls();
     // dnd($u);
     // $user = new Users('ruchin1');
@@ -55,7 +57,7 @@
     // "SELECT * FROM promotion WHERE pr_username => ? AND end_date > ? ORDER BY start_date
     // SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND end_date > ? ORDER BY start_date
 
-    // dnd(password_hash('arthurspizza', PASSWORD_DEFAULT));
+    // dnd(password_hash('password', PASSWORD_DEFAULT));
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : [];
     if(!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
         Users::loginUserFromCookie();

@@ -16,8 +16,7 @@
             "Register" : ["login","register","promoterRegistration"],
 			"Settings" : ["website","fb"]
         },
-        "Notifications" : ["*"],
-        "Home" : ["promoterpage"],
+        "Home" : ["*"],
         "Register" : ["logout"],
         "Promotion" : ["*"],
 		"Settings"  : ["index","password","email"]   
@@ -28,7 +27,7 @@
             "Home" :["index"],
 			"Settings": ["*"]
         },
-
+        "Admin" : ["*"],
         "Register" : ["logout"],
         "Promoters" : ["*"],
         "Promotion" : ["*"]

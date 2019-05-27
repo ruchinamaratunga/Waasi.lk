@@ -62,7 +62,7 @@ class RegisterController extends Controller {
                         $admin = new Administrator($user->username);
                         $this->view->currentUser = $admin;
                         $user->login($remember);
-                        Router::redirect('home/admin');
+                        Router::redirect('admin/index');
                     } else {
                         $validation->addError("There is an error with your uesrname or password");
                     }

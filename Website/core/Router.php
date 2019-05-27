@@ -77,7 +77,7 @@ class Router {
                 $current_user_acls[] = $a;
             }
         }
-
+        
         foreach($current_user_acls as $level) {
             if(array_key_exists($level,$acl) && array_key_exists($controller_name,$acl[$level])) {
                 if(in_array($action_name, $acl[$level][$controller_name]) || in_array("*", $acl[$level][$controller_name])) {
@@ -100,13 +100,18 @@ class Router {
     }
 
     public static function getMenu($menu) {
+        
         $menuAry = [];
         $menuFile = file_get_contents(ROOT . DS . 'app' . DS . $menu . '.json');
         $acl = json_decode($menuFile, true);
+        // test($acl);
         foreach($acl as $key=> $val) {
-            if(is_array($val)) {  
+            if(is_array($val)) {
                 $sub =[];
                 foreach($val as $k => $v) {
+                    if($key == "Notifications"){
+                        $sub[$k] = $v;
+                    }  
                     if($k == 'separator' && !empty($sub)) {
                         $sub[$k] = '';
                         continue;

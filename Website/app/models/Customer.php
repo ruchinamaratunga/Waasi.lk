@@ -107,6 +107,52 @@ class Customer extends Model {
             'bind' => [$this->username]
         ));
     }
+
+    public function getNotifications() {
+        $promoters = $this->subscribePromoters();
+        $promotions = [];
+        foreach ($promoters as $promoter) {
+            $result = $this->_db->find('promotion',array(
+                'conditions' => [
+                    'pr_username = ?',
+                    'state = ?',
+                    'end_date > ?'
+                ],
+                'bind' => [$promoter->promoter,"Approved",currentDate()],
+                'order' => "start_date",
+                'limit' => 5
+            ));
+            $promotions[] = $result; 
+        }
+        // dnd($promotions);
+        $output =[];
+        $temp=[];
+        foreach($promotions as $promotion) {
+            if($promotion) {
+                foreach($promotion as $p) {
+                    // test($k->promo_id);
+                    $r = $this->_db->find('notification_system',array(
+                        'conditions' => ['promo_id = ?','customer_id = ?','status = ?'],
+                        'bind' => [$p->promo_id,$this->id,'unread']
+                    ));
+                    if($r) {
+                        $pr = new Promotion();
+                        $output[] = $pr->getPromoById($r[0]->promo_id); 
+                    }
+                    
+                }
+            } 
+        }
+        return $output;
+    }
+
+    public function unreadPromo($promoter) {
+        $promotion= $promoter->getPromotions();
+        // dnd($promotion);
+        foreach($promotion as $p) {
+            $this->_db->query("UPDATE notification_system SET status = ? WHERE promo_id = ?",array('read',$p->promo_id));
+        }
+    }
 }
 
 

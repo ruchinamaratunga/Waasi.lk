@@ -5,7 +5,7 @@
     $comments = $this->promoter->showComments();
     $count = $this->promoter->count;
     $subscribe = $this->subscribe;
-    // dnd($subscribe);
+
     // $subscribe = true;
 ?>
 
@@ -63,25 +63,24 @@ $(document).ready(function(){
 
 
 $(document).ready(function() {
-    if('<?=$subscribe?>') {
-        $("#subscribe").html('Unubscribe');
-    } else {
-        $("#subscribe").html('Subscribe');
-    }
-    
-    $("#subscribe").click(function() {
-            $.ajax({
-                type : "POST",
-                url : '<?=PROOT?>home/subscribe',
-                data : {promoter : promoter},
-                success : function(resp) {
-                    console.log(resp);
-                    $("#subscribe").html(resp['resp']);
-                }
-            });
-        });
 
-});
+    $("#subscribe").click(function() {
+        if('<?=$subscribe?>') {
+            $("#subscribe").html('Unubscribe');
+        } else {
+            $("#subscribe").html('Subscribe');
+        }
+        $.ajax({
+            type : "POST",
+            url : '<?=PROOT?>home/subscribe',
+            data : {promoter : promoter},
+            success : function(resp) {
+                console.log(resp);
+                $("#subscribe").html(resp['resp']);
+            }
+        });
+    });
+})
 
 $(document).ready(function() {
     var count = 5;

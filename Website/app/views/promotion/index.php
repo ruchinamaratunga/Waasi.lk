@@ -1,13 +1,5 @@
 <?php 
     $results = $this->searchResults ;
-
-    // function runMyFunction() {
-    //     echo 'I just ran a php function';
-    //   }
-    
-    //   if (isset($_GET['hello'])) {
-    //     echo $_GET['hello'];
-    //   }
 ?>
 
 <?php $this->setSiteTitle("වාසි.lk"); ?>
@@ -81,15 +73,16 @@
                 <div class="row">
                     <?php if(count($results)):?>
                         <?php foreach($results as $result): ?>
+                        <a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>">
                             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                 <div class="single-blog wow fadeIn">
                                     <div class="blog-image">
                                         <img src="<?=PROOT?><?=$result->image_path?>" alt="">
                                     </div>
                                     <div class="blog-details">
-                                        <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                                        <h3><a href="#"><?=$result->title?></a></h3>
-                                        <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
+                                        <div class="blog-meta"><span><i class="fa fa-ship" style="color:white" ></i></span></div>
+                                        <h3><?=$result->title?></h3>
+                                        <div class="post-date"><a><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
                                         <p><?=$result->description?></p> 
                                         <a href="<?=$result->link?>" class="read-more">Visit us</a>
 										&nbsp; 
@@ -97,6 +90,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
+                            
                         <?php endforeach;?>
                     <?php else: ?>
                         <div class="nopromo">

@@ -2,10 +2,22 @@
 
 class Promotion extends Model {
     
-    public function __construct() {
+    public function __construct($user='') {
         $table = "promotion";
         parent::__construct($table);
         $this->_softDelete = true;
+        if($user != '') {
+            if(is_int($user)) {
+                $u = $this->_db->findFirst('promotion',['conditions'=>'promo_id = ?', 'bind'=>[$user]]);
+            } else {
+                $u = $this->_db->findFirst('promotion',['conditions'=>'title = ?', 'bind'=>[$user]]);
+            }
+            if($u) {
+                foreach($u as $key =>$val) {
+                    $this->$key = $val;
+                }
+            }
+        }
     }
 
     public function search($params=[]) {
@@ -21,7 +33,6 @@ class Promotion extends Model {
             $obj->populateObjData($result);
             $results[] =$obj;
         }
-
         return $results;
     }
 
@@ -34,6 +45,11 @@ class Promotion extends Model {
     public function getPromoByPromoter($promoter) {
         $today = currentDate();
         return $this->find(['conditions' => ['pr_username = ?' ,'end_date > ?','state = ?'],'bind' => [$promoter,$today,'Approved'],'order' => "start_date DESC"]);
+    }
+
+    public function getPromoById($id) {
+        $today = currentDate();
+        return $this->find(['conditions' => ['promo_id = ?' ,'end_date > ?','state = ?'],'bind' => [$id,$today,'Approved'],'order' => "start_date DESC"]);
     }
 
     public function comfirmPromotions($promotion) {
@@ -110,32 +126,17 @@ class Promotion extends Model {
 
     public function validatePromo() {
 
+    // }
+
+    // public function registerPromo() {
+
+    // }
+
+    public function confirmPromotion($promo_id) {
+        $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?",array('Approved',$promo_id));
     }
 
-    public function registerPromo() {
-
+    public function reject() {
+        $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?", array('Rejected',$this->promo_id));
     }
-
-    
-
-    // public static function readPromotionFromDB($promoID){
-	// 	$dbh=new Dbh();
-	// 	$conn = $dbh->connect();
-	// 	$sql = $conn->prepare("SELECT * from confirmed_promotion WHERE promo_id = ?");
-				
-	// 	$sql->bind_param("s", $promoID);
-	// 	$sql->execute();
-	// 	$results = $sql->get_result();
-	// 	if($row = $results->fetch_array(MYSQLI_ASSOC)){
-
-	// 		//$promoID,$category,$title,$description,$image,$link,$state,$startDate,$endDate,$location,$pr_username,$ad_username
-    //         return new Promotion($row["promo_id"],$row["category"],$row["title"],$row["description"],$row["image_path"],$row["link"],$row["state"],$row["start_date"],$row["end_date"],$row["location"],$row['pr_username'],$row["ad_username"]);
-	// 	}
-
-	// 	else{
-	// 		return null;
-	// 	}	
-	// }
-
-
 }

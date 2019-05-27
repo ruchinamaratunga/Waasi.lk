@@ -1,11 +1,13 @@
 <?php
   $menu_file = 'menu_acl';
+  $notifications = [];
   if(currentUser()) {
     $userType = currentUser()->user_type;
-    // test($userType);
     $username = currentUser()->username;
     if($userType == 'Customer') {
       $user = new Customer($username);
+      $notifications = $user->getNotifications();
+      // test($notifications);
     } elseif($userType == 'Promoter') {
       $menu_file = 'promoter_menu';
       $user = new Promoter($username);
@@ -14,10 +16,25 @@
       $user = new Administrator($username);    
     }
   }
-  // test($menu_file);
   $menu = Router::getMenu($menu_file);
   $currentPage = currentPage();
 ?>
+
+<!-- <script>
+  $(document).ready(function() {
+    var promo_id = $("#resp").val();
+    $("#unread").click(function() {
+        $.ajax({
+            type : "POST",
+            url : '<?=PROOT?>settings/notification',
+            data : {promo_id:promo_id},
+            success : function(resp) {
+              
+            }
+        });
+    });
+  });
+</script> -->
 
 <div class="mainmenu-area" id="mainmenu-area">
   <div class="mainmenu-area-bg"></div>
@@ -53,18 +70,30 @@
                 
                 <?php foreach($menu as $key => $val): 
                   $active = '';?>
+
                   <?php if(is_array($val)):?>
-                    
-                    <?php if($val == "Notifications"): ?>
+                    <?php //test($val)?>
+                    <?php if($val["Notifications"] == "Notifications"): ?>
                       <li class="dropdown pull-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification <span class="badge" style="color:white">5</span></a>
-                        <ul class="dropdown-menu">
-                          <a href="#">
-                            <small><i>feb 18, 2019</i></small><br>
-                            Odel 40% off for Sampath Credit card
+                        <?php if(count($notifications)): ?>
+                          <a href="#" class="dropdown-toggle" id="unread" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification
+                            <span class="badge" style="color:white"><?=count($notifications)?></span>
                           </a>
-                          <li role="separator" class="divider"></li>
-                        </ul>
+                          
+                          <ul class="dropdown-menu">
+                            <?php foreach($notifications as $n): ?>
+                              <a href="<?=PROOT?>home/promoterpage/<?=$n[0]->pr_username?>">
+                                <div id="resp" style="display:none;"><?=$n[0]->promo_id?></div>
+                                <small><i><?=$n[0]->start_date?></i></small><br>
+                                <?=substr($n[0]->description,0,50).'...'?>
+                              </a>
+                            <?php endforeach;?>
+                            
+                            <li role="separator" class="divider"></li>
+                          </ul>
+                        <?php else:?>
+                          <a href="#" class="dropdown-toggle" id="unread" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification</a>
+                        <?php endif;?>
                       </li>
                     <?php else:?>
                       <li class="dropdown">
