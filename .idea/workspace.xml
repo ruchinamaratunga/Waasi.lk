@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8472cfbd-e555-429f-ba67-556939fb7bc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Website/app/acl.json" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/acl.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/views/promoter/addpromo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/promoter/addpromo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/core/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/core/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/css/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/app/views/promoter/editpromo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/promoter/editpromo.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="107" column="68" lean-forward="true" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
+            <state relative-caret-position="262">
+              <caret line="47" column="86" lean-forward="true" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -28,8 +24,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/css/style2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="413" column="1" selection-start-line="413" selection-start-column="1" selection-end-line="413" selection-end-column="1" />
+            <state relative-caret-position="487">
+              <caret line="414" selection-start-line="414" selection-end-line="414" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/editpromo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2670">
+              <caret line="217" column="40" lean-forward="true" selection-start-line="217" selection-start-column="40" selection-end-line="217" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -76,14 +81,14 @@
         <option value="$PROJECT_DIR$/Website/config/config.php" />
         <option value="$PROJECT_DIR$/Website/js/datepicker.js" />
         <option value="$PROJECT_DIR$/Website/js/formValidation.js" />
-        <option value="$PROJECT_DIR$/Website/app/views/promoter/editpromo.php" />
         <option value="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" />
         <option value="$PROJECT_DIR$/Website/app/acl.json" />
         <option value="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" />
         <option value="$PROJECT_DIR$/Website/app/models/Promotion.php" />
         <option value="$PROJECT_DIR$/Website/core/DB.php" />
-        <option value="$PROJECT_DIR$/Website/css/style2.css" />
         <option value="$PROJECT_DIR$/Website/app/views/promoter/addpromo.php" />
+        <option value="$PROJECT_DIR$/Website/css/style2.css" />
+        <option value="$PROJECT_DIR$/Website/app/views/promoter/editpromo.php" />
       </list>
     </option>
   </component>
@@ -121,37 +126,7 @@
               <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
               <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
@@ -160,32 +135,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="promoter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +189,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126239000" />
+    <option name="totallyTimeSpent" value="128443000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="7" />
@@ -493,13 +442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/editpromo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Website/core/Router.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -582,15 +524,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/css/style2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="413" column="1" selection-start-line="413" selection-start-column="1" selection-end-line="413" selection-end-column="1" />
+        <state relative-caret-position="487">
+          <caret line="414" selection-start-line="414" selection-end-line="414" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/editpromo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="217" column="40" lean-forward="true" selection-start-line="217" selection-start-column="40" selection-end-line="217" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="107" column="68" lean-forward="true" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
+        <state relative-caret-position="262">
+          <caret line="47" column="86" lean-forward="true" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="86" />
         </state>
       </provider>
     </entry>
