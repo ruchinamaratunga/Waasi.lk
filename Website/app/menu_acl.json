@@ -2,10 +2,6 @@
     "Notifications" : {"Notifications":"Notifications"},
     "Home" : "home/index",
     "About" : "home/about",
-    "Promotion" : "promotion/index",
-    "MyPromo" : "promoter/mypromo",
-    "AddPromo" : "promoter/addpromo",
-    "EditPromo" : "promoter/editpromo",
     "Sign up": {
         "Promoter": "register/promoterRegistration",
         "Customer": "register/register"

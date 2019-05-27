@@ -1,6 +1,7 @@
 <?php
   $menu_file = 'menu_acl';
   $notifications = [];
+  $userType = "Guest";
   if(currentUser()) {
     $userType = currentUser()->user_type;
     $username = currentUser()->username;
@@ -59,21 +60,20 @@
               <ul id ="nav" class="nav navbar-nav pull-right">
                 <?php if(currentUser()): ?>
                   <li class="logged-user"><a href="#">Hello <?=currentUser()->username?></a>
-					  <ul>
-						  <li><a href="<?=PROOT?>settings/index" target="new">Settings</a></li>
-						  <li><a href="<?=PROOT?>register/logout">Logout</a></li>
-					  </ul>
-				  </li>
+                    <ul>
+                      <li><a href="<?=PROOT?>settings/index" target="new">Settings</a></li>
+                      <li><a href="<?=PROOT?>register/logout">Logout</a></li>
+                    </ul>
+                  </li>
                 <?php endif;?>
               </ul>
               <ul id="nav" class="nav navbar-nav">                  
-                
                 <?php foreach($menu as $key => $val): 
-                  $active = '';?>
-
+                  $active = '';
+                  // test($val);
+                  ?>
                   <?php if(is_array($val)):?>
-                    <?php //test($val)?>
-                    <?php if($val["Notifications"] == "Notifications"): ?>
+                    <?php if($val["Notificaiotns"] == "Notifications"): ?>
                       <li class="dropdown pull-right">
                         <?php if(count($notifications)): ?>
                           <a href="#" class="dropdown-toggle" id="unread" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification

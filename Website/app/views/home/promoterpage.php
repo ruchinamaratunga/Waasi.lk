@@ -63,7 +63,11 @@ $(document).ready(function(){
 
 
 $(document).ready(function() {
-
+    if('<?=$subscribe?>') {
+        $("#subscribe").html('Unubscribe');
+    } else {
+        $("#subscribe").html('Subscribe');
+    }
     $("#subscribe").click(function() {
         if('<?=$subscribe?>') {
             $("#subscribe").html('Unubscribe');
@@ -119,42 +123,42 @@ $(document).ready(function() {
 <section class="blog-area blog-page section-padding">
         <div class="container">
             <div class="row">
-            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-                <?php if(count($promotions)):?>
-                    <?php foreach($promotions as $promotion): ?>
-                        
-                            <div class="single-blog wow fadeIn">
-                                <div class="blog-image">
-                                    <img src="<?=PROOT?><?=$promotion->image_path?>" alt="">
-                                </div>
-                                <div class="blog-details">
-                                    <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                                    <h3><a href="#"><?=$promotion->title?></a></h3>
-                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$promotion->start_date?></a></div>
-                                    <p><?=$promotion->description?></p> 
-<!--                                    <a href="<?=$promotion->link?>" class="read-more">Visit us</a>-->
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <?php if(count($promotions)):?>
+                            <?php foreach($promotions as $promotion): ?>
+                                
+                                    <div class="single-blog wow fadeIn">
+                                        <div class="blog-image">
+                                            <img src="<?=PROOT?><?=$promotion->image_path?>" alt="">
+                                        </div>
+                                        <div class="blog-details">
+                                            <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
+                                            <h3><a href="#"><?=$promotion->title?></a></h3>
+                                            <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$promotion->start_date?></a></div>
+                                            <p><?=$promotion->description?></p> 
+                                        </div>
+                                    </div>
+                                
+                            <?php endforeach;?>
+                        <?php else: ?>
+                            <div class="nopromo">
+                                <div class="single-blog wow fadeIn">
+                                    <div class="blog-details">
+                                        <div class="blog-meta"></div>
+                                        <h3>NO PROMOTIONS</h3>
+                                    </div>
                                 </div>
                             </div>
-                        
-                    <?php endforeach;?>
-                <?php else: ?>
-					<div class="nopromo">
-						<div class="single-blog wow fadeIn">
-							<div class="blog-details">
-								<div class="blog-meta"></div>
-								<h3>NO PROMOTIONS</h3>
-							</div>
-						</div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
+                </div>
             
-
-            </div>
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="sidebar-area wow fadeIn">
 					    <div class="single-sidebar-widget widget_categories">
                             <div class="quote-form">
-                                <button id="subscribe">subscribe</button>  
+                                <button id="subscribe"></button>  
                             </div>                          
                    	    </div>
  
@@ -167,15 +171,6 @@ $(document).ready(function() {
 								<li><i class="fa fa-globe"></i> <a href="<?=$promoter->website?>" target="_blank">&nbsp;&nbsp;visit us</a></li>
                             </ul>
                     	</div>
-						
-<!--
-						<div class="single-sidebar-widget widget_categories">
-							<h3>Star rating</h3>
-							<div class="box">
-
-							</div>
-                    	</div>
--->
 
 						<div class="single-sidebar-widget widget_categories">
 							<h3>Give a comment</h3>
@@ -198,13 +193,6 @@ $(document).ready(function() {
                                 <?php if($comments): ?>
                                     <?php for($i=0;$i<min(5,count($comments));$i++): ?>
                                         <div class="row">
-<!--
-                                            <div class="col-sm-2 col-xs-2">
-                                                <div class="thumbnail">
-                                                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                                                </div>
-                                            </div>
--->
                                             <div class="col-sm-12 col-xs-12">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
@@ -215,25 +203,20 @@ $(document).ready(function() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-										
-                                <?php endfor; ?>
-									<div id="see-more" class="text-right" ><a id="get-comments">see more...</a></div>
+                                        </div>    
+                                    <?php endfor; ?>
+                                    <div id="see-more" class="text-right" ><a id="get-comments">see more...</a></div>
                                 <?php else: ?>
                                     <div class="nopromo">
                                         <div class="text-center">No comments</div>
                                     </div>
                                 <?php endif; ?>
-                            <!-- </div> -->
-
-                            
+                            </div>
                         </div>
-                        
-						
-
                     </div>
                 </div>
             </div>
+
             <!-- <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <ul class="pagination">
@@ -246,6 +229,7 @@ $(document).ready(function() {
                     </ul>
                 </div>
             </div> -->
+
         </div>
     </section>
 <?php $this->end(); ?>
