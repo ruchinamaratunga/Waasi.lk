@@ -24,7 +24,7 @@ class PromotionController extends Controller {
                     array("Gampaha","Negombo"),
                     array("Matara","Weligama")   
                 ));
-        $promos = $this->PromotionModel->find(['conditions'=>'end_date > ?','bind'=>[currentDate()],'order' => "start_date DESC"]);
+        $promos = $this->PromotionModel->find(['conditions'=>['end_date > ?','state = ?'],'bind'=>[currentDate(),'Approved'],'order' => "start_date DESC"]);
         $this->view->searchResults = array($promos,$districtList);
         
         if($_POST) {
