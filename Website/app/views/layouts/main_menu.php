@@ -1,5 +1,6 @@
 <?php
   $menu_file = 'menu_acl';
+  $notifications = [];
   if(currentUser()) {
     $userType = currentUser()->user_type;
     $username = currentUser()->username;
@@ -15,7 +16,6 @@
       $user = new Administrator($username);    
     }
   }
-  // test($menu_file);
   $menu = Router::getMenu($menu_file);
   $currentPage = currentPage();
 ?>

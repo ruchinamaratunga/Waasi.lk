@@ -1,5 +1,6 @@
 <?php
     $subscribes = $this->promoter->getSubscribers(); 
+    // dnd($subscribes);
 ?>
 
 <?php $this->start('head');?>
@@ -127,10 +128,9 @@
         	</div>
             <div class="row">
                 <?php if($subscribes):?>
-		            <?php foreach($subscribes as $subscribe):?>
-                        <?php subscribersBlock($subscribes) ?>
-		            <?php endforeach;?>
+                    <?php subscribersBlock($subscribes)?>
 		        <?php else: ?>
+                
 		            <div class="single-blog wow fadeIn">
 			            <div class="blog-details">
 				            <div class="blog-meta"></div>

@@ -120,7 +120,6 @@ class DB {
 
             //backtickes to define the fields / not nessasary 
             $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values}) ";
-            test($sql);
             if(!$this->query($sql, $fields)->error()) {
                 return true;
             }

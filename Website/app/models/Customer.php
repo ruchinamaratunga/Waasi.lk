@@ -128,18 +128,20 @@ class Customer extends Model {
         $output =[];
         $temp=[];
         foreach($promotions as $promotion) {
-            foreach($promotion as $p) {
-                // test($k->promo_id);
-                $r = $this->_db->find('notification_system',array(
-                    'conditions' => ['promo_id = ?','customer_id = ?','status = ?'],
-                    'bind' => [$p->promo_id,$this->id,'unread']
-                ));
-                if($r) {
-                    $pr = new Promotion();
-                    $output[] = $pr->getPromoById($r[0]->promo_id); 
+            if($promotion) {
+                foreach($promotion as $p) {
+                    // test($k->promo_id);
+                    $r = $this->_db->find('notification_system',array(
+                        'conditions' => ['promo_id = ?','customer_id = ?','status = ?'],
+                        'bind' => [$p->promo_id,$this->id,'unread']
+                    ));
+                    if($r) {
+                        $pr = new Promotion();
+                        $output[] = $pr->getPromoById($r[0]->promo_id); 
+                    }
+                    
                 }
-                
-            }
+            } 
         }
         return $output;
     }

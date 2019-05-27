@@ -37,14 +37,15 @@
                                 <?php if(count($results)):?>
                                     <?php foreach($results as $result): ?>
                                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                            <div class="card">
+                                            <?php promotionCard($result); ?>
+                                            <!-- <div class="card">
                                                 <img src="<?=PROOT?><?=$result->image_path?> " class="img-rounded card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?=$result->title?></h5>
                                                     <p class="card-text"><?=$result->description?></p>
                                                     <a href="<?=$result->link?>" class="btn btn-primary"><?=$result->pr_username?></a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     <?php endforeach;?>
                                 <?php else: ?>

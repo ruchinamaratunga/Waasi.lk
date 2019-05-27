@@ -24,12 +24,18 @@ class HomeController extends Controller{
 
     public function promoterpageAction($username) {
         $promoter = new Promoter($username);
-        $customer = new Customer(currentUser()->username);
-        $customer->unreadPromo($promoter);
-        $this->view->promoter = $promoter;
-        $this->view->promotions = $promoter->getPromotions();
-        $this->view->subscribe = $promoter->isSubscribe();       
-        $this->view->render('home/promoterpage');
+        // dnd($promoter);
+        if($promoter->id) {
+            $customer = new Customer(currentUser()->username);
+            $customer->unreadPromo($promoter);
+            $this->view->promoter = $promoter;
+            $this->view->promotions = $promoter->getPromotions();
+            $this->view->subscribe = $promoter->isSubscribe();       
+            $this->view->render('home/promoterpage');
+        } else {
+            Router::redirect('restricted');
+        }
+        
     }
 
     public function subscribeAction() {

@@ -20,9 +20,8 @@
     },
     "Admin" : {
         "denied" : {
-            "Home" :[""]
         },
-
+        "Admin" : ["*"],
         "Register" : ["logout"],
         "Promoters" : ["*"],
         "Promotion" : ["*"]

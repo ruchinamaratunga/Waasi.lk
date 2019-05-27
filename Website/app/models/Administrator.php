@@ -43,36 +43,36 @@ class Administrator extends Model {
      */
     private function viewPromotion(){
 		return $this->_db->find('promotion',array(
-            'conditions' => 'end_date > ?',
-            'bind' => [currentDate()] 
+            'conditions' => ['state = ?','end_date > ?'],
+            'bind' => ["Pending",currentDate()] 
         ));
 
 	}
 
-    private function acceptPromotion($promotion){
-        $promotion->confirmPromotion();
+    public function acceptPromotion($promo_id){
+        $promotion = new Promotion((int)$promo_id);
+        $promotion->confirmPromotion($promo_id);
         $promoter = new Promoter($promotion->pr_username);
+        // dnd($promoter);
         $subscribers = $promoter->getSubscribers();
+        // dnd($subscribers);
         foreach ($subscribers as $subscriber) {
+            $c = new Customer($subscriber->customer);
+            $customer_id = $c->id;
             $this->_db->insert('notification_system',array(
-                'promo_id' => $promotion->id,
-                'customer_id' => $subscriber->id,
+                'promo_id' => $promo_id,
+                'customer_id' => $customer_id,
                 'status'=> 'unread'
             ));
-        }   
+        }  
+
     }
     
-    private function rejectPromotion($promoID){
-		
-		$conn = $this->dbh->connect();
-		$sql = $conn->prepare("UPDATE `confirmed_promotion` SET state='Rejected' WHERE `promo_id` =".$promoID.";");
-		$sql->execute();
-		
+    public function rejectPromotion($promo_id){
+        $promotion = new Promotion((int)$promo_id);
+        $promotion->reject();
     }
-    
-    public function getAcceptedPromotion($promoID){
-		$this->acceptPromotion($promoID);
-    }
+
     
     public function getRejecteddPromotion($promoID){
 		$this->rejectPromotion($promoID);
@@ -83,5 +83,6 @@ class Administrator extends Model {
 		return $temp;
 	}
 
+    
 
 }

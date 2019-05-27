@@ -2,10 +2,22 @@
 
 class Promotion extends Model {
     
-    public function __construct() {
+    public function __construct($user='') {
         $table = "promotion";
         parent::__construct($table);
         $this->_softDelete = true;
+        if($user != '') {
+            if(is_int($user)) {
+                $u = $this->_db->findFirst('promotion',['conditions'=>'promo_id = ?', 'bind'=>[$user]]);
+            } else {
+                $u = $this->_db->findFirst('promotion',['conditions'=>'title = ?', 'bind'=>[$user]]);
+            }
+            if($u) {
+                foreach($u as $key =>$val) {
+                    $this->$key = $val;
+                }
+            }
+        }
     }
 
     public function Search($params=[]) {
@@ -21,7 +33,6 @@ class Promotion extends Model {
             $obj->populateObjData($result);
             $results[] =$obj;
         }
-
         return $results;
     }
 
@@ -81,19 +92,19 @@ class Promotion extends Model {
 
     }
 
-    public function validatePromo() {
+    // public function validatePromo() {
 
+    // }
+
+    // public function registerPromo() {
+
+    // }
+
+    public function confirmPromotion($promo_id) {
+        $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?",array('Approved',$promo_id));
     }
 
-    public function registerPromo() {
-
+    public function reject() {
+        $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?", array('Rejected',$this->promo_id));
     }
-
-    public function confirmPromotion() {
-        $this->update($this->promo_id,array(
-            'state' => 'Approved'
-        ));
-    }
-
-
 }
