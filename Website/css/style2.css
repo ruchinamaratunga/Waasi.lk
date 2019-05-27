@@ -53,6 +53,12 @@ h2.index-h2{
 }
 /*-------------------------------------------*/
 /*Monthly Report*/
+
+.paralleltab{
+    border:2px ;
+}
+
+
 .top-area-bg-MonReport{
 	background: rgba(0, 0, 0, 0) url("../img/reports/2012.jpg") no-repeat scroll center center / cover;
     height: 100%;
@@ -141,6 +147,34 @@ h2.index-h2{
     top: 0;
     width: 100%;
 }
+
+/*-------------------------------------------*/
+/*Promotion Based on location*/
+#modal-close{
+    margin-top:20px;
+}
+
+#locationbtn{
+    margin:23px;
+    background-color:#5d6b82;
+    border:none;
+}
+#locationbtn:hover{
+    background-color:#f39c12
+}
+
+.centerclass{
+    text-align:center;
+}
+
+.searchboxln{
+    width: 500px;
+}
+
+#inc-len{
+    width: 500px;
+}
+
 
 
 /*-------------------------------------------*/

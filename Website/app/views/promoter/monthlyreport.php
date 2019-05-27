@@ -6,7 +6,8 @@
 ?>
 
 <?php $this->start('head'); ?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <?php $this->end(); ?>
 
 <?php $this->start('body'); ?>
@@ -21,7 +22,7 @@
                 <div class="row flex-v-center">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="welcome-text text-center">
-                            <h2>Monthly Report</h2>
+                            <h2>Report</h2>
                         </div>
                     </div>
                 </div>
@@ -29,9 +30,15 @@
         </div>
     </header>
     <div class  = "report">
-        <div>
-            <div class="badge badge-primary text-wrap">Promoter Name: <?php echo $username?></div><br>
-            <div class="badge badge-primary text-wrap">No of Subscribers: <?php echo $subscribedCount?></div><br><br>
+        <div class= "row">
+            <div class = "col-sm-6 ">
+                <div class="paralleltab alert alert-success" ><i class="material-icons">business_center</i>    Promoter Name: <?php echo $username?></div>
+            </div>
+            <div class = "col-sm-6 ">
+                <div class="paralleltab alert alert-success"><i class="material-icons">person_add</i>  No of Subscribers: <?php echo $subscribedCount?></div><br><br>
+            </div>
+        </div>
+
         <div class="table-responsive" id= "table">
             <table class="table table-hover " >
                 <thead>
@@ -62,7 +69,7 @@
         </div>
         <div class="form-group" align = "right">
             <form action="<?=PROOT?>promoter/monthlyreport" method="post" target="_blank">
-                <input type="submit" value="Download Pdf" name="generatepdf" class="btn btn-warning"><br>
+                <input type="submit" value="Download Pdf" id="locationbtn" name="generatepdf" class="btn btn-primary"><br>
             </form>
         </div>
     </div>

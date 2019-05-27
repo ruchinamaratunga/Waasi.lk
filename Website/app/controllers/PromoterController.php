@@ -192,6 +192,9 @@ class PromoterController extends Controller {
         $this->view->render('promoter/mypromo');
     }
 
+    /*******************************************
+     * The Promoter can View All the Active Promotions in a table 
+     ********************************************/
     public function monthlyreportAction(){
         
         $username = Promoter::currentLoggedInUser()->username;
@@ -217,44 +220,54 @@ class PromoterController extends Controller {
 
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['generatepdf'])) {
-                $weights = array(40,40,35,35,30);
-                $header = array('Title','Category','Start Date','End Date','State');
-                
-                ob_start();
-                require_once(ROOT.'/app/lib/fpdf/fpdf.php');
-
-                $pdf = new FPDF();
-                $pdf->SetFont('Arial','B');
-                $pdf->AddPage();
-                for($i=0;$i<count($header);$i++){
-                    $pdf->Cell($weights[$i],10,$header[$i],1,0,'C');
-                }
-                $pdf->Ln();
-                foreach($promotionDetails as $row){
-                    // dnd($promotionDetails);
-                    $pdf->Cell($weights[0],10,$row['title'],1,0,'C');
-                    $pdf->Cell($weights[1],10,$row['category'],1,0,'C');
-                    // $pdf->Cell($weights[2],10,$row['description'],1,0,'C');
-                    $pdf->Cell($weights[2],10,$row['start_date'],1,0,'C');
-                    $pdf->Cell($weights[3],10,$row['end_date'],1,0,'C');
-                    $pdf->Cell($weights[4],10,$row['state'],1,0,'C');
-                    $pdf->Ln();
-                }
-
-                $pdf->Output();
-                ob_end_flush(); 
+                $this->pdfReport($username,$subscribeCount,$promotionDetails);
             }
         }
 
         $this->view->currentUser = $promoter;
         $this->view->searchResults = array($username,$subscribeCount,$promotionDetails);
         $this->view->render('promoter/monthlyreport');
-        // var_dump($_SERVER['REQUEST_METHOD']);
-        
-
-            
-        
-
     }   
+
+    /*******************************************
+     * The Promoter can download the exact report as a pdf
+     ********************************************/
+    public function pdfReport($username,$subscribeCount,$promotionDetails){
+        $weights = array(40,40,35,35,30);
+        $header = array('Title','Category','Start Date','End Date','State');
+
+        ob_start();
+
+        $pdf = new FPDF();
+
+        $pdf->AddPage();
+        
+        $pdf->Ln(15);
+
+        $pdf->Image(ROOT.'\img\logo.png',10,10,20,0,'PNG');
+        
+        $pdf->SetFont('Arial','B');
+        $pdf->Cell(40,7,'Promoter Name: '.$username,0,1);
+        $pdf->Cell(40,7,'Number of Subscribers: '.$subscribeCount,0,1);
+        $pdf->Ln();
+
+        for($i=0;$i<count($header);$i++){
+            $pdf->Cell($weights[$i],10,$header[$i],1,0,'C');
+        }
+
+        $pdf->Ln();
+        $pdf->SetFont('Arial');
+        foreach($promotionDetails as $row){
+            $pdf->Cell($weights[0],10,$row['title'],1,0,'C');
+            $pdf->Cell($weights[1],10,$row['category'],1,0,'C');
+            $pdf->Cell($weights[2],10,$row['start_date'],1,0,'C');
+            $pdf->Cell($weights[3],10,$row['end_date'],1,0,'C');
+            $pdf->Cell($weights[4],10,$row['state'],1,0,'C');
+            $pdf->Ln();
+        }
+
+        $pdf->Output();
+        ob_end_flush();
+    }
 
 }

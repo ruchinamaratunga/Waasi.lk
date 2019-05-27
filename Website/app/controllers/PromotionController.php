@@ -11,17 +11,42 @@ class PromotionController extends Controller {
         $this->view->setLayout('default');
     }
 
-    public function indexAction() {
-        // $posted_value = ['promoter' =>'off','catagory'=>'off','search' =>''];
-        $this->view->searchResults = $this->PromotionModel->find(['conditions'=>['end_date > ?', 'state = ?'],'bind'=>[currentDate(),'Approved'],'order' => "start_date DESC"]);
-        // dnd($_POST);
+    /**************************************
+     * The index of the promotion page... including Search and districtwise finding
+     ***************************************/
+
+    public function indexAction($district = "") {
+        $districtList = array('districts'=>array("Colombo","Kandy","Kurunegala","Gampaha","Matara"),
+                'towns'=>array(
+                    array("Colombo","Moratuwa","Dehiwala"),
+                    array("Kandy","Moratuwa","Dehiwala"),
+                    array("Kurunegala","Polgahawela","Kuliyapitiya"),
+                    array("Gampaha","Negombo"),
+                    array("Matara","Weligama")   
+                ));
+        $promos = $this->PromotionModel->find(['conditions'=>'end_date > ?','bind'=>[currentDate()],'order' => "start_date DESC"]);
+        $this->view->searchResults = array($promos,$districtList);
+        
         if($_POST) {
-            // $posted_values = mergeArray($posted_value,posted_values($_POST));
             $p = new Promotion();
-            $this->view->searchResults = $p->Search($_POST);
+            $this->view->searchResults[0] = $p->Search($_POST);
+            
+        }
+        elseif($district!=""){
+            
+
+            $p = new Promotion();
+            $params= array("search"=>$district);
+            $this->view->searchResults[0] = $p->Search($params);
+            
         }
         
         $this->view->render('promotion/index');
     }
+
+    
+
+
+
 
 }

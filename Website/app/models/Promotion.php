@@ -20,11 +20,11 @@ class Promotion extends Model {
         }
     }
 
-    public function search($params=[]) {
+    public function Search($params=[]) {
         $results = [];
         $today = currentDate();
         // dnd($params);
-        $this->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],"Approved",$today]);
+        $this->query("SELECT * FROM promotion WHERE (catagory LIKE ? OR pr_username LIKE ? OR title LIKE ? or location LIKE ?) AND state = ? AND end_date > ? ORDER BY start_date DESC", [$params['search'],$params['search'],$params['search'],$params['search'],"Approved",$today]);
         
         $resultsQuery = $this->_db->results();
         // dnd($resultsQuery);
