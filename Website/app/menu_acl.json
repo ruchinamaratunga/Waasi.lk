@@ -2,6 +2,7 @@
     "Notifications" : {"Notifications":"Notifications"},
     "Home" : "home/index",
     "About" : "home/about",
+    "Promotion": "promotion/index",
     "Sign up": {
         "Promoter": "register/promoterRegistration",
         "Customer": "register/register"
