@@ -130,17 +130,22 @@ $(document).ready(function() {
                                 </div>
                                 <div class="blog-details">
                                     <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                                    <h3><a href="<?=PROOT?>home/promoterpage/<?=$promotion->pr_username?>"><?=$promotion->title?></a></h3>
+                                    <h3><a href="#"><?=$promotion->title?></a></h3>
                                     <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$promotion->start_date?></a></div>
                                     <p><?=$promotion->description?></p> 
-                                    <a href="<?=$promotion->link?>" class="read-more">Visit us</a>
+<!--                                    <a href="<?=$promotion->link?>" class="read-more">Visit us</a>-->
                                 </div>
                             </div>
                         
                     <?php endforeach;?>
                 <?php else: ?>
-                    <div class="nopromo">
-                        <div class="text-center">No Promotions</div>
+					<div class="nopromo">
+						<div class="single-blog wow fadeIn">
+							<div class="blog-details">
+								<div class="blog-meta"></div>
+								<h3>NO PROMOTIONS</h3>
+							</div>
+						</div>
                     </div>
                 <?php endif; ?>
             
@@ -157,17 +162,21 @@ $(document).ready(function() {
 						<div class="single-sidebar-widget widget_search">
 							<h4>Contact us</h4>
 							<ul>
-                                <li><i class="fa fa-phone"></i> <a href="callto:+8801911854378">&nbsp;&nbsp;<?=$promoter->phone_number?></a></li>
-                                <li><i class="fa fa-envelope"></i> <a href="mailto:backpiper.com@gmail.com">&nbsp;<?=$promoter->email?></a></li>
-								<li><i class="fa fa-facebook"></i> <a href="#">&nbsp;&nbsp;&nbsp;<?=$promoter->fb_link?></a></li>
+                                <li><i class="fa fa-phone"></i> <a href="callto:<?=$promoter->phone_number?>">&nbsp;&nbsp;<?=$promoter->phone_number?></a></li>
+                                <li><i class="fa fa-envelope"></i> <a href="mailto:<?=$promoter->email?>" target="_blank">&nbsp;<?=$promoter->email?></a></li>
+								<li><i class="fa fa-facebook"></i> <a href="<?=$promoter->fb_link?>" target="_blank">&nbsp;&nbsp;&nbsp;facebook</a></li>
+								<li><i class="fa fa-globe"></i> <a href="<?=$promoter->website?>" target="_blank">&nbsp;&nbsp;visit us</a></li>
                             </ul>
                     	</div>
+						
+<!--
 						<div class="single-sidebar-widget widget_categories">
 							<h3>Star rating</h3>
 							<div class="box">
 
 							</div>
                     	</div>
+-->
 
 						<div class="single-sidebar-widget widget_categories">
 							<h3>Give a comment</h3>
@@ -179,7 +188,7 @@ $(document).ready(function() {
                     	</div>
                         
 
-                        <div class="container" style="width: 500px;">
+                        <div class="single-sidebar-widget widget_categories">
                             <div class="row">
                                 <div class="col-sm-12">
                                 <h3>Comments</h3>
@@ -190,12 +199,14 @@ $(document).ready(function() {
                                 <?php if($comments): ?>
                                     <?php for($i=0;$i<min(5,count($comments));$i++): ?>
                                         <div class="row">
+<!--
                                             <div class="col-sm-2 col-xs-2">
                                                 <div class="thumbnail">
                                                     <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-10 col-xs-10">
+-->
+                                            <div class="col-sm-12 col-xs-12">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <strong style="padding-left: 5px;"><?=$comments[$i]->customer?></strong> <span class="text-muted pull-right"><?=$comments[$i]->date?></span>
@@ -206,7 +217,9 @@ $(document).ready(function() {
                                                 </div>
                                             </div>
                                         </div>
+										
                                 <?php endfor; ?>
+									<div id="see-more" class="text-right" ><a id="get-comments">see more...</a></div>
                                 <?php else: ?>
                                     <div class="nopromo">
                                         <div class="text-center">No comments</div>
@@ -216,7 +229,7 @@ $(document).ready(function() {
 
                             
                         </div>
-                        <div id="see-more" class="text-right" ><a id="get-comments">see more...</a></div>
+                        
 						
 
                     </div>

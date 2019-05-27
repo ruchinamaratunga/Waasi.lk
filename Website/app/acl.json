@@ -3,7 +3,7 @@
         "denied" : {
 			"Settings": ["*"]
 		},
-        "Home" : ["index","about"],
+        "Home" : ["index","about","contactus"],
         "Promotion" : ["index"],
         "Register" : ["login","register","promoterRegistration"],
         "Restricted" : ["*"],

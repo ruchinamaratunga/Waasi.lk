@@ -20,3 +20,12 @@
 	margin-bottom: 20px;
 	cursor: auto;
 }
+
+#settingsSave{
+	transition: all;
+	transition-delay: 0.4s;
+}
+
+#settingsSave:hover{
+	transform: scale(1.10);
+}

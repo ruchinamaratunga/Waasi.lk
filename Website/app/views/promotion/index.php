@@ -19,8 +19,8 @@
 <?php $this->start('body'); ?>
 
     <header class="top-area single-page" id="home">
-        <div class="top-area-bg-login" data-stellar-background-ratio="0.6">
-            <div class="login-top"></div>
+        <div class="top-area-bg-movies" data-stellar-background-ratio="0.6">
+<!--            <div class="login-top"></div>-->
         </div>
         <div class="header-top-area"></div>
         <div class="welcome-area">
@@ -88,17 +88,24 @@
                                     </div>
                                     <div class="blog-details">
                                         <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
-                                        <h3><a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>"><?=$result->title?></a></h3>
+                                        <h3><a href="#"><?=$result->title?></a></h3>
                                         <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
                                         <p><?=$result->description?></p> 
                                         <a href="<?=$result->link?>" class="read-more">Visit us</a>
+										&nbsp; 
+										<a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>" class="read-more" target="_blank">Contact Us</a>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach;?>
                     <?php else: ?>
                         <div class="nopromo">
-                            <div class="text-center">No Promotions</div>
+							<div class="single-blog wow fadeIn">
+								<div class="blog-details">
+									<div class="blog-meta"></div>
+									<h3>NO PROMOTIONS</h3>
+								</div>
+							</div>
                         </div>
                     <?php endif; ?>
                 </div>
