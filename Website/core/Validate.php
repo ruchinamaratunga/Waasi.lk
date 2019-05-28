@@ -82,6 +82,12 @@ class Validate {
                                 $this->addError(["{$display} must be a valid email address.", $item]);
                             }
                             break;
+						
+						case 'valid_url':
+							if(!filter_var($value, FILTER_VALIDATE_URL)) {
+                                $this->addError(["{$display} must be a valid website. \n Please add https:// before to the website link if you have not add it!", $item]);
+                            }
+                            break;
                     }
 
                 }

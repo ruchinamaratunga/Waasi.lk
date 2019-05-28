@@ -151,14 +151,14 @@ class Promoter extends Model {
         ));
     }
 	
-	public function websiteChange($newWebsite){
+	public function websiteChange($username,$password,$newWebsite){
 			if($this->update($this->id,['website' => $newWebsite])){
 				return true;
 			}
 				return false;
 	}
 	
-	public function fblinkChange($newFb){
+	public function fblinkChange($username,$password,$newFb){
 			if($this->update($this->id,['fb_link' => $newFb])){
 				return true;
 			}
