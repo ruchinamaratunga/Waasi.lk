@@ -134,6 +134,10 @@ class Promoter extends Model {
         return $comments;
     }
 	
+	public function commentCount(){
+		return sizeof($this->showComments());
+	}
+	
 	public function showLastFiveComments(){
 		$comments = $this->showComments();
 		if(sizeof($comments)<=5){
