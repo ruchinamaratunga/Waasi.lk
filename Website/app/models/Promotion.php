@@ -124,6 +124,23 @@ class Promotion extends Model {
         return false;
     }
 
+    public function  loadMyPromos(){
+        $results = [];
+        $sql = "SELECT * FROM {$this->_table} WHERE (state = ? OR state=?) AND pr_username = ? ORDER BY start_date = ?";
+        $this->_db->query($sql,['Approved','Pending', currentUser()->username,'start_date DESC']);
+
+        $resultsQuery=$this->_db->results();
+
+        if($resultsQuery){
+            foreach($resultsQuery as $result) {
+                $obj = new $this->_modelName($this->_table);
+                $obj->populateObjData($result);
+                $results[] =$obj;
+            }
+        }
+        return $results;
+    }
+
     public function confirmPromotion($promo_id) {
         $this->query("UPDATE promotion SET state = ? WHERE promo_id = ?",array('Approved',$promo_id));
     }

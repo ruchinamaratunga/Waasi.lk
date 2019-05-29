@@ -92,7 +92,8 @@ class DB {
             if($this->_query->execute()){                                   // checking whether query executed successfully
                 $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ); //fetching data as object
                 $this->_count = $this->_query->rowCount();
-                $this->_lastInsertID = $this->_pdo->lastInsertId();                                                      
+                $this->_lastInsertID = $this->_pdo->lastInsertId();
+//                dnd($this);
             }
             else{
                 $this->_error = true;
