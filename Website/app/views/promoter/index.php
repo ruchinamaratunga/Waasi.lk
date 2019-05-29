@@ -2,7 +2,7 @@
     $subscribes = $this->promoter->getSubscribers(); 
     $subscribesCount = $this->promoter->findSubscribedCustomerCount($this->promoter->username); 
 	$comments = $this->promoter->showLastFiveComments();
-	$commentCount = $this->promoter->commentount();
+	$commentCount = $this->promoter->commentCount();
 ?>
 
 
@@ -138,7 +138,20 @@
 									<a href = "#"><h6><?=$comment->customer?></h6></a>
 								</div>
 							</div>
+							
 					<?php endforeach;?>
+					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+								<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+									<div class="service-icon-three"><i class="fa fa-comment"></i></div>
+										<?php if($commentCount==1):?>
+											<a href = "<?=PROOT?>promoter/comments"><h4>You have&nbsp;<?=$commentCount?>&nbsp;comment.</h4></a>
+											<a href = "<?=PROOT?>promoter/comments"><h5>Click here to see all</h5></a>	
+										<?php else:?>
+											<a href = "<?=PROOT?>promoter/comments"><h4>You have&nbsp;<?=$commentCount?>&nbsp;comments.</h4></a>
+											<a href = "<?=PROOT?>promoter/comments"><h5>Click here to see all</h5></a>	
+										<?php endif?>
+								</div>
+					</div>
 		        <?php else: ?>
                 
 		            <div class="single-blog wow fadeIn">

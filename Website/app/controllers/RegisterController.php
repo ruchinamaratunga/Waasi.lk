@@ -183,4 +183,8 @@ class RegisterController extends Controller {
         $this->view->post = $posted_values;
         $this->view->render('register/promoterRegistration');
     }
+	
+	public function lostpsswordAction(){
+		
+	}
 }
