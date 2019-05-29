@@ -82,7 +82,7 @@
                                                         </a>
                                                         <ul class='dropdown-menu' >");
                                                         for($j=0;$j<$ln;$j++){      
-                                                            echo"<li ><a href='<?=PROOT?>promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
+                                                            echo"<li ><a href='".PROOT."promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
                                                         }
                                                     echo("</ul>
                                                     </li>");
@@ -107,7 +107,7 @@
                                                         </a>
                                                         <ul class='dropdown-menu' >");
                                                         for($j=0;$j<$ln;$j++){      
-                                                            echo"<li ><a href='<?=PROOT?>promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
+                                                            echo"<li ><a href='".PROOT."promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
                                                         }
                                                     echo("</ul>
                                                     </li>");
