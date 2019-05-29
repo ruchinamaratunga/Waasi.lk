@@ -26,15 +26,13 @@ class PromotionController extends Controller {
                 ));
         $promos = $this->PromotionModel->find(['conditions'=>['end_date > ?','state = ?'],'bind'=>[currentDate(),'Approved'],'order' => "start_date DESC"]);
         $this->view->searchResults = array($promos,$districtList);
-        
+
         if($_POST) {
             $p = new Promotion();
             $this->view->searchResults[0] = $p->Search($_POST);
             
         }
         elseif($district!=""){
-            
-
             $p = new Promotion();
             $params= array("search"=>$district);
             $this->view->searchResults[0] = $p->Search($params);
