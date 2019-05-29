@@ -183,6 +183,7 @@ class PromoterController extends Controller {
         $this->view->render('promoter/mypromo');
     }
 
+    
     /*******************************************
      * The Promoter can View All the Active Promotions in a table 
      ********************************************/

@@ -30,42 +30,47 @@
         </div>
     </header>
     <div class  = "report">
-        <div>
-            <div class="badge badge-primary text-wrap">Promoter Name: <?php echo $username?></div><br>
-            <div class="badge badge-primary text-wrap">No of Subscribers: <?php echo $subscribedCount?></div><br><br>
-            <div class="table-responsive" id= "table">
-                <table class="table table-hover " >
-                    <thead>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>State</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <?php
-                                foreach ($promotionList as $promo){
-                                    echo "<tr>";
-                                    echo "<td>".$promo["title"]."</td>";
-                                    echo "<td>".$promo["category"]."</td>";
-                                    echo "<td>".$promo["description"]."</td>";
-                                    echo "<td>".$promo["start_date"]."</td>";
-                                    echo "<td>".$promo["end_date"]."</td>";
-                                    echo "<td>".$promo["state"]."</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class= "row">
+            <div class = "col-sm-6 ">
+                <div class="paralleltab alert alert-success" ><i class="material-icons">business_center</i>    Promoter Name: <?php echo $username?></div>
             </div>
-            <div class="form-group" align = "right">
-                <form action="<?=PROOT?>promoter/monthlyreport" method="post" target="_blank">
-                    <input type="submit" value="Download Pdf" name="generatepdf" class="btn btn-warning"><br>
-                </form>
+            <div class = "col-sm-6 ">
+                <div class="paralleltab alert alert-success"><i class="material-icons">person_add</i>  No of Subscribers: <?php echo $subscribedCount?></div><br><br>
             </div>
+        </div>
+
+        <div class="table-responsive" id= "table">
+            <table class="table table-hover " >
+                <thead>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>State</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php
+                            foreach ($promotionList as $promo){
+                                echo "<tr>";
+                                echo "<td>".$promo["title"]."</td>";
+                                echo "<td>".$promo["category"]."</td>";
+                                echo "<td>".$promo["description"]."</td>";
+                                echo "<td>".$promo["start_date"]."</td>";
+                                echo "<td>".$promo["end_date"]."</td>";
+                                echo "<td>".$promo["state"]."</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group" align = "right">
+            <form action="<?=PROOT?>promoter/monthlyreport" method="post" target="_blank">
+                <input type="submit" value="Download Pdf" id="locationbtn" name="generatepdf" class="btn btn-primary"><br>
+            </form>
         </div>
     </div>
 <?php $this->end();?>
