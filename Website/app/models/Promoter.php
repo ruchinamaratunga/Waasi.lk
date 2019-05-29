@@ -133,6 +133,18 @@ class Promoter extends Model {
         ));
         return $comments;
     }
+	
+	public function showLastFiveComments(){
+		$comments = $this->showComments();
+		if(sizeof($comments)<=5){
+			return $comments;
+		}
+		else{
+			$comments = array_reverse($comments);
+			$comments = array_slice($comments,0,5);
+			return $comments;
+		}
+	}
 
     public function isSubscribe() {
         $customer = currentUser()->username;
