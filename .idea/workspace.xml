@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8472cfbd-e555-429f-ba67-556939fb7bc7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/app/models/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/models/Promotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/core/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/core/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/app/controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/app/views/register/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/app/views/register/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/css/style/registerform.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/css/style/registerform.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/js/formValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/js/formValidation.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,31 +19,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/core/DB.php">
+        <entry file="file://$PROJECT_DIR$/Website/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-67">
-              <caret line="131" column="56" lean-forward="true" selection-start-line="131" selection-start-column="56" selection-end-line="131" selection-end-column="56" />
-              <folding>
-                <element signature="e#11#1529#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Website/app/controllers/PromoterController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="179" column="29" selection-start-line="179" selection-start-column="29" selection-end-line="179" selection-end-column="29" />
+            <state relative-caret-position="135">
+              <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/core/Model.php">
+        <entry file="file://$PROJECT_DIR$/Website/js/formValidation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+            <state relative-caret-position="337">
+              <caret line="160" column="180" selection-start-line="160" selection-start-column="180" selection-end-line="160" selection-end-column="180" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="e#1097#1129#0#HTML" expanded="true" />
+                <element signature="e#1300#1321#0#HTML" expanded="true" />
+                <element signature="e#1519#1541#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/css/style/registerform.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -49,26 +62,63 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/app/views/promotion/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
+            <state>
+              <caret selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/mypromo.php">
+        <entry file="file://$PROJECT_DIR$/Website/app/views/register/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="480">
+              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/app/models/Promotion.php">
+        <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="139" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="-937">
+              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="115" selection-end-column="14" />
+              <folding>
+                <element signature="e#736#772#0#HTML" expanded="true" />
+                <element signature="e#1526#1547#0#HTML" expanded="true" />
+                <element signature="e#1745#1767#0#HTML" expanded="true" />
+                <element signature="e#6510#6579#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Website/app/views/register/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="488">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/core/View.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/app/controllers/RegisterController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="184" column="61" selection-start-line="184" selection-start-column="61" selection-end-line="184" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -108,13 +158,9 @@
         <option value="$PROJECT_DIR$/Website/app/controllers/RegisterController.php" />
         <option value="$PROJECT_DIR$/Website/app/views/layouts/footer.php" />
         <option value="$PROJECT_DIR$/Website/css/style/registerform'.css" />
-        <option value="$PROJECT_DIR$/Website/css/style/registerform.css" />
-        <option value="$PROJECT_DIR$/Website/app/views/register/register.php" />
         <option value="$PROJECT_DIR$/Website/js/datepicker.js" />
-        <option value="$PROJECT_DIR$/Website/js/formValidation.js" />
         <option value="$PROJECT_DIR$/Website/app/views/promoter/mypromo.php" />
         <option value="$PROJECT_DIR$/Website/app/acl.json" />
-        <option value="$PROJECT_DIR$/Website/app/views/promoter/addpromo.php" />
         <option value="$PROJECT_DIR$/Website/css/style2.css" />
         <option value="$PROJECT_DIR$/Website/app/views/promoter/editpromo.php" />
         <option value="$PROJECT_DIR$/Website/config/config.php" />
@@ -124,6 +170,11 @@
         <option value="$PROJECT_DIR$/Website/core/Model.php" />
         <option value="$PROJECT_DIR$/Website/app/models/Promotion.php" />
         <option value="$PROJECT_DIR$/Website/app/controllers/PromoterController.php" />
+        <option value="$PROJECT_DIR$/Website/js/formValidation.js" />
+        <option value="$PROJECT_DIR$/Website/css/style/registerform.css" />
+        <option value="$PROJECT_DIR$/Website/app/views/promoter/addpromo.php" />
+        <option value="$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php" />
+        <option value="$PROJECT_DIR$/Website/app/views/register/register.php" />
       </list>
     </option>
   </component>
@@ -168,7 +219,7 @@
               <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
               <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
@@ -176,14 +227,6 @@
               <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
@@ -205,6 +248,14 @@
               <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
               <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
               <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -212,6 +263,25 @@
               <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
               <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alphapack-Refactor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alphapack-Refactor" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -268,15 +338,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133240000" />
+    <option name="totallyTimeSpent" value="135547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.8762215" visible="true" weight="0.27134877" />
-      <window_info id="Structure" order="2" sideWeight="0.1237785" side_tool="true" visible="true" weight="0.27134877" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.87296414" visible="true" weight="0.27134877" />
+      <window_info id="Structure" order="2" sideWeight="0.12703583" side_tool="true" visible="true" weight="0.27134877" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -389,16 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/app/views/register/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Website/css/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11175">
@@ -417,20 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="118" column="100" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/app/views/register/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="73" lean-forward="true" selection-start-line="67" selection-start-column="73" selection-end-line="67" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/css/style/registerform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -455,8 +501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/controllers/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="443">
+          <caret line="184" column="61" selection-start-line="184" selection-start-column="61" selection-end-line="184" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -507,8 +553,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/js/formValidation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="21" />
+        <state relative-caret-position="337">
+          <caret line="160" column="180" selection-start-line="160" selection-start-column="180" selection-end-line="160" selection-end-column="180" />
         </state>
       </provider>
     </entry>
@@ -554,13 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="47" column="86" lean-forward="true" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/menu_acl.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -571,7 +610,7 @@
     <entry file="file://$PROJECT_DIR$/Website/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -598,8 +637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/app/views/promotion/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="159" column="17" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
+        <state>
+          <caret selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -631,6 +670,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="179" column="29" selection-start-line="179" selection-start-column="29" selection-end-line="179" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/css/style/registerform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/views/register/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/views/register/promoterRegistration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#1097#1129#0#HTML" expanded="true" />
+            <element signature="e#1300#1321#0#HTML" expanded="true" />
+            <element signature="e#1519#1541#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/views/promoter/addpromo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-937">
+          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="115" selection-end-column="14" />
+          <folding>
+            <element signature="e#736#772#0#HTML" expanded="true" />
+            <element signature="e#1526#1547#0#HTML" expanded="true" />
+            <element signature="e#1745#1767#0#HTML" expanded="true" />
+            <element signature="e#6510#6579#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/controllers/RestrictedController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/app/views/register/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
