@@ -181,6 +181,7 @@ class RegisterController extends Controller {
             }
         }
         $this->view->post = $posted_values;
+        $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('register/promoterRegistration');
     }
 	
