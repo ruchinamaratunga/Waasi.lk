@@ -5,7 +5,8 @@ $(document).ready(function() {
             description: 'required',
             fileToUpload:{
                 required: true,
-                accept:"jpg,png,jpeg,gif"
+                accept:"jpg,png,jpeg,gif",
+                filesize:500
 
             }
         },
@@ -27,7 +28,8 @@ $(document).ready(function() {
             title: 'required',
             description: 'required',
             fileToUpload:{
-                accept:"jpg,png,jpeg,gif"
+                accept:"jpg,png,jpeg,gif",
+                filesize:500
             }
         },
         messages: {
@@ -92,6 +94,10 @@ $(document).ready(function() {
             form.submit();
         }
     });
+
+    $.validator.addMethod('filesize', function (value, element, param) {
+        return this.optional(element) || (element.files[0].size <= param*1024)
+    }, 'File size must be less than {0} KB');
 
     $('.deletemember').click(function() {
 
