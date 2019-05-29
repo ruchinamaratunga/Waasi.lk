@@ -1,6 +1,7 @@
 <?php $this->setSiteTitle('Settings'); ?>
 <?php $this->start('head') ?>
-	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css"
+	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css">
+	<link rel="stylesheet" href="<?=PROOT?>css/style/registerform.css"> 
 
     <!--        <script type="text/javascript" src="--><?//=PROOT?><!--js/utilityFormValidation.js"></script>-->
     <!--    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">-->
@@ -35,7 +36,7 @@
 						<br>
 						<label class="col-sm-4 control-label" for="fb">Enter the new facebook link:</label>
 						<div class="col-sm-5">
-							<input class="form-control" id="fb" name="fb" placeholder="Enter the facebook link" type="text"/>
+							<input class="form-control" id="fb" name="fb" placeholder="Enter the facebook link" type="url"/>
 						</div>
                 		<button class="btn btn-default pull-right" style="margin : 20px; background-color: #f39c12; color: white; transform:scale(1.10)" type="submit">Save</button>
 					</form>

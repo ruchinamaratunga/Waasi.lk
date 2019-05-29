@@ -18,7 +18,13 @@ if(count($results)){
     <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
 
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <script>
+        $(document).ready(function() {
+            $("#catagory").val("<?=$thispromo->catagory?>");
+        });
 
+
+    </script>
 
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
@@ -52,7 +58,6 @@ if(count($results)){
                         <form>
                             <input type="hidden" id="start_date_hidden" value="<?=$result->start_date?>" name="start_date_hidden" />
                             <input type="hidden" id="end_date_hidden" value="<?=$result->end_date?>" name="end_date_hidden" />
-
                         </form>
                         <form id="editpromoform" method="post" enctype="multipart/form-data" class="form-horizontal" >
                             <div class="bg-danger text-center"><?= $this->displayErrors ?></div>
@@ -120,7 +125,7 @@ if(count($results)){
 
                             <div class="form-group">
                                 <div class="col-sm-9 col-sm-offset-4">
-                                    <button type="submit" class="btn btn-primary"  name="editpromo-submit">Save</button>
+                                    <button type="submit" class="btn btn-primary edit-button"  name="editpromo-submit">Save</button>
                                 </div>
                             </div>
                         </form>

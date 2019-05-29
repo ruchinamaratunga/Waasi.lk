@@ -71,8 +71,11 @@ $(document).ready(function() {
                 required:true,
                 email:true
             },
-            username: 'required',
-
+            
+            username:{
+                required: true,
+                minlength:6
+            },
             password:{
                 required: true,
                 minlength:6
@@ -94,17 +97,16 @@ $(document).ready(function() {
                 required: 'This field is required'
 
             },
-            username: 'This field is required',
+            username: {
+                required:'This field is required',
+                minlength: 'At least 6 characters are required.'
+            },
 
             password: {
                 required: 'This field is required'
-
-
             },
             confirm: {
                 required: "This field is required."
-
-
             }
         },
         submitHandler: function(form) {
@@ -247,7 +249,7 @@ $(document).ready(function() {
         }
     });
 
-
+    
 
 });
 

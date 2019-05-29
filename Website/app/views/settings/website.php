@@ -3,7 +3,8 @@
     <script>
     
     </script>
-	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css"
+	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css">
+	<link rel="stylesheet" href="<?=PROOT?>css/style/registerform.css"> 
 
 
     <!--        <script type="text/javascript" src="--><?//=PROOT?><!--js/utilityFormValidation.js"></script>-->
@@ -42,7 +43,7 @@
 
 						<label class="col-sm-4 control-label" for="website">Enter the new website link:</label>
 						<div class="col-sm-5">
-						<input class="form-control" id="website" name="website" placeholder="Enter the website" type="text"/>
+						<input class="form-control" id="website" name="website" placeholder="Enter the website" type="url"/>
 						</div>
 					
 					

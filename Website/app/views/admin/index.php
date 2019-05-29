@@ -35,9 +35,9 @@ $results = $this->searchResults;
                             <div class="row">
                                 <?php if($results):?>
                                     <?php foreach($results as $result): ?>
-                                        <div class="col-md-6 col-lg-6 col-sm-8 col-xs-8" style="margin-bottom:20px">
+                                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6" style="margin-bottom:20px">
                                             <div class="single-blog wow fadeIn">
-                                                <div class="blog-image">
+                                                <div class="card-img-top">
                                                     <img src="<?=PROOT?><?=$result->image_path?>" alt="">
                                                 </div>
                                                 <div class="blog-details">

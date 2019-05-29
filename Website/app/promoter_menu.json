@@ -3,7 +3,6 @@
     "About" : "home/about",
     "MyPromo" : "promoter/mypromo",
     "AddPromo" : "promoter/addpromo",
-    "EditPromo" : "promoter/editpromo",
     "Report" : "promoter/monthlyreport",
     "Login" : "register/login",
     "Logout" : "register/logout"

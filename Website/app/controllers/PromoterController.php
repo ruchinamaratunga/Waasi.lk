@@ -193,7 +193,7 @@ class PromoterController extends Controller {
         $promoter = new Promoter($username);
         $promotion = new Promotion();
         $params = array("promoter"=>"off","catagory"=>"off","promoterDetails"=>"on",'search'=>$username,'deleted'=>0);
-        $promotions = $promotion->search($params);
+        $promotions = $promotion->loadMyPromos();
         //Title 	Category 	Description 	Start Date 	End Date 	State
         $promotionDetails = [];
         foreach($promotions as $promo){
