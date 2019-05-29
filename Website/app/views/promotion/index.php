@@ -70,44 +70,15 @@
                                     <div class="col-sm-6">
                                         <ul class="nav nav-pills nav-stacked">
                                             <?php
-                                                $midlength = (int)(sizeof($districtList["districts"])/2)+1;
-                                                $townlist = $districtList["towns"];
-                                                for($i=0;$i<$midlength;$i++){ 
-                                                    $ln = sizeof($townlist[$i]);
+                                                foreach($districtList[0] as $key => $value){
                                                     echo("<li class='dropdown'>
                                                         <a class='dropdown-toggle' data-toggle='dropdown' href=''  >".
-                                                        
-                                                            $districtList["districts"][$i]."
+                                                        key($districtList[0][$key])."
                                                             <b class='caret'></b>
                                                         </a>
                                                         <ul class='dropdown-menu' >");
-                                                        for($j=0;$j<$ln;$j++){      
-                                                            echo"<li ><a href='".PROOT."promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
-                                                        }
-                                                    echo("</ul>
-                                                    </li>");
-                                                }
-                                                ?>
-                                        </ul>
-                                    
-                                    </div> 
-                                    <div class="col-sm-6">
-                                        <ul class="nav nav-pills nav-stacked">
-                                            <?php
-                                                $midlength = sizeof($districtList["districts"])/2+1;
-                                                $length = sizeof($districtList["districts"]);
-                                                $townlist = $districtList["towns"]; 
-                                                for($i=$midlength;$i<$length;$i++){ 
-                                                    $ln = sizeof($townlist[$i]);
-                                                    echo("<li class='dropdown'>
-                                                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'  >".
-                                                        
-                                                            $districtList["districts"][$i]."
-                                                            <b class='caret'></b>
-                                                        </a>
-                                                        <ul class='dropdown-menu' >");
-                                                        for($j=0;$j<$ln;$j++){      
-                                                            echo"<li ><a href='".PROOT."promotion/index/".$townlist[$i][$j]."'><p>".$townlist[$i][$j]."<p></a></li>";   
+                                                        foreach($value as $minikey => $minivalue){
+                                                            echo"<li><a href='".PROOT."promotion/index/".$minikey."'><p>".$minikey."<p></a></li>";  
                                                         }
                                                     echo("</ul>
                                                     </li>");
@@ -115,6 +86,25 @@
                                             ?>
                                         </ul>
                                     
+                                    </div> 
+                                    <div class="col-sm-6">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <?php
+                                                foreach($districtList[1] as $key => $value){
+                                                    echo("<li class='dropdown'>
+                                                        <a class='dropdown-toggle' data-toggle='dropdown' href=''  >".
+                                                        key($districtList[1][$key])."
+                                                            <b class='caret'></b>
+                                                        </a>
+                                                        <ul class='dropdown-menu' >");
+                                                        foreach($value as $minikey => $minivalue){
+                                                            echo"<li><a href='".PROOT."promotion/index/".$minikey."'><p>".$minikey."<p></a></li>";  
+                                                        }
+                                                    echo("</ul>
+                                                    </li>");
+                                                }
+                                            ?>                                        
+                                        </ul>
                                     </div> 
                                 </div>
                                 
