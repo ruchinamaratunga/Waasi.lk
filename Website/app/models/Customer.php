@@ -111,19 +111,22 @@ class Customer extends Model {
     public function getNotifications() {
         $promoters = $this->subscribePromoters();
         $promotions = [];
-        foreach ($promoters as $promoter) {
-            $result = $this->_db->find('promotion',array(
-                'conditions' => [
-                    'pr_username = ?',
-                    'state = ?',
-                    'end_date > ?'
-                ],
-                'bind' => [$promoter->promoter,"Approved",currentDate()],
-                'order' => "start_date",
-                'limit' => 5
-            ));
-            $promotions[] = $result; 
+        if($promotions) {
+            foreach ($promoters as $promoter) {
+                $result = $this->_db->find('promotion',array(
+                    'conditions' => [
+                        'pr_username = ?',
+                        'state = ?',
+                        'end_date > ?'
+                    ],
+                    'bind' => [$promoter->promoter,"Approved",currentDate()],
+                    'order' => "start_date",
+                    'limit' => 5
+                ));
+                $promotions[] = $result; 
+            }
         }
+        
         // dnd($promotions);
         $output =[];
         $temp=[];

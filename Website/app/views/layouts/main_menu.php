@@ -8,7 +8,7 @@
     if($userType == 'Customer') {
       $user = new Customer($username);
       $notifications = $user->getNotifications();
-      // test($notifications);
+      $menu_file = 'customer_menu';
     } elseif($userType == 'Promoter') {
       $menu_file = 'promoter_menu';
       $user = new Promoter($username);
@@ -70,10 +70,11 @@
               <ul id="nav" class="nav navbar-nav">                  
                 <?php foreach($menu as $key => $val): 
                   $active = '';
-                  // test($val);
+                  // test($userType);
                   ?>
                   <?php if(is_array($val)):?>
-                    <?php if($val["Notificaiotns"] == "Notifications"): ?>
+                  <!-- $val["Notificaiotns"] == "Notifications" -->
+                    <?php if($userType == "Customer"): ?>
                       <li class="dropdown pull-right">
                         <?php if(count($notifications)): ?>
                           <a href="#" class="dropdown-toggle" id="unread" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification
