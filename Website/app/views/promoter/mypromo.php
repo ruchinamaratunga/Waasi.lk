@@ -93,7 +93,7 @@ $results = $this->searchResults ;
                                         <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
                                         <p><?=$result->description?></p>
 
-                                        <a href="<?=$result->link?>" class="read-more">Visit us</a>
+                                        
 
 
                                         <div>

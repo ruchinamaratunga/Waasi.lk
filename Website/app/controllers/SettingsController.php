@@ -35,14 +35,13 @@ class SettingsController extends Controller {
             if($validation->passed()) {
 
 				$username = currentUser()->username;
-				$user = new Users($username);
-				if($user->checkPassword($_POST['current_password'])){
-					$newPassword = $_POST['newPassword'];
-					//$newCheckPassword = $_POST['new_check_password'];
-					$id = $user->id;
-					$user->passwordChange($id,$username,$newPassword);
+				$user = new UserProxy();
+				$newPassword = $_POST['newPassword'];
+				$oldPassword = $_POST['current_password'];
+				$id = currentUser()->id;
+				if($user->passwordChange($id,$username,$oldPassword,$newPassword)){
+					 echo '<script type="text/javascript">alert("Password Changed Successfully!")</script>';
 					Router::redirect('register/logout');
-					//Router::redirect('settings/index');
 				}
 				else{
 					 $validation->addError("Password you entered is wrong!");
@@ -108,7 +107,8 @@ class SettingsController extends Controller {
                     'display' => "Email",
                     'required' => true,
 					'unique' => "users",
-					'max'=>150
+					'max'=>150,
+					'valid_email'=>'email'
 				]
             ]);
 			
@@ -116,20 +116,18 @@ class SettingsController extends Controller {
             if($validation->passed()) {
 
 				$username = currentUser()->username;
-				$user = new Users($username);
-				if($user->checkPassword($_POST['current_password'])){
-					$newEmail = $_POST['email'];
-					$id = $user->id;
-					if($user->emailChange($id,$username,$newEmail)){
-						Router::redirect('settings/index');
-					}
-					else{
-						$validation->addError("Database error!");
-					}
+				$user = new UserProxy();
+				$newEmail = $_POST['email'];
+				$password = $_POST['current_password'];
+				$id = currentUser()->id;
+				if($user->emailChange($id,$username,$newEmail,$password)){
+					echo '<script type="text/javascript">alert("Email Changed Successfully!")</script>';
+					$this->view->render("settings/index");
 				}
 				else{
 					 $validation->addError("Password you entered is wrong!");
 				}
+				
             }
         }
 		$this->view->displayErrors = $validation->displayErrors();
@@ -146,25 +144,21 @@ class SettingsController extends Controller {
                 ],
 				'website' =>[
                     'display' => "Website",
-                    'required' => true
+                    'required' => true,
+					'valid_url' => 'website'
 				]
             ]);
 			
 
             if($validation->passed()) {
-
+			
 				$username = currentUser()->username;
-				$user = new Users($username);
-				if($user->checkPassword($_POST['current_password'])){
-					$newWeb = $_POST['website'];
-					$id = $user->id;
-					$p = new Promoter($username);
-					if($p->websiteChange($newWeb)){
-						Router::redirect('settings/index');
-					}
-					else{
-						$validation->addError("Database error!");
-					}
+				$user = new PromoterProxy();
+				$newWeb = $_POST['website'];
+				$password = $_POST['current_password'];
+				if($user->websiteChange($username,$password,$newWeb)){
+					echo '<script type="text/javascript">alert("Website Changed Successfully!")</script>';
+					$this->view->render("settings/index");
 				}
 				else{
 					 $validation->addError("Password you entered is wrong!");
@@ -185,25 +179,21 @@ class SettingsController extends Controller {
                 ],
 				'fb' =>[
                     'display' => "Facebook link",
-                    'required' => true
+                    'required' => true,
+					'valid_url' => 'fb'
 				]
             ]);
 			
 
             if($validation->passed()) {
-
+			
 				$username = currentUser()->username;
-				$user = new Users($username);
-				if($user->checkPassword($_POST['current_password'])){
-					$newFb = $_POST['fb'];
-					$id = $user->id;
-					$p = new Promoter($username);
-					if($p->fblinkChange($newFb)){
-						Router::redirect('settings/index');
-					}
-					else{
-						$validation->addError("Database error!");
-					}
+				$user = new PromoterProxy();
+				$newFb = $_POST['fb'];
+				$password = $_POST['current_password'];
+				if($user->websiteChange($username,$password,$newFb)){
+					echo '<script type="text/javascript">alert("Facebook Link Changed Successfully!")</script>';
+					$this->view->render("settings/index");
 				}
 				else{
 					 $validation->addError("Password you entered is wrong!");

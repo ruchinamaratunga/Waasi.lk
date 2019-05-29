@@ -1,5 +1,8 @@
 <?php
 
+include_once(ROOT.'/app/lib/PHPMailer/PHPMailerAutoload.php');
+//include_once(ROOT."/app/lib/fpdf/fpdf.php");
+
 class Administrator extends Model {
     private $_isLoggedIn,
             $_sessionName,
@@ -53,24 +56,33 @@ class Administrator extends Model {
         $promotion = new Promotion((int)$promo_id);
         $promotion->confirmPromotion($promo_id);
         $promoter = new Promoter($promotion->pr_username);
-        // dnd($promoter);
         $subscribers = $promoter->getSubscribers();
-        // dnd($subscribers);
-        foreach ($subscribers as $subscriber) {
-            $c = new Customer($subscriber->customer);
-            $customer_id = $c->id;
-            $this->_db->insert('notification_system',array(
-                'promo_id' => $promo_id,
-                'customer_id' => $customer_id,
-                'status'=> 'unread'
-            ));
-        }  
-
+		$email = $promoter->email;
+		$title = $promotion->title;
+		$description = $promotion->description;
+		$state = "ACCEPTED";
+		$emailTitle = "Promotion Acceptence Conformation!";
+		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
+		if ($a){
+			return true;
+		}
+		return false;
     }
     
     public function rejectPromotion($promo_id){
         $promotion = new Promotion((int)$promo_id);
         $promotion->reject();
+		$promoter = new Promoter($promotion->pr_username);
+		$email = $promoter->email;
+		$title = $promotion->title;
+		$description = $promotion->description;
+		$state = "REJECTED";
+		$emailTitle = "Promotion Rejection Conformation!";
+		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
+		if ($a){
+			return true;
+		}
+		return false;
     }
 
     
@@ -81,6 +93,31 @@ class Administrator extends Model {
     public function getViewPromotion(){
 		$temp = $this->viewPromotion();
 		return $temp;
+	}
+	
+	public function sendEmail($email,$title,$description,$state,$emailTitle){
+		$mail = new PHPMailer(true);
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->SMTPAutoTLS = false;
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = '587';
+		$mail->isHTML(true);
+		$mail->Username = BUSINESS_EMAIL;
+		$mail->Password = BUSINESS_PASSWORD;
+		$mail->SetFrom(BUSINESS_EMAIL,'Waasi.lk');
+		$mail->Subject = $emailTitle;
+		$body = nl2br("YOUR PROMOTION:  \r\n\r\nTITLE - ".$title." \r\n\r\nDescription - ".$description." \r\n\r\nwas ".$state." \r\n\r\nThankyou for doing business with us!\r\nWaasi.lk");
+		$mail->Body = $body;
+		$mail->AddAddress('achinthaisuru.17@cse.mrt.ac.lk');
+		
+		if ($mail->Send()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
     

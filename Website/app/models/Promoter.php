@@ -133,6 +133,18 @@ class Promoter extends Model {
         ));
         return $comments;
     }
+	
+	public function showLastFiveComments(){
+		$comments = $this->showComments();
+		if(sizeof($comments)<=5){
+			return $comments;
+		}
+		else{
+			$comments = array_reverse($comments);
+			$comments = array_slice($comments,0,5);
+			return $comments;
+		}
+	}
 
     public function isSubscribe() {
         $customer = currentUser()->username;
@@ -151,14 +163,14 @@ class Promoter extends Model {
         ));
     }
 	
-	public function websiteChange($newWebsite){
+	public function websiteChange($username,$password,$newWebsite){
 			if($this->update($this->id,['website' => $newWebsite])){
 				return true;
 			}
 				return false;
 	}
 	
-	public function fblinkChange($newFb){
+	public function fblinkChange($username,$password,$newFb){
 			if($this->update($this->id,['fb_link' => $newFb])){
 				return true;
 			}

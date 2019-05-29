@@ -1,6 +1,6 @@
 <?php
     $subscribes = $this->promoter->getSubscribers(); 
-    // dnd($subscribes);
+    $subscribesCount = $this->promoter->findSubscribedCustomerCount($this->promoter->username); 
 ?>
 
 
@@ -113,7 +113,41 @@
 			</div>
 		</div>
     </section> -->
-
+	<!--SUBSCRIBERS COUNT SECTION-->
+    <section class="service-area-three section-padding">
+        <div class="container">
+        	<div class="row">
+            	<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+                    <div class="area-title text-center wow fadeIn">
+                        <h2>Subscribers Count</h2>
+                        <p>People who have subscribed you!</p>
+                    </div>
+            	</div>
+        	</div>
+            <div class="row">
+                <?php if($subscribes):?>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+								<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+									<div class="service-icon-three"><i class="fa fa-user"></i></div>
+									<?php if($subscribesCount==1): ?>
+										<a href = "#"><h4><?=$subscribesCount?>&nbsp;Customer Have subscribed you!</h4></a>
+									<?php else:?>
+										<a href = "#"><h4><?=$subscribesCount?>&nbsp;Customers Have subscribed you!</h4></a>
+									<?php endif ?>
+								</div>
+					</div>
+		        <?php else: ?>
+                
+		            <div class="single-blog wow fadeIn">
+			            <div class="blog-details">
+				            <div class="blog-meta"></div>
+				            <h3>You have not subscribed by any customers please add promotions to increase the subscribe count.</h3>
+			            </div>
+		            </div><br/>
+		        <?php endif;?>
+	        </div>
+        </div>
+    </section>
 	
 	<!--SUBSCRIBERS SECTION-->
     <section class="service-area-three section-padding">
@@ -128,13 +162,21 @@
         	</div>
             <div class="row">
                 <?php if($subscribes):?>
-                    <?php subscribersBlock($subscribes)?>
+                    <?php //subscribersBlock($subscribes)?>
+					<?php foreach($subscribes as $subscribe):?>
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
+									<div class="service-icon-three"><i class="fa fa-user"></i></div>
+									<a href = "#"><h4><?=$subscribe->customer?></h4></a>
+								</div>
+							</div>
+					<?php endforeach;?>
 		        <?php else: ?>
                 
 		            <div class="single-blog wow fadeIn">
 			            <div class="blog-details">
 				            <div class="blog-meta"></div>
-				            <h3>You have not subscribed any promoters</h3>
+				            <h3>You have not subscribed by any customers please add promotions to increase the subscribe count.</h3>
 			            </div>
 		            </div><br/>
 		        <?php endif;?>

@@ -13,8 +13,7 @@
 	
     "loggedIn" : {
         "denied" : {
-            "Register" : ["login","register","promoterRegistration"],
-			"Settings" : ["website","fb"]
+            "Register" : ["login","register","promoterRegistration"]
         },
         "Home" : ["*"],
         "Register" : ["logout"],
@@ -41,7 +40,7 @@
         "Promoter" : ["index","mypromo","addpromo","editpromo","monthlyreport","deletepromo"],
         "Register" : ["logout"],
 		"Home"	   : ["contactus"],
-		"Settings" : ["*"]
+		"Settings"  : ["website","fb"]
     }
 }
 

@@ -22,7 +22,7 @@ $results = $this->searchResults;
     <section class="blog-area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">				
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">				
 			        <!-- <div class="single-blog wow fadeIn">
 			    		<div class="blog-details">
 			    			<div class="blog-meta"></div>
@@ -43,7 +43,7 @@ $results = $this->searchResults;
                                                 <div class="blog-details">
                                                     <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
                                                     <h3><a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>"><?=$result->title?></a></h3>
-                                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
+                                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>&nbsp;<?=$result->start_date?></a></div>
                                                     <p><?=$result->description?></p> 
                                                     <a href="<?=$result->link?>" class="read-more" style="margin-left: 8px">Visit us</a>
                                                     <div class="row text-center">
@@ -57,7 +57,13 @@ $results = $this->searchResults;
                                     <?php endforeach;?>
                                 <?php else: ?>
                                     <div class="nopromo">
-                                        <div class="text-center">No Promotions</div>
+                                        <div class="single-blog wow fadeIn">
+											<div class="blog-details">
+												<div class="blog-meta"></div>
+												<h3>NO PROMOTIONS</h3>
+											</div>
+										</div>
+                                        <!-- <div class="text-center">No Promotions</div> -->
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -83,6 +89,7 @@ $results = $this->searchResults;
 			    		</div><br/> -->
 
                 </div>
+<!--
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="sidebar-area wow fadeIn">
                         <div class="single-sidebar-widget widget_categories">
@@ -99,6 +106,7 @@ $results = $this->searchResults;
                        
                     </div>
                 </div> 
+-->
             </div>    
         </div>
     </section>

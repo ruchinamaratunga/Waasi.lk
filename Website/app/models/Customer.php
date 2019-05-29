@@ -92,6 +92,7 @@ class Customer extends Model {
     public function subscribe($promoter){
         $this->_db->insert('subscribe',array(
             'customer' => $this->username,
+			//'customer' => $this->fname,
             'promoter' => $promoter
         ));
     }

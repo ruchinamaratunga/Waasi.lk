@@ -212,7 +212,7 @@
 				<div class="single-blog wow fadeIn">
 					<div class="blog-details">
 						<div class="blog-meta"></div>
-						<h3>LoggIn to subscribe</h3>
+						<h3>Login to subscribe</h3>
 					</div>
 				</div>
 				<?php endif;?>

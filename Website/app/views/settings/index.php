@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
 				
-				<a href="<?=PROOT ?>settings/password" target="_blank">
+				<a href="<?=PROOT ?>settings/password">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-service-three wow fadeInUp" data-wow-delay=".2s">
                         <div class="service-icon-three"><i class="fa fa-key"></i></div>
@@ -42,7 +42,7 @@
 				</a>
 -->
 					
-				<a href="<?=PROOT ?>settings/email" target="_blank">
+				<a href="<?=PROOT ?>settings/email">
                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                     <div class="single-service-three wow fadeInUp" data-wow-delay="0.4s">
                         <div class="service-icon-three"><i class="fa fa-envelope"></i></div>
@@ -54,7 +54,7 @@
 					
 				<?php if (currentUser()->user_type == 'Promoter'):?>
 					
-					<a href="<?=PROOT ?>settings/website" target="_blank">
+					<a href="<?=PROOT ?>settings/website">
 					<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
 						<div class="single-service-three wow fadeInUp" data-wow-delay="0.2s">
 							<div class="service-icon-three"><i class="fa fa-globe"></i></div>
@@ -64,7 +64,7 @@
 					</div>
 					</a>
 						
-					<a href="<?=PROOT ?>settings/fb" target="_blank">
+					<a href="<?=PROOT ?>settings/fb">
 					<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
 						<div class="single-service-three wow fadeInUp" data-wow-delay="0.3s">
 							<div class="service-icon-three"><i class="fa fa-facebook-f"></i></div>

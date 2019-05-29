@@ -101,7 +101,7 @@ class Users extends Model {
 		
 	}
 	
-	public function passwordChange($id,$username,$newPassword){
+	public function passwordChange($id,$username,$oldPassword,$newPassword){
 		
 		$newPassword= password_hash($newPassword, PASSWORD_DEFAULT);
 		
@@ -128,7 +128,7 @@ class Users extends Model {
 //		$this->save();
 	}
 	
-	public function usernameChange($id,$currentUsername,$newUsername){
+	public function usernameChange($id,$currentUsername,$newUsername,$password){
 		
 		if($this->update($id,['username' => $newUsername])){
 			if ($this->user_type == 'Customer'){
@@ -153,7 +153,7 @@ class Users extends Model {
 //		$this->save();
 	}
 	
-	public function emailChange($id,$username,$newEmail){
+	public function emailChange($id,$username,$newEmail,$password){
 		
 		if($this->update($id,['email' => $newEmail])){
 			if ($this->user_type == 'Customer'){
