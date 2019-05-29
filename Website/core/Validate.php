@@ -24,7 +24,6 @@ class Validate {
     }
 
     public function check($source, $items = array()) {
-//        dnd($items);
         $this->_errors = [];                                                                     //clear out the errors of the last validation
         foreach($items as $item => $rules) {
             $item = Input::sanitize($item);

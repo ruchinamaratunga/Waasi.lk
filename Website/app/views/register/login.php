@@ -27,8 +27,8 @@
 			<div class="blog-image login-box">
 			    <form action="<?=PROOT?>register/login" method="post">
                     <div class="bg-danger"><?= $this->displayErrors ?></div>
-                    <input type="text" placeholder="Enter the user name" name = "username" id="username" required>
-                    <input type="password" placeholder="Enter the password" name="password" id="password" required><br>
+                    <input type="text" class="edit-input" placeholder="Enter the user name" name = "username" id="username" required>
+                    <input type="password" class="edit-input" placeholder="Enter the password" name="password" id="password" required><br>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="remember_me" name ="remember me">
                         <label class="form-check-label" for="remember_me">Remember Me</label>

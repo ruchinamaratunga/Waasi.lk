@@ -175,6 +175,24 @@ h2.index-h2{
     width: 500px;
 }
 
+.edit-button {
+    margin:23px;
+    background-color:#5d6b82;
+    border:none;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color:#f39c12
+}
+
+.edit-input {
+    padding-left: 8px;
+}
+
+.edit-input:hover {
+    outline: none;
+}
 
 
 /*-------------------------------------------*/

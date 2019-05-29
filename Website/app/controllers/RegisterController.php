@@ -35,11 +35,12 @@ class RegisterController extends Controller {
             if($validation->passed()) {
                 $user = new Users($_POST['username']);
                 $usertype = $user->user_type;
+                $currentUser = UserFactory::createUser($usertype,$user->username);
                 if($usertype == 'Customer') {
                     if($user && password_verify(Input::get('password'), $user->password)) {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
-                        $customer = new Customer($user->username);
-                        $this->view->currentUser = $customer;
+                        // $customer = new Customer($user->username);
+                        $this->view->currentUser = $currentUser;
                         $user->login($remember);
                         Router::redirect('');
                     } else {
@@ -48,8 +49,8 @@ class RegisterController extends Controller {
                 } elseif($usertype == 'Promoter') {
                     if($user && password_verify(Input::get('password'), $user->password)) {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
-                        $promoter = new Promoter($user->username);
-                        $this->view->currentUser = $promoter;
+                        // $promoter = new Promoter($user->username);
+                        $this->view->currentUser = $currentUser;
                         $user->login($remember);
                         // $user->login($remember);
                         Router::redirect('promoter/index');
@@ -59,8 +60,8 @@ class RegisterController extends Controller {
                 } else {
                     if($user && password_verify(Input::get('password'),$user->password)) {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
-                        $admin = new Administrator($user->username);
-                        $this->view->currentUser = $admin;
+                        // $admin = new Administrator($user->username);
+                        $this->view->currentUser = $currentUser;
                         $user->login($remember);
                         Router::redirect('admin/index');
                     } else {
