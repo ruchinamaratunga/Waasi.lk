@@ -43,7 +43,7 @@ $results = $this->searchResults;
                                                 <div class="blog-details">
                                                     <div class="blog-meta"><a href="#"><i class="fa fa-ship"></i></a></div>
                                                     <h3><a href="<?=PROOT?>home/promoterpage/<?=$result->pr_username?>"><?=$result->title?></a></h3>
-                                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i><?=$result->start_date?></a></div>
+                                                    <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>&nbsp;<?=$result->start_date?></a></div>
                                                     <p><?=$result->description?></p> 
                                                     <a href="<?=$result->link?>" class="read-more" style="margin-left: 8px">Visit us</a>
                                                     <div class="row text-center">

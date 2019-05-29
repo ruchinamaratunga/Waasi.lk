@@ -61,7 +61,8 @@ class Administrator extends Model {
 		$title = $promotion->title;
 		$description = $promotion->description;
 		$state = "ACCEPTED";
-		$a = $this->sendEmail($email,$title,$description,$state);
+		$emailTitle = "Promotion Acceptence Conformation!";
+		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
 		if ($a){
 			return true;
 		}
@@ -76,7 +77,8 @@ class Administrator extends Model {
 		$title = $promotion->title;
 		$description = $promotion->description;
 		$state = "REJECTED";
-		$a = $this->sendEmail($email,$title,$description,$state);
+		$emailTitle = "Promotion Rejection Conformation!";
+		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
 		if ($a){
 			return true;
 		}
@@ -93,7 +95,7 @@ class Administrator extends Model {
 		return $temp;
 	}
 	
-	public function sendEmail($email,$title,$description,$state){
+	public function sendEmail($email,$title,$description,$state,$emailTitle){
 		$mail = new PHPMailer(true);
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
@@ -105,8 +107,9 @@ class Administrator extends Model {
 		$mail->Username = BUSINESS_EMAIL;
 		$mail->Password = BUSINESS_PASSWORD;
 		$mail->SetFrom(BUSINESS_EMAIL,'Waasi.lk');
-		$mail->Subject = 'A TEST EMAIL!';
-		$mail->Body = "YOUR PROMOTION: \r\nTITLE - ".$title."\r\nDescription - ".$description."\r\nwas ".$state."\r\nThankyou for doing business with us!\r\nWaasi.lk";
+		$mail->Subject = $emailTitle;
+		$body = nl2br("YOUR PROMOTION:  \r\n\r\nTITLE - ".$title." \r\n\r\nDescription - ".$description." \r\n\r\nwas ".$state." \r\n\r\nThankyou for doing business with us!\r\nWaasi.lk");
+		$mail->Body = $body;
 		$mail->AddAddress('achinthaisuru.17@cse.mrt.ac.lk');
 		
 		if ($mail->Send()){
