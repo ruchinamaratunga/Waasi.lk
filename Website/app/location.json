@@ -1,0 +1,25 @@
+{
+    "Colombo" : {
+        "Colombo":"Colombo" , 
+        "Moratuwa":"Moratuwa",
+        "Dehiwala":"Dehiwala"
+    },
+    "Kandy" : {
+        "Kandy" : "Kandy",
+        "Katugastota" : "Katugastota",
+        "Peradeniya" : "Peradeniya"
+    },
+    "Gampaha" :{
+        "Gampaha":"Gampaha",
+        "Negombo":"Negombo"
+    },
+    "Matara" : {
+        "Matara":"Matara",
+        "Weligama":"Weligama"
+    },
+    "Kurunegala" :{
+        "Kurunegala":"Kurunegala",
+        "Polgahawela":"Polgahawela",
+        "Mawathagama":"Mawathagama"
+    }
+}
