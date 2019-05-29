@@ -135,19 +135,23 @@ class Promoter extends Model {
     }
 	
 	public function commentCount(){
-		return sizeof($this->showComments());
+        if($this->showComments()) {
+            return sizeof($this->showComments());
+        }
 	}
 	
 	public function showLastFiveComments(){
-		$comments = $this->showComments();
-		if(sizeof($comments)<=5){
-			return $comments;
-		}
-		else{
-			$comments = array_reverse($comments);
-			$comments = array_slice($comments,0,5);
-			return $comments;
-		}
+        $comments = $this->showComments();
+        if($comments) {
+            if(sizeof($comments)<=5){
+                return $comments;
+            }
+            else{
+                $comments = array_reverse($comments);
+                $comments = array_slice($comments,0,5);
+                return $comments;
+            }
+        }
 	}
 
     public function isSubscribe() {

@@ -57,7 +57,13 @@
     // "SELECT * FROM promotion WHERE pr_username => ? AND end_date > ? ORDER BY start_date
     // SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND end_date > ? ORDER BY start_date
 
+    $db = DB::getInstance();
+    $db->update('users',12,array(
+        'acl' => '["Promoter"]'
+    ));
+
     // dnd(password_hash('password', PASSWORD_DEFAULT));
+
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : [];
     if(!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
         Users::loginUserFromCookie();

@@ -36,6 +36,8 @@ class RegisterController extends Controller {
                 $user = new Users($_POST['username']);
                 $usertype = $user->user_type;
                 $currentUser = UserFactory::createUser($usertype,$user->username);
+                // dnd(Input::get('password'));
+                // dnd($user->password);
                 if($usertype == 'Customer') {
                     if($user && password_verify(Input::get('password'), $user->password)) {
                         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
@@ -174,10 +176,13 @@ class RegisterController extends Controller {
             // dnd($validation->passed());
             if($validation->passed()) {
                 $newuser = new Users();
-                $userary = ['fname' => '','lname'=>'','username'=>$_POST['username'],'email'=>$_POST['email'],'acl'=>['Promoter'],'user_type'=>'Promoter'];
+                $userary = ['fname' => '','lname'=>'','password'=>$_POST['password'],'username'=>$_POST['username'],'acl' => '["Promoter"]','email'=>$_POST['email'],'user_type'=>'Promoter'];
                 $newuser->registerNewUser($userary);
+                $db = DB::getInstance();
+                $db->query("UPDATE users SET acl = ? WHERE username = ?",array('["Promoter"]',$_POST['username']));
                 $newpromoter = new Promoter();
                 $newpromoter->registerNewPromoter($_POST);
+                
                 Router::redirect('register/login');
             }
         }

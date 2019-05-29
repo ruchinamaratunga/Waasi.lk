@@ -4,12 +4,12 @@ $(document).ready(function() {
             current_password: 'required',
             newPassword:{
                 required: true,
-                min:6,
+                minlength:6,
                 // max:15,
             },
             newCheckPassword:{
                 required: true,
-                equalTo:'newPassword',
+                equalTo:'#newPassword',
             }
         },
         submitHandler: function(form) {
@@ -120,7 +120,10 @@ $(document).ready(function() {
                 email:true
             },
             username: 'required',
-
+            username:{
+                required: true,
+                minlength:6
+            },
             password:{
                 required: true,
                 minlength:6
@@ -144,8 +147,12 @@ $(document).ready(function() {
                 required: 'This field is required'
 
             },
-            username: 'This field is required',
+            
+            username: {
+                required: 'This field is required',
+                minlength: 'At least 6 characters are required.'
 
+            },
             password: {
                 required: 'This field is required'
 

@@ -120,7 +120,6 @@
                     </div>
                 </div>
             </div>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
 
             <div class = " col-sm-7 ">
                 <div class="single-sidebar-widget widget_search ">
