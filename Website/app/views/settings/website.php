@@ -4,6 +4,14 @@
     
     </script>
 	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css"
+
+
+    <!--        <script type="text/javascript" src="--><?//=PROOT?><!--js/utilityFormValidation.js"></script>-->
+    <!--    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">-->
+    <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
+
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
 <?php $this->end() ?>
 
 <?php $this->start('body') ?>
@@ -23,7 +31,7 @@
                 <h4>Change your website</h4>
                 <div class="form-group" style="padding: 20px;">
 					
-					<form action="<?=PROOT?>settings/website" method="post">
+					<form action="<?=PROOT?>settings/website" id="changeWebsiteForm" method="post">
 					<div class="bg-danger"><?= $this->displayErrors ?></div>
 						<label class="col-sm-4 control-label" for="current_password">Currnet Password:</label>
 						<div class="col-sm-5">
@@ -32,7 +40,7 @@
 
 						<br>
 
-						<label class="col-sm-4 control-label" for="username">Enter the new website link:</label>
+						<label class="col-sm-4 control-label" for="website">Enter the new website link:</label>
 						<div class="col-sm-5">
 						<input class="form-control" id="website" name="website" placeholder="Enter the website" type="text"/>
 						</div>

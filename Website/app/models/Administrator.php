@@ -1,6 +1,6 @@
 <?php
 
-include_once(ROOT."\app\lib\PHPMailer\PHPMailerAutoload.php");
+include_once(ROOT.DS."app".DS."lib".DS."PHPMailer".DS."PHPMailerAutoload.php");
 //include_once(ROOT."\app\lib\fpdf\fpdf.php");
 //include_once(ROOT."/app/lib/fpdf/fpdf.php");
 
