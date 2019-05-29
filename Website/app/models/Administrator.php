@@ -71,6 +71,16 @@ class Administrator extends Model {
     public function rejectPromotion($promo_id){
         $promotion = new Promotion((int)$promo_id);
         $promotion->reject();
+		$promoter = new Promoter($promotion->pr_username);
+		$email = $promoter->email;
+		$title = $promotion->title;
+		$description = $promotion->description;
+		$state = "REJECTED";
+		$a = $this->sendEmail($email,$title,$description,$state);
+		if ($a){
+			return true;
+		}
+		return false;
     }
 
     
