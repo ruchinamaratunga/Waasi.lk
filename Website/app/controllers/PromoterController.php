@@ -261,5 +261,11 @@ class PromoterController extends Controller {
         $pdf->Output();
         ob_end_flush();
     }
+	
+	public function commentsAction(){
+		$promoter = new Promoter(currentUser()->username);
+        $this->view->promoter = $promoter;
+		$this->view->render('promoter/comments');
+	}
 
 }

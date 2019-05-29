@@ -1,6 +1,7 @@
 <?php
 
-include_once(ROOT.'/app/lib/PHPMailer/PHPMailerAutoload.php');
+include_once(ROOT."\app\lib\PHPMailer\PHPMailerAutoload.php");
+//include_once(ROOT."\app\lib\fpdf\fpdf.php");
 //include_once(ROOT."/app/lib/fpdf/fpdf.php");
 
 class Administrator extends Model {
@@ -108,7 +109,7 @@ class Administrator extends Model {
 		$mail->Password = BUSINESS_PASSWORD;
 		$mail->SetFrom(BUSINESS_EMAIL,'Waasi.lk');
 		$mail->Subject = $emailTitle;
-		$body = nl2br("YOUR PROMOTION:  \r\n\r\nTITLE - ".$title." \r\n\r\nDescription - ".$description." \r\n\r\nwas ".$state." \r\n\r\nThankyou for doing business with us!\r\nWaasi.lk");
+		$body = nl2br("YOUR PROMOTION:  \r\n\r\nTITLE - ".$title." \r\n\r\nDescription - ".$description."was ".$state." \r\n\r\nThankyou for doing business with us!\r\nWaasi.lk");
 		$mail->Body = $body;
 		$mail->AddAddress('achinthaisuru.17@cse.mrt.ac.lk');
 		
