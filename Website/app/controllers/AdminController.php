@@ -12,14 +12,18 @@ class AdminController extends Controller {
 
         $a = new Administrator();
         $this->view->searchResults = $a->getViewPromotion();
-
         $this->view->render('admin/index');
     }
 
     public function acceptAction($promo_id) {
         $a = new Administrator();
-        $a->acceptPromotion($promo_id);
-        Router::redirect('admin/index');
+        $b = $a->acceptPromotion($promo_id);
+		if($b){
+        	Router::redirect('admin/index');
+		}
+		else{
+			echo '<script type="text/javascript">alert("Email did not sent to the promoter! \nPlease the email manually!")</script>';
+		}
     }
 
     public function rejectAction($promo_id) {
