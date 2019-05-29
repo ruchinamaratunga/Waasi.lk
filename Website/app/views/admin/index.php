@@ -22,7 +22,7 @@ $results = $this->searchResults;
     <section class="blog-area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">				
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">				
 			        <!-- <div class="single-blog wow fadeIn">
 			    		<div class="blog-details">
 			    			<div class="blog-meta"></div>
@@ -89,6 +89,7 @@ $results = $this->searchResults;
 			    		</div><br/> -->
 
                 </div>
+<!--
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                     <div class="sidebar-area wow fadeIn">
                         <div class="single-sidebar-widget widget_categories">
@@ -105,6 +106,7 @@ $results = $this->searchResults;
                        
                     </div>
                 </div> 
+-->
             </div>    
         </div>
     </section>
