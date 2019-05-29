@@ -4,6 +4,13 @@
     
     </script>
 	<link rel="stylesheet" href="<?=PROOT?>css/settingsUsername.css"
+
+<!--    <script type="text/javascript" src="--><?//=PROOT?><!--js/utilityFormValidation.js"></script>-->
+<!--    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">-->
+    <script type="text/javascript" src="<?=PROOT?>js/formValidation.js"></script>
+
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
 <?php $this->end() ?>
 
 <?php $this->start('body') ?>
@@ -23,7 +30,7 @@
                 <h4>Change your password</h4>
                 <div class="form-group" style="padding: 20px;">
 					
-					<form action="<?=PROOT?>settings/password" method="post">
+					<form action="<?=PROOT?>settings/password" id="passwordchange-form" method="post">
 					<div class="bg-danger"><?= $this->displayErrors ?></div>
 						<label class="col-sm-4 control-label" for="current_password">Currnet Password:</label>
 						<div class="col-sm-5">
@@ -32,14 +39,14 @@
 
 						<br>
 
-						<label class="col-sm-4 control-label" for="username">Enter the new password:</label>
+						<label class="col-sm-4 control-label" for="newPassword">Enter the new password:</label>
 						<div class="col-sm-5">
 						<input class="form-control" id="newPassword" name="newPassword" placeholder="Enter the password" type="password"/>
 						</div>
 						
 						<br>
 						
-						<label class="col-sm-4 control-label" for="username">Re enter the new password:</label>
+						<label class="col-sm-4 control-label" for="newCheckPassword">Re enter the new password:</label>
 						<div class="col-sm-5">
 						<input class="form-control" id="newCheckPassword" name="newCheckPassword" placeholder="Re enter the password" type="password"/>
 						</div>

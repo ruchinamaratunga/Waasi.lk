@@ -25,7 +25,7 @@
   <script src="<?=PROOT?>js/vendor/jquery-1.12.4.min.js"></script>
   <script src="<?=PROOT?>js/vendor/bootstrap.min.js"></script>  
   <script src="<?=PROOT?>js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="<?=PROOT?>app/lib/sweetalert-master/docs/assets/sweetalert/sweetalert.min.js"></script>
+<!--  <script src="--><?//=PROOT?><!--app/lib/sweetalert-master/docs/assets/sweetalert/sweetalert.min.js"></script>-->
 <!--  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
   <title><?= $this->siteTitle(); ?></title>

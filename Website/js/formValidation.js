@@ -1,4 +1,21 @@
 $(document).ready(function() {
+    $("#passwordchange-form").validate({
+        rules: {
+            current_password: 'required',
+            newPassword:{
+                required: true,
+                min:6,
+                // max:15,
+            },
+            newCheckPassword:{
+                required: true,
+                equalTo:'newPassword',
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
     $("#form").validate({
         rules: {
             title: 'required',
@@ -145,6 +162,49 @@ $(document).ready(function() {
                 phoneSL: "Enter a valid phone number"
 
             },
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+    $("#changeemailForm").validate({
+        rules: {
+            current_password: 'required',
+            email:{
+                required: true,
+                email:true,
+                // max:15,
+            },
+
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+    $("#changeWebsiteForm").validate({
+        rules: {
+            current_password: 'required',
+            website:{
+                required: true,
+
+            },
+
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+    $("#changeFBForm").validate({
+        rules: {
+            current_password: 'required',
+            fb:{
+                required: true,
+
+            },
+
         },
         submitHandler: function(form) {
             form.submit();
