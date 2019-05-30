@@ -57,10 +57,10 @@
     // "SELECT * FROM promotion WHERE pr_username => ? AND end_date > ? ORDER BY start_date
     // SELECT * FROM promotion WHERE (catagory = ? OR pr_username = ? OR title = ?) AND end_date > ? ORDER BY start_date
 
-    $db = DB::getInstance();
-    $db->update('users',12,array(
-        'acl' => '["Promoter"]'
-    ));
+    // $db = DB::getInstance();
+    // $db->update('users',12,array(
+    //     'acl' => '["Promoter"]'
+    // ));
 
     // dnd(password_hash('password', PASSWORD_DEFAULT));
 

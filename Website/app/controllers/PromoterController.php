@@ -199,7 +199,7 @@ class PromoterController extends Controller {
         foreach($promotions as $promo){
             $promoDetail = [];
             $promoDetail["title"] = $promo->{"title"};
-            $promoDetail["category"] = $promo->{"title"};
+            $promoDetail["category"] = $promo->{"catagory"};
             $promoDetail["description"] = $promo->{"description"};
             $promoDetail["start_date"] = $promo->{"start_date"};
             $promoDetail["end_date"] = $promo->{"end_date"};
@@ -249,6 +249,7 @@ class PromoterController extends Controller {
 
         $pdf->Ln();
         $pdf->SetFont('Arial');
+        $pdf->SetFontSize(8);
         foreach($promotionDetails as $row){
             $pdf->Cell($weights[0],10,$row['title'],1,0,'C');
             $pdf->Cell($weights[1],10,$row['category'],1,0,'C');

@@ -124,8 +124,6 @@ class Users extends Model {
 		else{
 			return false;
 		}
-
-//		$this->save();
 	}
 	
 	public function usernameChange($id,$currentUsername,$newUsername,$password){
