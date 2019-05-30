@@ -8,6 +8,7 @@
     if($userType == 'Customer') {
       $user = new Customer($username);
       $notifications = $user->getNotifications();
+      // test($notifications);
       $menu_file = 'customer_menu';
     } elseif($userType == 'Promoter') {
       $menu_file = 'promoter_menu';
@@ -81,12 +82,12 @@
                             <span class="badge" style="color:white"><?=count($notifications)?></span>
                           </a>
                           
-                          <ul class="dropdown-menu">
+                          <ul class="dropdown-menu" style="width:350px;">
                             <?php foreach($notifications as $n): ?>
                               <a href="<?=PROOT?>home/promoterpage/<?=$n[0]->pr_username?>">
                                 <div id="resp" style="display:none;"><?=$n[0]->promo_id?></div>
                                 <small><i><?=$n[0]->start_date?></i></small><br>
-                                <?=substr($n[0]->title,0,50).'...'?>
+                                <?=substr($n[0]->title,0,130).'...'?>
                               </a>
                             <?php endforeach;?>
                             

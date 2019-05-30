@@ -112,7 +112,7 @@ class Customer extends Model {
     public function getNotifications() {
         $promoters = $this->subscribePromoters();
         $promotions = [];
-        if($promotions) {
+        if($promoters) {
             foreach ($promoters as $promoter) {
                 $result = $this->_db->find('promotion',array(
                     'conditions' => [
@@ -128,7 +128,7 @@ class Customer extends Model {
             }
         }
         
-        // dnd($promotions);
+        // test($promotions);
         $output =[];
         $temp=[];
         foreach($promotions as $promotion) {

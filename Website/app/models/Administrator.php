@@ -58,10 +58,19 @@ class Administrator extends Model {
         $promotion->confirmPromotion($promo_id);
         $promoter = new Promoter($promotion->pr_username);
         $subscribers = $promoter->getSubscribers();
+        foreach ($subscribers as $subscriber) {
+            $c = new Customer($subscriber->customer);
+            $customer_id = $c->id;
+            $this->_db->insert('notification_system',array(
+                'promo_id' => $promo_id,
+                'customer_id' => $customer_id,
+                'status'=> 'unread'
+            ));
+        }  
 		$email = $promoter->email;
 		$title = $promotion->title;
 		$description = $promotion->description;
-		$state = "ACCEPTED";
+		$state = "Approved";
 		$emailTitle = "Promotion Acceptence Conformation!";
 		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
 		if ($a){
@@ -77,7 +86,7 @@ class Administrator extends Model {
 		$email = $promoter->email;
 		$title = $promotion->title;
 		$description = $promotion->description;
-		$state = "REJECTED";
+		$state = "Rejected";
 		$emailTitle = "Promotion Rejection Conformation!";
 		$a = $this->sendEmail($email,$title,$description,$state,$emailTitle);
 		if ($a){
@@ -87,7 +96,7 @@ class Administrator extends Model {
     }
 
     
-    public function getRejecteddPromotion($promoID){
+    public function getRejectedPromotion($promoID){
 		$this->rejectPromotion($promoID);
 	}
 	
