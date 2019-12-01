@@ -1,13 +1,11 @@
 {
-    "Home" : "home",
-    "Tools" : {
-        "My Tools" : "tools",
-        "Tool 1" : "tools/first",
-        "Tool 2" : "tools/second",
-        "separator" : "",
-        "Tool 3" : "tools/third"        
-    },
+    "Home" : "home/index",
+    "About" : "home/about",
     "Promotion" : "promotion/index",
+    "Sign up": {
+        "Promoter": "register/promoterRegistration",
+        "Customer": "register/register"
+    },
     "Login" : "register/login",
     "Logout" : "register/logout"
 }

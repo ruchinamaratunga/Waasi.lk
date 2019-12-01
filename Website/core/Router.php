@@ -95,18 +95,23 @@ class Router {
                 break;
             }
         }
+        
         return $grantAccess;
     }
 
     public static function getMenu($menu) {
+        
         $menuAry = [];
         $menuFile = file_get_contents(ROOT . DS . 'app' . DS . $menu . '.json');
         $acl = json_decode($menuFile, true);
-        
+        // test($acl);
         foreach($acl as $key=> $val) {
-            if(is_array($val)) {  
+            if(is_array($val)) {
                 $sub =[];
                 foreach($val as $k => $v) {
+                    if($key == "Notifications"){
+                        $sub[$k] = $v;
+                    }  
                     if($k == 'separator' && !empty($sub)) {
                         $sub[$k] = '';
                         continue;

@@ -81,16 +81,68 @@ class Validate {
                                 $this->addError(["{$display} must be a valid email address.", $item]);
                             }
                             break;
+						
+						case 'valid_url':
+							if(!filter_var($value, FILTER_VALIDATE_URL)) {
+                                $this->addError(["{$display} must be a valid website. \n Please add https:// before to the website link if you have not add it!", $item]);
+                            }
+                            break;
                     }
 
                 }
             }
         }
-
-        if(empty($this->errors)) {
+//        dnd($this);
+        if(empty($this->_errors)) {
             $this->_passed = true;
         }
         return $this;
+    }
+
+    public function imageFileValidate(){
+        $target_dir = ROOT.'/img/Promotions/';
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"],".tmp").".".strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        $image=basename($target_file);
+
+        if(empty($_FILES["fileToUpload"]["tmp_name"])){
+            $this->addError("Image file is required.");
+            return false;
+        }
+
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["addpromo-submit"])) {
+            //echo($_FILES["fileToUpload"]["tmp_name"]."sdf");
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                $this->addError("File is not an image.");
+                $uploadOk = 0;            }
+        }
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            $this->addError("Sorry, file already exists.");
+            $uploadOk = 0;
+        }
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            $this->addError("Sorry, your file is too large.");
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+            $this->addError("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            return false;
+        }
+        return true;
     }
 
     public function addError($error) {

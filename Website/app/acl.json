@@ -1,38 +1,46 @@
 {
     "Guest" : {
-        "denied" : {},
-        "Home" : ["*"],
+        "denied" : {
+            "Settings": ["*"]
+		},
+        "Home" : ["index","about","contactus"],
         "Promotion" : ["index"],
-        "Register" : ["login","register"],
-        "Restricted" : ["*"]
+        "Register" : ["login","register","promoterRegistration"],
+        "Restricted" : ["*"],
+        "Catagory" : ["*"]
         
     },
+	
     "loggedIn" : {
         "denied" : {
-            "Register" : ["login","register"]
+            "Register" : ["login","register","promoterRegistration"]
         },
         "Home" : ["*"],
         "Register" : ["logout"],
-        "Tools" : ["*"],
-        "Promotion" : ["*"]
-        
+        "Promotion" : ["*"],
+		"Settings"  : ["index","password","email"]   
     },
+	
     "Admin" : {
         "denied" : {
-
+            "Home" :["index"],
+			"Settings": ["*"]
         },
-        "Home" :["*"],
+        "Admin" : ["*"],
         "Register" : ["logout"],
         "Promoters" : ["*"],
         "Promotion" : ["*"]
     },
     "Promoter" : {
         "denied" : {
-            
+            "Promotion" : ["index"],
+            "Home" : ["promoterpage","index"],
+            "Catagory" : ["cloths","electronics","food","movies","others","sports"]
         },
-        "Home" : ["*"],
+        "Promoter" : ["index","mypromo","addpromo","editpromo","monthlyreport","deletepromo","comments"],
         "Register" : ["logout"],
-        "Promotion" : ["mypromo","addpromo","removepromo"]
+		"Home"	   : ["contactus"],
+		"Settings"  : ["website","fb"]
     }
 }
 

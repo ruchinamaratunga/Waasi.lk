@@ -27,19 +27,48 @@ class RegisterController extends Controller {
                 ],
                 'password' => [
                     'display' => 'password',
-                    'required' => true,
-                    'min' => 6
+                    'required' => true
+//                    'min' => 6
                 ]
             ]);
             
             if($validation->passed()) {
-                $user = $this->UsersModel->findByUsername($_POST['username']);
-                if($user && password_verify(Input::get('password'), $user->password)) {
-                    $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
-                    $user->login($remember);
-                    Router::redirect('');
+                $user = new Users($_POST['username']);
+                $usertype = $user->user_type;
+                $currentUser = UserFactory::createUser($usertype,$user->username);
+                // dnd(Input::get('password'));
+                // dnd($user->password);
+                if($usertype == 'Customer') {
+                    if($user && password_verify(Input::get('password'), $user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
+                        // $customer = new Customer($user->username);
+                        $this->view->currentUser = $currentUser;
+                        $user->login($remember);
+                        Router::redirect('');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
+                } elseif($usertype == 'Promoter') {
+                    if($user && password_verify(Input::get('password'), $user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true :false;
+                        // $promoter = new Promoter($user->username);
+                        $this->view->currentUser = $currentUser;
+                        $user->login($remember);
+                        // $user->login($remember);
+                        Router::redirect('promoter/index');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
                 } else {
-                    $validation->addError("There is an error with your uesrname or password");
+                    if($user && password_verify(Input::get('password'),$user->password)) {
+                        $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
+                        // $admin = new Administrator($user->username);
+                        $this->view->currentUser = $currentUser;
+                        $user->login($remember);
+                        Router::redirect('admin/index');
+                    } else {
+                        $validation->addError("There is an error with your uesrname or password");
+                    }
                 }
             } 
         }
@@ -96,8 +125,9 @@ class RegisterController extends Controller {
 
             if($validation->passed()) {
                 $newUser = new Users();
-                $newUser->registerNewUser($_POST);
-                // $newUser->login();
+                $newUser->registerNewUser(array_merge($_POST,['user_type'=>'Customer']));
+                $newcustomer = new Customer();
+                $newcustomer->registerNewCustomer($_POST);
                 Router::redirect('register/login');
             }
         }
@@ -105,4 +135,63 @@ class RegisterController extends Controller {
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('register/register');
     }
+
+    public function promoterRegistrationAction() {
+        $validation = new Validate();
+        $posted_values = ['username'=>'','promoter_name'=>'','email'=>'','password'=>'','confirm'=>'','phone_number'=>'', 'website'=>'','fb_link'=>''];
+        if($_POST) {
+
+            $posted_values = posted_values($_POST);
+            $validation->check($_POST, [
+                'username' => [
+                    'display'=> 'Username',
+                    'required'=> true,
+                    'unique' => 'users',
+                    'min' => 6,
+                    'max' => 150
+                ],
+                'email' => [
+                    'display'=> 'Email',
+                    'required'=> true,
+                    'unique' => 'users',
+                    'max' => 150
+                ],
+                'password' => [
+                    'display' => 'Password',
+                    'required' => true,
+                    'min' => 6
+                ],
+                'confirm' => [
+                    'display' => 'Confirm Password',
+                    'required' =>true,
+                    'matches' => 'password'
+                ],
+                'phone_number' => [
+                    'display' => 'Contact Number',
+                    'required' => true
+                ]
+
+            ]);
+            
+            // dnd($validation->passed());
+            if($validation->passed()) {
+                $newuser = new Users();
+                $userary = ['fname' => '','lname'=>'','password'=>$_POST['password'],'username'=>$_POST['username'],'acl' => '["Promoter"]','email'=>$_POST['email'],'user_type'=>'Promoter'];
+                $newuser->registerNewUser($userary);
+                $db = DB::getInstance();
+                $db->query("UPDATE users SET acl = ? WHERE username = ?",array('["Promoter"]',$_POST['username']));
+                $newpromoter = new Promoter();
+                $newpromoter->registerNewPromoter($_POST);
+                
+                Router::redirect('register/login');
+            }
+        }
+        $this->view->post = $posted_values;
+        $this->view->displayErrors = $validation->displayErrors();
+        $this->view->render('register/promoterRegistration');
+    }
+	
+	public function lostpsswordAction(){
+		
+	}
 }

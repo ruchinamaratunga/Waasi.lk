@@ -20,19 +20,20 @@ class Model {
     }
 
     /**
-     * populate each column with null 
+     * populate each column with null
      */
     protected function _setTableColumns() {
-        $columns = $this->get_columns();
+        $columns = $this->get_columns();                    //column objects of a table, in each object it contains all the properties such as Field,defult,int/varchar...,type,null,key....etc
         foreach($columns as $column) {
-            $columnName = $column->Field;
+            $columnName = $column->Field;                   //field is the name of a particular column eg: in promotions id,title,pr_username,end_date are those names
             $this->_columnNames[] = $column->Field;
-            $this->{$columnName} = null;
+            $this->{$columnName} = null;                    //initially we set them to null then later populate them
         }
     }
 
+
     public function get_columns() {
-        return $this->_db->get_columns($this->_table);
+        return $this->_db->get_columns($this->_table);      // get_column is a method in php , since modles dont directly communicate with db this method was created
     }
 
     /**
@@ -44,19 +45,18 @@ class Model {
     public function find($params = []) {
         $results = [];
         $resultsQuery = $this->_db->find($this->_table,$params);
-        // dnd($resultQuery);
-        foreach($resultsQuery as $result) {
-            $obj = new $this->_modelName($this->_table);
-            $obj->populateObjData($result);
-            $results[] =$obj;
-        }
+        if($resultsQuery){
+            foreach($resultsQuery as $result) {
+                $obj = new $this->_modelName($this->_table);
+                $obj->populateObjData($result);
+                $results[] =$obj;
+            }
+        } 
         return $results;
     }
 
     public function findFirst($params = []) {
         $resultQuery = $this->_db->findFirst($this->_table,$params);
-        // echo("hii");
-        // dnd($resultQuery);
         $result = new $this->_modelName($this->_table);
         if($resultQuery) {
             $result->populateObjData($resultQuery);

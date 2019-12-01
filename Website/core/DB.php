@@ -92,7 +92,8 @@ class DB {
             if($this->_query->execute()){                                   // checking whether query executed successfully
                 $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ); //fetching data as object
                 $this->_count = $this->_query->rowCount();
-                $this->_lastInsertID = $this->_pdo->lastInsertId();                                                      
+                $this->_lastInsertID = $this->_pdo->lastInsertId();
+//                dnd($this);
             }
             else{
                 $this->_error = true;
@@ -120,7 +121,6 @@ class DB {
 
             //backtickes to define the fields / not nessasary 
             $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values}) ";
-            
             if(!$this->query($sql, $fields)->error()) {
                 return true;
             }
@@ -164,7 +164,7 @@ class DB {
             $limit = ' LIMIT ' . $params['limit'];
         }
         $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
-
+        // test($sql);
         if($this->query($sql,$bind)) {
             if(!$this->count()) return false;
             return true;
@@ -199,6 +199,8 @@ class DB {
         $fieldString = trim($fieldString);
         $fieldString = rtrim($fieldString,',');
         $sql = "UPDATE {$table} SET {$fieldString} WHERE id = {$id}";
+        // dnd($sql);
+        // dnd($values);
         if(!$this->query($sql, $values)->error()) {
             return true;
         }
@@ -237,6 +239,8 @@ class DB {
         return $this->query("SHOW COLUMNS FROM {$table}")->results();
     
     }
+
+    
 
 }
 

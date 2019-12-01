@@ -2176,7 +2176,7 @@ a.scrolltotop:hover {
 }
 
 .home-four .service-bottom-area-bg {
-    background: rgba(0, 0, 0, 0) url("img/service/service-area-bg-2.jpg") repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("..\img\service\service-area-bg-2.jpg") repeat scroll 0 0;
 }
 
 .top-area.single-page {
