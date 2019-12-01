@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8472cfbd-e555-429f-ba67-556939fb7bc7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Website/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Website/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Website/config/config.php" afterDir="false" />
-    </list>
+    <list default="true" id="8472cfbd-e555-429f-ba67-556939fb7bc7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +50,8 @@
         <entry file="file://$PROJECT_DIR$/Website/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="532">
-                <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <first_editor relative-caret-position="458">
+                <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
               </first_editor>
               <second_editor />
             </state>
@@ -165,7 +162,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="88" />
     <option name="width" value="1293" />
@@ -249,10 +246,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143076000" />
+    <option name="totallyTimeSpent" value="143351000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -606,8 +603,8 @@
     <entry file="file://$PROJECT_DIR$/Website/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="532">
-            <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <first_editor relative-caret-position="458">
+            <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
           </first_editor>
           <second_editor />
         </state>
